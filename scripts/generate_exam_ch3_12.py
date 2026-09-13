@@ -22,6 +22,7 @@ quiz_data = {
     "badge": "HÓA HỌC 12 - KẾT NỐI TRI THỨC",
     "duration": 50,
     "grade": 12,
+    "google_sheet_url": "https://script.google.com/macros/s/AKfycbwRRiM81mghvA7cInvJgb4rPLzWOAE3s44wer0BJcURQ4hWwoykS19pkNQ9LyzH6Q8lTQ/exec",
     "part1": [
         {
             "id": 1,
