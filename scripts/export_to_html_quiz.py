@@ -664,7 +664,8 @@ def generate_quiz_html(data, output_path):
     html = html.replace('{{PART3_COUNT}}', str(len(part3)))
     html = html.replace('{{PART1_WEIGHT}}', str(p1_weight))
     html = html.replace('{{PART3_WEIGHT}}', str(p3_weight))
-    html = html.replace('{{GOOGLE_SHEET_URL}}', data.get('google_sheet_url', ''))
+    default_sheet = "https://script.google.com/macros/s/AKfycbwRRiM81mghvA7cInvJgb4rPLzWOAE3s44wer0BJcURQ4hWwoykS19pkNQ9LyzH6Q8lTQ/exec"
+    html = html.replace('{{GOOGLE_SHEET_URL}}', data.get('google_sheet_url') or default_sheet)
     html = html.replace('{{PART1_JSON}}', json.dumps(part1, ensure_ascii=False))
     html = html.replace('{{PART2_JSON}}', json.dumps(part2, ensure_ascii=False))
     html = html.replace('{{PART3_JSON}}', json.dumps(part3, ensure_ascii=False))

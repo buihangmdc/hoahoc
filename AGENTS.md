@@ -113,4 +113,5 @@ Luôn trả lời bằng tiếng Việt, trừ khi người dùng yêu cầu ng�
   - `dau-ra/lop-11/giao-an/`, `dau-ra/lop-11/bai-giang/`, `dau-ra/lop-11/bai-tap/`, `dau-ra/lop-11/de-kiem-tra/`
   - `dau-ra/lop-12/giao-an/`, `dau-ra/lop-12/bai-giang/`, `dau-ra/lop-12/bai-tap/`, `dau-ra/lop-12/de-kiem-tra/`
 - Thư mục bài tập riêng cho từng khối lớp (`dau-ra/lop-<n>/bai-tap/`).
-- **Push lên web:** Sẵn sàng thực hiện khi người dùng yêu cầu.
+- **Push lên web:** Sẵn sàng thực hiện khi người dùng yêu cầu, rút gọn link web dạng `lop-<khoi>/...` và không push thư mục `dau-ra/` lên GitHub.
+- **Tự động đồng bộ kết quả vào Google Sheet:** Mọi file HTML trắc nghiệm (Phiếu bài tập theo bài, Đề kiểm tra cuối chương) cho Lớp 10, 11, 12 khi tạo ra đều MẶC ĐỊNH tích hợp URL Google Apps Script của giáo viên: `https://script.google.com/macros/s/AKfycbwRRiM81mghvA7cInvJgb4rPLzWOAE3s44wer0BJcURQ4hWwoykS19pkNQ9LyzH6Q8lTQ/exec`. Khi học sinh bấm nộp bài, điểm số, họ tên, lớp, thời gian làm bài, số câu đúng/sai sẽ tự động đẩy về file Google Sheet này mà người dùng không cần phải nhắc lại.

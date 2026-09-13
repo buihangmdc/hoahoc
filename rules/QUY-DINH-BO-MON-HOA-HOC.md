@@ -83,4 +83,5 @@ Tài liệu này ghi nhớ toàn bộ 5 yêu cầu cốt lõi của Giáo viên 
   - `dau-ra/lop-11/` (`giao-an/`, `bai-giang/`, `bai-tap/`, `de-kiem-tra/`)
   - `dau-ra/lop-12/` (`giao-an/`, `bai-giang/`, `bai-tap/`, `de-kiem-tra/`)
 - Thư mục bài tập riêng cho từng khối lớp (`dau-ra/lop-<n>/bai-tap/`).
-- **Push lên web:** Sẵn sàng thực thi khi người dùng yêu cầu.
+- **Push lên web:** Sẵn sàng thực thi khi người dùng yêu cầu, rút gọn link web dạng `lop-<khoi>/...` và không push thư mục `dau-ra/` lên GitHub.
+- **TỰ ĐỘNG ĐỒNG BỘ GOOGLE SHEET:** Bất kể đề kiểm tra hay phiếu bài tập trắc nghiệm nào khi sinh ra file `.html` đều BẮT BUỘC tự động tích hợp Google Apps Script Web App của giáo viên: `https://script.google.com/macros/s/AKfycbwRRiM81mghvA7cInvJgb4rPLzWOAE3s44wer0BJcURQ4hWwoykS19pkNQ9LyzH6Q8lTQ/exec`. Học sinh làm bài xong nộp bài là điểm số, họ tên, lớp, thời gian làm bài, số câu đúng/sai tự động lưu vào Google Sheet mà không cần người dùng nhắc lại.

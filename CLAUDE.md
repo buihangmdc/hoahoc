@@ -97,4 +97,5 @@ Không ghi "đã tạo ảnh/video/audio" nếu chỉ có prompt hoặc placehol
   - `dau-ra/lop-10/` (`giao-an/`, `bai-giang/`, `bai-tap/`, `de-kiem-tra/`)
   - `dau-ra/lop-11/` (`giao-an/`, `bai-giang/`, `bai-tap/`, `de-kiem-tra/`)
   - `dau-ra/lop-12/` (`giao-an/`, `bai-giang/`, `bai-tap/`, `de-kiem-tra/`)
-- Sẵn sàng push lên Web khi người dùng yêu cầu.
+- Sẵn sàng push lên Web khi người dùng yêu cầu: rút gọn link web dạng `lop-<khoi>/...` và không push thư mục `dau-ra/` lên GitHub.
+- **Tự động đồng bộ kết quả vào Google Sheet:** Mọi file HTML trắc nghiệm khi tạo ra đều MẶC ĐỊNH tích hợp URL Google Apps Script: `https://script.google.com/macros/s/AKfycbwRRiM81mghvA7cInvJgb4rPLzWOAE3s44wer0BJcURQ4hWwoykS19pkNQ9LyzH6Q8lTQ/exec` để học sinh làm bài xong tự động đẩy điểm số, họ tên, lớp, thời gian làm bài vào Google Sheet mà không cần người dùng nhắc lại.
