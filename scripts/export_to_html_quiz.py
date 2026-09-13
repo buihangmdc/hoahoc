@@ -320,7 +320,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                         <div class="summary-num" style="color: #0d9488;" id="timeSpentText">--:--</div>
                         <div class="summary-label">Thời gian làm bài</div>
                     </div>
-                </div>
+                <div id="sheetSyncStatus" style="display: none; margin: 15px auto; padding: 12px 18px; border-radius: 10px; font-size: 0.92rem; font-weight: 600; background: #f0fdf4; border: 1.5px solid #86efac; color: #166534; max-width: 550px; text-align: center;"></div>
             </div>
         </div>
     </div>
@@ -333,6 +333,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         const part1Data = {{PART1_JSON}};
         const part2Data = {{PART2_JSON}};
         const part3Data = {{PART3_JSON}};
+        const GOOGLE_SHEET_URL = "{{GOOGLE_SHEET_URL}}";
 
         let userPart1 = {};
         let userPart2 = {};
@@ -341,6 +342,35 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         let timerInterval = null;
         let totalTimeSeconds = {{DURATION}} * 60;
         let timeRemaining = totalTimeSeconds;
+
+        function sendResultsToGoogleSheet(data) {
+            if (!GOOGLE_SHEET_URL || GOOGLE_SHEET_URL.trim() === "" || GOOGLE_SHEET_URL.includes("DAN_LINK")) {
+                return;
+            }
+            const statusEl = document.getElementById("sheetSyncStatus");
+            if (statusEl) {
+                statusEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang tự động lưu kết quả vào Google Sheet của giáo viên...';
+                statusEl.style.display = 'block';
+            }
+
+            fetch(GOOGLE_SHEET_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                if (statusEl) {
+                    statusEl.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #16a34a;"></i> <strong>Đã lưu kết quả thành công</strong> vào sổ điểm Google Sheet của giáo viên!';
+                }
+            })
+            .catch((err) => {
+                console.error("Lỗi đồng bộ Google Sheet:", err);
+                if (statusEl) {
+                    statusEl.innerHTML = '<i class="fa-solid fa-circle-info" style="color: #0284c7;"></i> Đã hoàn thành bài làm trên hệ thống.';
+                }
+            });
+        }
 
         function startExam() {
             const name = document.getElementById('studentName').value.trim();
@@ -588,6 +618,17 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             document.getElementById('resultsPanel').style.display = 'block';
             document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth' });
 
+            sendResultsToGoogleSheet({
+                timestamp: new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }),
+                studentName: document.getElementById('displayName').innerText,
+                studentClass: document.getElementById('displayClass').innerText,
+                score: finalScore,
+                correctCount: totalCorrectItems,
+                incorrectCount: totalIncorrectItems,
+                timeSpent: document.getElementById('timeSpentText').innerText,
+                examTitle: "{{TITLE}}"
+            });
+
             if (window.MathJax && window.MathJax.typesetPromise) {
                 MathJax.typesetPromise();
             }
@@ -623,6 +664,7 @@ def generate_quiz_html(data, output_path):
     html = html.replace('{{PART3_COUNT}}', str(len(part3)))
     html = html.replace('{{PART1_WEIGHT}}', str(p1_weight))
     html = html.replace('{{PART3_WEIGHT}}', str(p3_weight))
+    html = html.replace('{{GOOGLE_SHEET_URL}}', data.get('google_sheet_url', ''))
     html = html.replace('{{PART1_JSON}}', json.dumps(part1, ensure_ascii=False))
     html = html.replace('{{PART2_JSON}}', json.dumps(part2, ensure_ascii=False))
     html = html.replace('{{PART3_JSON}}', json.dumps(part3, ensure_ascii=False))

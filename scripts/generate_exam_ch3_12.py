@@ -374,9 +374,11 @@ quiz_data = {
     ]
 }
 
-# 1. Xuất file HTML
-html_path = "dau-ra/lop-12/de-kiem-tra/de-on-tap-chuong-3-hoa-hoc-12.html"
-generate_quiz_html(quiz_data, html_path)
+# 1. Xuất file HTML (cả thư mục máy tính dau-ra và thư mục web rút gọn lop-12)
+html_local = "dau-ra/lop-12/de-kiem-tra/de-on-tap-chuong-3-hoa-hoc-12.html"
+html_web = "lop-12/de-on-tap-chuong-3-so-1.html"
+generate_quiz_html(quiz_data, html_local)
+generate_quiz_html(quiz_data, html_web)
 
 # 2. Tạo Markdown
 md_lines = [
