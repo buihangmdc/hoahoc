@@ -1,0 +1,17 @@
+﻿version: 1
+language: vi
+active_subject: hoa-hoc
+curriculum: CTGDPT-2018
+output_root: dau-ra
+knowledge_root: kho-tai-lieu
+quality_gates:
+  - dung-kien-thuc
+  - bam-yeu-cau-can-dat
+  - phu-hop-lua-tuoi
+  - an-toan-thi-nghiem
+  - kha-thi-trong-lop-hoc
+  - khong-bia-nguon
+subject_routing:
+  hoa-hoc:
+    grades: [6, 7, 8, 9, 10, 11, 12]
+    note: "Lớp 6–9 là mạch Hóa học (Chất và sự biến đổi của chất) trong Khoa học tự nhiên; lớp 10–12 là môn Hóa học."

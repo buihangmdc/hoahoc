@@ -1,0 +1,35 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+!.env.example
+.mcp.json
+CLAUDE.local.md
+.claude/settings.local.json
+tmp/
+tai-lieu-dau-vao/
+kho-tai-lieu/**/tai-lieu-nguoi-dung/*.pdf
+/tai-lieu-nguoi-dung/
+kho-tai-lieu/**/*.docx
+kho-tai-lieu/**/*.pptx
+kho-tai-lieu/**/*.xlsx
+kho-tai-lieu/**/*.zip
+kho-tai-lieu/**/*.rar
+dau-ra/**/VIDEO-FINAL/
+*.mp4
+*.mp3
+*.wav
+*.mov
+*.webm
+
+# Credentials and secrets
+api_key.txt
+*.key
+*.token
+
+# Temporary scrape / analysis logs
+tmp_*.txt
+all_sheet_rows_detail.txt
+pl1_template_structure.txt
+

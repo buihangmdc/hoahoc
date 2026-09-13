@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kiểm định sư phạm giáo dục"
+  short_description: "Kiểm mục tiêu, đánh giá, phân hóa và khả thi"
+  default_prompt: "Use $kiem-dinh-su-pham-giao-duc to independently audit a lesson or educational media package for alignment, assessment validity, misconceptions, accessibility, safety, and classroom feasibility."

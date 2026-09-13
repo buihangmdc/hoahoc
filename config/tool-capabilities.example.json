@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "policy": {
+    "verification_ttl_days": 90,
+    "require_official_source": true,
+    "allow_unverified_render": false
+  },
+  "tools": [
+    {
+      "id": "example-video-provider",
+      "kind": "video",
+      "enabled": false,
+      "provider": "REPLACE_AFTER_VERIFICATION",
+      "model": "REPLACE_AFTER_VERIFICATION",
+      "verified_at": null,
+      "expires_at": null,
+      "official_source_url": null,
+      "capabilities": {
+        "modes": [],
+        "max_clip_seconds": null,
+        "aspect_ratios": [],
+        "supports_reference_image": null,
+        "supports_first_last_frame": null,
+        "supports_audio": null
+      },
+      "pricing": null,
+      "notes": "Giữ disabled cho tới khi xác minh bằng tài liệu chính thức."
+    }
+  ]
+}

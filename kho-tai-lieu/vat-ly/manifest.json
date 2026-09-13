@@ -1,0 +1,350 @@
+{
+  "generated_at": "2026-06-22T12:44:30.562980+00:00",
+  "source_root": "D:\\HỆ THỐNG AI NDGROUP 2026\\GIAO KHÁCH HÀNG 2026 AI AGENT\\AI AGENT GIÁO VIÊN\\kho-tai-lieu\\vat-ly",
+  "file_count": 49,
+  "files": [
+    {
+      "relative_path": "lop-10/index.md",
+      "extension": ".md",
+      "size_bytes": 853,
+      "grade_inferred": 10,
+      "sha256": "17b8ac3cbd783c7e9e2866935172359ccb5d5fe38f101534d042d661bca2cf4c"
+    },
+    {
+      "relative_path": "lop-10/kien-thuc-cot-loi.md",
+      "extension": ".md",
+      "size_bytes": 758,
+      "grade_inferred": 10,
+      "sha256": "adcd2b83a170998d827db8f70d4084b315338e14c57919bd213cc00c8d028e56"
+    },
+    {
+      "relative_path": "lop-10/loi-sai-thuong-gap.md",
+      "extension": ".md",
+      "size_bytes": 410,
+      "grade_inferred": 10,
+      "sha256": "479a211bdbf0853ae6fc540fddb53a2739f58eb9ef89a2976c8fec1c7026e42c"
+    },
+    {
+      "relative_path": "lop-10/phet-map.md",
+      "extension": ".md",
+      "size_bytes": 1093,
+      "grade_inferred": 10,
+      "sha256": "d537fa4df0ce5e0dd69419709db4d4828169f3687f692620749919201e6fbcc3"
+    },
+    {
+      "relative_path": "lop-10/tai-lieu-nguoi-dung/SGK-Vat-li-10-KNTT.pdf",
+      "extension": ".pdf",
+      "size_bytes": 24077080,
+      "grade_inferred": 10,
+      "sha256": "0d1e2f966f9f831cfc965c4002a1c6298c46e7ab454f45fb6dab80f95905d066"
+    },
+    {
+      "relative_path": "lop-10/tai-lieu-nguoi-dung/source-map-sgk-kntt.md",
+      "extension": ".md",
+      "size_bytes": 468,
+      "grade_inferred": 10,
+      "sha256": "03c0f3bf84fe3a945330ed970aff9dde4cc7bc6f41f408b21064c83905a86831"
+    },
+    {
+      "relative_path": "lop-10/thi-nghiem-an-toan.md",
+      "extension": ".md",
+      "size_bytes": 393,
+      "grade_inferred": 10,
+      "sha256": "60ddd608418b119c20718ff4a577e81962b9229ae267440295e04fa366bfae4d"
+    },
+    {
+      "relative_path": "lop-11/index.md",
+      "extension": ".md",
+      "size_bytes": 741,
+      "grade_inferred": 11,
+      "sha256": "3f982eac8a2f0a1b52dc1594d0bd0708e3375f174f3435c6fb310a3f81d6cd9e"
+    },
+    {
+      "relative_path": "lop-11/kien-thuc-cot-loi.md",
+      "extension": ".md",
+      "size_bytes": 613,
+      "grade_inferred": 11,
+      "sha256": "d019f19a1cf5296819537c7f48617ace6d0fd19fa84bbbcf1be17472f79f26c9"
+    },
+    {
+      "relative_path": "lop-11/loi-sai-thuong-gap.md",
+      "extension": ".md",
+      "size_bytes": 342,
+      "grade_inferred": 11,
+      "sha256": "2c6c2f9b7c303630f9365b000cdc9d481d771e44ba55add51842c8ec505ceb65"
+    },
+    {
+      "relative_path": "lop-11/phet-map.md",
+      "extension": ".md",
+      "size_bytes": 1091,
+      "grade_inferred": 11,
+      "sha256": "792f6b26d50e18578b3bf4568d39b26729289792b76a642cc71fd51030f580a3"
+    },
+    {
+      "relative_path": "lop-11/tai-lieu-nguoi-dung/SGK-Vat-li-11-KNTT.pdf",
+      "extension": ".pdf",
+      "size_bytes": 17608617,
+      "grade_inferred": 11,
+      "sha256": "e48a7ee474b97cc451845d92a5b8ba021479b632317df27c0e762bbf2599ab74"
+    },
+    {
+      "relative_path": "lop-11/tai-lieu-nguoi-dung/source-map-sgk-kntt.md",
+      "extension": ".md",
+      "size_bytes": 267,
+      "grade_inferred": 11,
+      "sha256": "94356d780699c8dbb120bdc16347abe20532f91c7610943a42127487ee3e6f6c"
+    },
+    {
+      "relative_path": "lop-11/thi-nghiem-an-toan.md",
+      "extension": ".md",
+      "size_bytes": 425,
+      "grade_inferred": 11,
+      "sha256": "8c0de1639db2d868d274beae6ec51d375463ed3845128cfd84f1c262a35cc6f2"
+    },
+    {
+      "relative_path": "lop-12/index.md",
+      "extension": ".md",
+      "size_bytes": 753,
+      "grade_inferred": 12,
+      "sha256": "f2adce7ff798fde9d648fadab931cffa4c37776292506fbc3029215b3e875f81"
+    },
+    {
+      "relative_path": "lop-12/kien-thuc-cot-loi.md",
+      "extension": ".md",
+      "size_bytes": 835,
+      "grade_inferred": 12,
+      "sha256": "8dd3bff0d76426b08c144236563b247efb375935418033dfe5657de04265248c"
+    },
+    {
+      "relative_path": "lop-12/loi-sai-thuong-gap.md",
+      "extension": ".md",
+      "size_bytes": 482,
+      "grade_inferred": 12,
+      "sha256": "8fe20d63c67b0b88757252dab083ea23863531126b445d39fb41855c1a172cb5"
+    },
+    {
+      "relative_path": "lop-12/phet-map.md",
+      "extension": ".md",
+      "size_bytes": 1186,
+      "grade_inferred": 12,
+      "sha256": "49578b205c18aa20c54e44b86c85bbd224943ae9c720bb42255ac5e980ad7682"
+    },
+    {
+      "relative_path": "lop-12/tai-lieu-nguoi-dung/SGK-Vat-li-12-KNTT.pdf",
+      "extension": ".pdf",
+      "size_bytes": 22225480,
+      "grade_inferred": 12,
+      "sha256": "a7006401a94545f7eb58e6092af9f640c8642331ae75b819500a32d82fe30ed9"
+    },
+    {
+      "relative_path": "lop-12/tai-lieu-nguoi-dung/source-map-sgk-kntt.md",
+      "extension": ".md",
+      "size_bytes": 274,
+      "grade_inferred": 12,
+      "sha256": "a963edff3a3194d17679896fcd7d522b897a006b43c5f7d78af2cb0366e81be0"
+    },
+    {
+      "relative_path": "lop-12/thi-nghiem-an-toan.md",
+      "extension": ".md",
+      "size_bytes": 460,
+      "grade_inferred": 12,
+      "sha256": "9c82d21bdefaef5c2cd2904140ac1383e9eb26c2d07e3a041db7d67f1f3dac87"
+    },
+    {
+      "relative_path": "lop-6/index.md",
+      "extension": ".md",
+      "size_bytes": 653,
+      "grade_inferred": 6,
+      "sha256": "938a753ad20da7840eb1c02b24817f473e9506b64dac90bcc5914669a517e560"
+    },
+    {
+      "relative_path": "lop-6/kien-thuc-cot-loi.md",
+      "extension": ".md",
+      "size_bytes": 614,
+      "grade_inferred": 6,
+      "sha256": "8d27f24ed0f286185a834d07d6a24de109e223d5ca3555378ea8ed578ebe1b65"
+    },
+    {
+      "relative_path": "lop-6/loi-sai-thuong-gap.md",
+      "extension": ".md",
+      "size_bytes": 288,
+      "grade_inferred": 6,
+      "sha256": "7aa83abf0f045ae909b65babbfc09f4a923a1a8c3d5bbed5c227ae5737812401"
+    },
+    {
+      "relative_path": "lop-6/phet-map.md",
+      "extension": ".md",
+      "size_bytes": 536,
+      "grade_inferred": 6,
+      "sha256": "81470670ee9bf3c1c137955a172e4ffdddd1cdb106ccf4c05017efba798db309"
+    },
+    {
+      "relative_path": "lop-6/thi-nghiem-an-toan.md",
+      "extension": ".md",
+      "size_bytes": 406,
+      "grade_inferred": 6,
+      "sha256": "387021d0884f9e080d627fae6a0a95d06bd064f88a1184e324ded2455b895773"
+    },
+    {
+      "relative_path": "lop-7/index.md",
+      "extension": ".md",
+      "size_bytes": 527,
+      "grade_inferred": 7,
+      "sha256": "9561eff70c8f8dbd1f3094ad38b7a4cd0f603171b3fadf530aa9c0a32323d446"
+    },
+    {
+      "relative_path": "lop-7/kien-thuc-cot-loi.md",
+      "extension": ".md",
+      "size_bytes": 613,
+      "grade_inferred": 7,
+      "sha256": "95b0acd97458b4792e044f5875dffebe2737995aaa822d2a97b6b0f5ddef22d9"
+    },
+    {
+      "relative_path": "lop-7/loi-sai-thuong-gap.md",
+      "extension": ".md",
+      "size_bytes": 283,
+      "grade_inferred": 7,
+      "sha256": "8b797c09a8d4c272775708cc2229d909c7e79815e2af2220b1594f9302af489f"
+    },
+    {
+      "relative_path": "lop-7/phet-map.md",
+      "extension": ".md",
+      "size_bytes": 538,
+      "grade_inferred": 7,
+      "sha256": "f1776111de9a211203717c5713095bd3fd87c77d15beee660ee8cc99bc67b71e"
+    },
+    {
+      "relative_path": "lop-7/thi-nghiem-an-toan.md",
+      "extension": ".md",
+      "size_bytes": 396,
+      "grade_inferred": 7,
+      "sha256": "fc94f4039bfc8513b1babe76feae308565cb94d5c6b8844dd957c3117aa7bebc"
+    },
+    {
+      "relative_path": "lop-8/index.md",
+      "extension": ".md",
+      "size_bytes": 690,
+      "grade_inferred": 8,
+      "sha256": "31ee34404de15a36f49731e2641a701b2d29ecfe507bfe7b3a62b3b73cdc2a85"
+    },
+    {
+      "relative_path": "lop-8/kien-thuc-cot-loi.md",
+      "extension": ".md",
+      "size_bytes": 632,
+      "grade_inferred": 8,
+      "sha256": "2cd80235f4be10fff37a075e90383d99dd20e9f6e6eaafff56cc9eb3bfbb4d2a"
+    },
+    {
+      "relative_path": "lop-8/loi-sai-thuong-gap.md",
+      "extension": ".md",
+      "size_bytes": 330,
+      "grade_inferred": 8,
+      "sha256": "a636b4ee120fb7ec607245fa7e44eed05fb9d51d1ca08603ed772bf2bc3db4cd"
+    },
+    {
+      "relative_path": "lop-8/phet-map.md",
+      "extension": ".md",
+      "size_bytes": 1055,
+      "grade_inferred": 8,
+      "sha256": "8c8b21abce6e9fbc03c9033d623021e881360b400726460120ad43bca9c2f6f7"
+    },
+    {
+      "relative_path": "lop-8/tai-lieu-nguoi-dung/SGK-KHTN-8-KNTT.pdf",
+      "extension": ".pdf",
+      "size_bytes": 51828705,
+      "grade_inferred": 8,
+      "sha256": "616a90710789af8dd372ef79778274c9076c75a8e380da504e880e2d3c77d1f5"
+    },
+    {
+      "relative_path": "lop-8/tai-lieu-nguoi-dung/source-map-sgk-kntt.md",
+      "extension": ".md",
+      "size_bytes": 1194,
+      "grade_inferred": 8,
+      "sha256": "44138add2aeec4da281c3016503f7bcfba6a67f10cd8a914e06ff69345ee4aa6"
+    },
+    {
+      "relative_path": "lop-8/thi-nghiem-an-toan.md",
+      "extension": ".md",
+      "size_bytes": 433,
+      "grade_inferred": 8,
+      "sha256": "9409e69071b0d44c70f551d3c8b640a8f83a9034b6ae4c54f9a882ffcb69368a"
+    },
+    {
+      "relative_path": "lop-9/index.md",
+      "extension": ".md",
+      "size_bytes": 695,
+      "grade_inferred": 9,
+      "sha256": "cfcdf400d3a1baad4cf39ed7522da30b6fcd0cf8c4cca6be38de166041662570"
+    },
+    {
+      "relative_path": "lop-9/kien-thuc-cot-loi.md",
+      "extension": ".md",
+      "size_bytes": 746,
+      "grade_inferred": 9,
+      "sha256": "78a00dfd2d34a697dc0f23f99442649158c5f84ab64a00aab4f6a91458a4779b"
+    },
+    {
+      "relative_path": "lop-9/loi-sai-thuong-gap.md",
+      "extension": ".md",
+      "size_bytes": 363,
+      "grade_inferred": 9,
+      "sha256": "0ae39191922897fdbd7c4f80c55906ff3384e75495580492468e39d3d44683af"
+    },
+    {
+      "relative_path": "lop-9/phet-map.md",
+      "extension": ".md",
+      "size_bytes": 1158,
+      "grade_inferred": 9,
+      "sha256": "62318ad6fc1dfe7aeb8bb6332db8b4fbb2417fe35cbbe1f2e90ab9a0f5bb375d"
+    },
+    {
+      "relative_path": "lop-9/tai-lieu-nguoi-dung/SGK-KHTN-9-KNTT.pdf",
+      "extension": ".pdf",
+      "size_bytes": 139879983,
+      "grade_inferred": 9,
+      "sha256": "d023b9442eb0562333f9af37f4c42e0a77c85779f9212028f125759ef304eece"
+    },
+    {
+      "relative_path": "lop-9/tai-lieu-nguoi-dung/source-map-sgk-kntt.md",
+      "extension": ".md",
+      "size_bytes": 740,
+      "grade_inferred": 9,
+      "sha256": "c1de2241cb3fa11f1aa6524477bea0123f1d9cbd6828219fcb4e02de1f54c34a"
+    },
+    {
+      "relative_path": "lop-9/thi-nghiem-an-toan.md",
+      "extension": ".md",
+      "size_bytes": 421,
+      "grade_inferred": 9,
+      "sha256": "4579795ebda070a1e870bf26bde187d34ed888f3ad8abee99547a96cc46db67c"
+    },
+    {
+      "relative_path": "nguon-chinh-thuc.md",
+      "extension": ".md",
+      "size_bytes": 833,
+      "grade_inferred": null,
+      "sha256": "fea19e686b42f9a758f4a8a1df304e14849b2645ffb9b57ab0a0542eb88a924f"
+    },
+    {
+      "relative_path": "phet/catalog-phet-cot-loi.md",
+      "extension": ".md",
+      "size_bytes": 5339,
+      "grade_inferred": null,
+      "sha256": "4e2a57e16d4154b7287b58051a03f6a7cb4d8a015a87c1c953dd0f076c8b7766"
+    },
+    {
+      "relative_path": "phet/khung-hoat-dong-chieu-sau.md",
+      "extension": ".md",
+      "size_bytes": 1754,
+      "grade_inferred": null,
+      "sha256": "2b4110013571c58085eca50cdc4706731b950480ac1d66abe0ec23ee59ae25ed"
+    },
+    {
+      "relative_path": "phet/nguon-va-pham-vi.md",
+      "extension": ".md",
+      "size_bytes": 1145,
+      "grade_inferred": null,
+      "sha256": "b983a9eb9391e3aab81f6aa3c2047ef4884ad44f7775bc994d8ce29511924952"
+    }
+  ]
+}

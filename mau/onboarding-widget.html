@@ -1,0 +1,354 @@
+<!--
+  ONBOARDING WIDGET — AI Agent Giáo viên
+  Dùng với mcp__visualize__show_widget
+  title: "giao_vien_onboarding"
+  loading_messages: ["Đang tải giao diện...", "Sắp xong rồi!"]
+  v2: thêm Short/Reels, đổi slider → chip thời lượng
+-->
+<h2 class="sr-only">Giao diện nhập liệu bài dạy - đầy đủ môn học và tải tài liệu</h2>
+
+<style>
+.mon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-top:8px}
+.chu-de-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.dau-ra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:8px;margin-top:8px}
+.ht-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.tl-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.mon-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:10px 8px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+.mon-card:hover{border-color:var(--color-border-secondary)}
+.mon-card.sel{border:2px solid #378ADD;background:#E6F1FB}
+.mon-card i{font-size:20px;color:var(--color-text-secondary)}
+.mon-card.sel i{color:#185FA5}
+.mon-card .mn{font-size:12px;font-weight:500;color:var(--color-text-primary);text-align:center}
+.pill{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;color:var(--color-text-primary)}
+.pill:hover{border-color:var(--color-border-secondary)}
+.pill.sel{border:2px solid #378ADD;background:#E6F1FB;color:#185FA5;font-weight:500}
+.tl-chip{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;color:var(--color-text-primary);white-space:nowrap}
+.tl-chip:hover{border-color:var(--color-border-secondary)}
+.tl-chip.sel{border:2px solid #378ADD;background:#E6F1FB;color:#185FA5;font-weight:500}
+.tl-chip.short-chip{border-color:#E8800A;color:#C2630A}
+.tl-chip.short-chip.sel{border:2px solid #E8800A;background:#FEF3E7;color:#C2630A}
+.tl-group-label{font-size:10px;color:var(--color-text-tertiary);font-weight:500;letter-spacing:.5px;text-transform:uppercase;width:100%;margin:6px 0 2px}
+.dau-ra-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+.dau-ra-card:hover{border-color:var(--color-border-secondary)}
+.dau-ra-card.sel{border:2px solid #378ADD;background:#E6F1FB}
+.dau-ra-card i{font-size:20px;color:var(--color-text-secondary)}
+.dau-ra-card.sel i{color:#185FA5}
+.dau-ra-card span{font-size:11px;font-weight:500;text-align:center;color:var(--color-text-primary)}
+.dau-ra-card.short-card{border-color:#E8800A22}
+.dau-ra-card.short-card.sel{border:2px solid #E8800A;background:#FEF3E7}
+.dau-ra-card.short-card.sel i{color:#C2630A}
+.short-badge{font-size:9px;background:#E8800A;color:#fff;border-radius:4px;padding:1px 5px;font-weight:600;letter-spacing:.3px}
+.slabel{font-size:14px;font-weight:500;color:var(--color-text-primary);margin:0 0 2px}
+.shint{font-size:12px;color:var(--color-text-tertiary);margin:0 0 4px}
+.glabel{font-size:10px;color:var(--color-text-tertiary);font-weight:500;letter-spacing:.5px;text-transform:uppercase;margin:14px 0 4px}
+.submit-btn{background:#185FA5;color:#fff;border:none;border-radius:var(--border-radius-md);padding:10px 28px;font-size:14px;font-weight:500;cursor:pointer}
+.submit-btn:hover{background:#0C447C}
+.skip-btn{background:none;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:10px 18px;font-size:13px;color:var(--color-text-secondary);cursor:pointer}
+.skip-btn:hover{background:var(--color-background-secondary)}
+#other-mon,#other-cd{display:none;margin-top:8px;width:100%;box-sizing:border-box;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:8px 12px;font-size:13px;color:var(--color-text-primary);background:var(--color-background-primary)}
+#lop-picker{display:none;margin-top:10px}
+.dropzone{border:1.5px dashed var(--color-border-secondary);border-radius:var(--border-radius-lg);padding:20px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;background:var(--color-background-secondary);transition:border-color .15s}
+.dropzone:hover{border-color:#378ADD}
+.dropzone i{font-size:28px;color:var(--color-text-tertiary)}
+.dropzone .dz-title{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.dropzone .dz-sub{font-size:11px;color:var(--color-text-tertiary)}
+.file-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.file-chip{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:5px 10px;font-size:12px;color:var(--color-text-secondary);display:flex;align-items:center;gap:6px}
+.paste-area{margin-top:10px;width:100%;box-sizing:border-box;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:10px 12px;font-size:13px;color:var(--color-text-primary);background:var(--color-background-primary);min-height:80px;resize:vertical;font-family:inherit}
+#analysis-note{display:none;margin-top:10px;padding:10px 12px;background:#F0FAF3;border:0.5px solid #6DBF8A;border-radius:var(--border-radius-md);font-size:12px;color:#2D7D4F}
+#analysis-note.warn{background:#FEF3E7;border-color:#F5C08A;color:#C2630A}
+#short-hint{display:none;margin-top:6px;padding:8px 12px;background:#FEF3E7;border-radius:var(--border-radius-md);font-size:12px;color:#C2630A;border:0.5px solid #F5C08A}
+.pc-card{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);cursor:pointer;background:var(--color-background-primary);transition:border-color .12s,background .12s}
+.pc-card:hover{border-color:var(--color-border-secondary);background:var(--color-background-secondary)}
+.pc-card.sel{border:2px solid #378ADD;background:#E6F1FB}
+.pc-icon{font-size:22px;line-height:1;flex-shrink:0;margin-top:1px}
+.pc-info{display:flex;flex-direction:column;gap:2px}
+.pc-name{font-size:13px;font-weight:600;color:var(--color-text-primary)}
+.pc-card.sel .pc-name{color:#185FA5}
+.pc-desc{font-size:11px;color:var(--color-text-tertiary);line-height:1.4}
+</style>
+
+<div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+
+  <div style="display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:0.5px solid var(--color-border-tertiary)">
+    <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;color:var(--color-text-secondary)" aria-hidden="true"><path d="M11.586 2a1.5 1.5 0 0 1 1.06.44l2.914 2.914a1.5 1.5 0 0 1 .44 1.06V16.5a1.5 1.5 0 0 1-1.5 1.5h-9a1.5 1.5 0 0 1-1.492-1.347L4 16.5v-13A1.5 1.5 0 0 1 5.5 2zM5.5 3a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h-2.5A1.5 1.5 0 0 1 11 5.5V3zm6.5 7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2z"/></svg>
+    <span style="font-size:15px;font-weight:500;color:var(--color-text-primary)">Thông tin bài dạy</span>
+  </div>
+
+  <div style="padding:20px;display:flex;flex-direction:column;gap:22px">
+
+    <!-- MÔN & LỚP -->
+    <div>
+      <p class="slabel">Bộ môn và lớp là gì?</p>
+      <div class="glabel">Khoa học tự nhiên</div>
+      <div class="mon-grid">
+        <div class="mon-card" data-mon="Vật lý"><i class="ti ti-atom-2" aria-hidden="true"></i><span class="mn">Vật lý</span></div>
+        <div class="mon-card" data-mon="Hóa học"><i class="ti ti-flask" aria-hidden="true"></i><span class="mn">Hóa học</span></div>
+        <div class="mon-card" data-mon="Sinh học"><i class="ti ti-dna" aria-hidden="true"></i><span class="mn">Sinh học</span></div>
+        <div class="mon-card" data-mon="Toán"><i class="ti ti-math-function" aria-hidden="true"></i><span class="mn">Toán</span></div>
+        <div class="mon-card" data-mon="Tin học"><i class="ti ti-device-laptop" aria-hidden="true"></i><span class="mn">Tin học</span></div>
+      </div>
+      <div class="glabel" style="margin-top:14px">Khoa học xã hội & ngôn ngữ</div>
+      <div class="mon-grid">
+        <div class="mon-card" data-mon="Ngữ văn"><i class="ti ti-book" aria-hidden="true"></i><span class="mn">Ngữ văn</span></div>
+        <div class="mon-card" data-mon="Tiếng Anh"><i class="ti ti-language" aria-hidden="true"></i><span class="mn">Tiếng Anh</span></div>
+        <div class="mon-card" data-mon="Lịch sử"><i class="ti ti-building-monument" aria-hidden="true"></i><span class="mn">Lịch sử</span></div>
+        <div class="mon-card" data-mon="Địa lý"><i class="ti ti-map-2" aria-hidden="true"></i><span class="mn">Địa lý</span></div>
+        <div class="mon-card" data-mon="GDCD"><i class="ti ti-users" aria-hidden="true"></i><span class="mn">GDCD</span></div>
+      </div>
+      <div id="lop-picker">
+        <p class="shint" style="margin-top:10px">Chọn lớp:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px" id="lop-pills"></div>
+      </div>
+      <input id="other-mon" type="text" placeholder="Nhập môn khác (VD: Mỹ thuật, Âm nhạc...)">
+    </div>
+
+    <!-- CHỦ ĐỀ -->
+    <div>
+      <p class="slabel">Chủ đề hoặc bài học cụ thể?</p>
+      <div class="chu-de-wrap" id="chu-de-wrap"></div>
+      <input id="other-cd" type="text" placeholder="Nhập chủ đề cụ thể...">
+    </div>
+
+    <!-- ĐẦU RA -->
+    <div>
+      <p class="slabel">Bạn muốn tạo loại học liệu nào?</p>
+      <p class="shint">Chọn một hoặc nhiều</p>
+      <div class="dau-ra-grid">
+        <div class="dau-ra-card" data-dr="Giáo án"><i class="ti ti-file-text" aria-hidden="true"></i><span>Giáo án</span></div>
+        <div class="dau-ra-card" data-dr="Script video"><i class="ti ti-script" aria-hidden="true"></i><span>Script video</span></div>
+        <div class="dau-ra-card" data-dr="Prompt ảnh"><i class="ti ti-photo" aria-hidden="true"></i><span>Prompt ảnh</span></div>
+        <div class="dau-ra-card" data-dr="Prompt video"><i class="ti ti-video" aria-hidden="true"></i><span>Prompt video</span></div>
+        <div class="dau-ra-card" data-dr="Bài tập"><i class="ti ti-checklist" aria-hidden="true"></i><span>Bài tập</span></div>
+        <div class="dau-ra-card" data-dr="Full package"><i class="ti ti-package" aria-hidden="true"></i><span>Full package</span></div>
+        <div class="dau-ra-card short-card" data-dr="Short / Reels" id="card-short">
+          <i class="ti ti-brand-tiktok" aria-hidden="true"></i>
+          <span>Short / Reels</span>
+          <span class="short-badge">≤ 90s</span>
+        </div>
+      </div>
+      <div id="short-hint">⚡ Chế độ Short: script súc tích 60–90 giây, 1 ý chính, hook mở đầu mạnh. Thời lượng bên dưới sẽ tự chuyển sang nhóm Short.</div>
+    </div>
+
+    <!-- PHONG CÁCH VIDEO -->
+    <div id="phong-cach-section">
+      <p class="slabel">Phong cách video?</p>
+      <p class="shint">Chọn một — AI sẽ tạo prompt đúng phong cách đó</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px" id="pc-list">
+        <div class="pc-card" data-pc="Viết Tay">
+          <span class="pc-icon">✏️</span>
+          <div class="pc-info"><span class="pc-name">Viết Tay</span><span class="pc-desc">Vẽ tay từng bước trên bảng trắng — kiểu Khan Academy. Tốt nhất cho bài tập, công thức, FBD.</span></div>
+        </div>
+        <div class="pc-card" data-pc="Hoạt Hình 2D">
+          <span class="pc-icon">🎨</span>
+          <div class="pc-info"><span class="pc-name">Hoạt Hình 2D</span><span class="pc-desc">Nhân vật và sơ đồ flat 2D màu sắc — kiểu Manabie. Phù hợp giải thích nguyên lý trực quan.</span></div>
+        </div>
+        <div class="pc-card" data-pc="Kể Chuyện">
+          <span class="pc-icon">🦆</span>
+          <div class="pc-info"><span class="pc-name">Kể Chuyện</span><span class="pc-desc">Nhân vật dẫn chuyện, storytelling khoa học — kiểu Kurzgesagt / TED-Ed. Hấp dẫn, có chiều sâu.</span></div>
+        </div>
+        <div class="pc-card" data-pc="Công Thức Động">
+          <span class="pc-icon">📐</span>
+          <div class="pc-info"><span class="pc-name">Công Thức Động</span><span class="pc-desc">Công thức và ký hiệu chuyển động — kiểu 3Blue1Brown / Manim. Tốt nhất cho ôn tập công thức.</span></div>
+        </div>
+        <div class="pc-card" data-pc="Người Thật">
+          <span class="pc-icon">🎥</span>
+          <div class="pc-info"><span class="pc-name">Người Thật</span><span class="pc-desc">Giáo viên quay trực tiếp, lớp học thật. Cần thiết bị quay và hậu kỳ.</span></div>
+        </div>
+        <div class="pc-card" data-pc="3D Khoa Học">
+          <span class="pc-icon">🔬</span>
+          <div class="pc-info"><span class="pc-name">3D Khoa Học</span><span class="pc-desc">Render 3D vi mô, phân tử, thiên văn. Cho nội dung không thể quay thật.</span></div>
+        </div>
+        <div class="pc-card" data-pc="Người Thật + 3D">
+          <span class="pc-icon">🎬</span>
+          <div class="pc-info"><span class="pc-name">Người Thật + 3D</span><span class="pc-desc">Người thật kết hợp đồ họa 3D/AR overlay — hybrid chuyên nghiệp nhất.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THỜI LƯỢNG — chip -->
+    <div>
+      <p class="slabel">Thời lượng?</p>
+      <p class="shint" id="tl-hint">Chọn độ dài phù hợp với đầu ra</p>
+      <div class="tl-wrap" id="tl-wrap">
+        <span class="tl-group-label">Short / Reels</span>
+        <div class="tl-chip short-chip" data-tl="30 giây">30s</div>
+        <div class="tl-chip short-chip" data-tl="60 giây">60s</div>
+        <div class="tl-chip short-chip" data-tl="90 giây">90s</div>
+        <span class="tl-group-label">Video ngắn</span>
+        <div class="tl-chip" data-tl="3 phút">3 phút</div>
+        <div class="tl-chip" data-tl="5 phút">5 phút</div>
+        <div class="tl-chip" data-tl="10 phút">10 phút</div>
+        <div class="tl-chip" data-tl="15 phút">15 phút</div>
+        <span class="tl-group-label">Tiết học</span>
+        <div class="tl-chip" data-tl="20 phút">20 phút</div>
+        <div class="tl-chip" data-tl="30 phút">30 phút</div>
+        <div class="tl-chip" data-tl="45 phút">45 phút</div>
+        <div class="tl-chip" data-tl="60 phút">60 phút</div>
+        <div class="tl-chip" data-tl="90 phút">90 phút</div>
+      </div>
+    </div>
+
+    <!-- HÌNH THỨC -->
+    <div>
+      <p class="slabel">Hình thức dạy học?</p>
+      <div class="ht-wrap">
+        <div class="pill" data-ht="Trực tiếp tại lớp">Trực tiếp tại lớp</div>
+        <div class="pill" data-ht="Trực tuyến (online)">Trực tuyến</div>
+        <div class="pill" data-ht="Kết hợp (blended)">Kết hợp</div>
+        <div class="pill" data-ht="Video tự học">Video tự học</div>
+        <div class="pill" data-ht="Short / Mạng xã hội">Short / MXH</div>
+      </div>
+    </div>
+
+    <!-- TÀI LIỆU -->
+    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:18px">
+      <p class="slabel">Có tài liệu muốn đưa vào không?</p>
+      <p class="shint">Sách giáo khoa, giáo án cũ, tài liệu tham khảo...</p>
+      <label class="dropzone" for="file-input">
+        <i class="ti ti-upload" aria-hidden="true"></i>
+        <span class="dz-title">Kéo thả hoặc bấm để tải lên</span>
+        <span class="dz-sub">PDF, Word, ảnh, PowerPoint...</span>
+        <input type="file" id="file-input" multiple style="display:none" accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg,.txt">
+      </label>
+      <div class="file-list" id="file-list"></div>
+      <div id="analysis-note"></div>
+      <textarea class="paste-area" id="paste-area" placeholder="Hoặc dán nội dung, mục tiêu, yêu cầu cần đạt, đoạn trích SGK vào đây..."></textarea>
+    </div>
+
+    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:16px;display:flex;justify-content:flex-end;gap:10px;align-items:center">
+      <button class="skip-btn" onclick="sendPrompt('Bỏ qua form, tôi sẽ nhập thông tin bài dạy trực tiếp.')">Bỏ qua</button>
+      <button class="submit-btn" id="btn-submit">Bắt đầu tạo ↗</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const CHU_DE={
+  'Vật lý':['Lực và chuyển động','Điện từ học','Quang học','Nhiệt học','Sóng và dao động','Vật lý hạt nhân'],
+  'Hóa học':['Nguyên tử - bảng tuần hoàn','Liên kết hóa học','Phản ứng oxi hóa khử','Axit - bazơ - muối','Hóa hữu cơ đại cương','Polime'],
+  'Sinh học':['Tế bào học','Di truyền học','Sinh thái học','Tiến hóa','Sinh lý thực vật','Sinh lý động vật'],
+  'Toán':['Số và đại số','Hình học phẳng','Hình học không gian','Hàm số và đồ thị','Thống kê - xác suất','Giải tích'],
+  'Tin học':['Thuật toán cơ bản','Lập trình Python','Cơ sở dữ liệu','Mạng máy tính','Thiết kế web','AI và ứng dụng'],
+  'Ngữ văn':['Đọc hiểu văn bản','Nghị luận xã hội','Nghị luận văn học','Tiếng Việt','Văn học dân gian','Văn học hiện đại'],
+  'Tiếng Anh':['Ngữ pháp (Grammar)','Từ vựng (Vocabulary)','Kỹ năng nghe','Kỹ năng nói','Đọc hiểu','Viết (Writing)'],
+  'Lịch sử':['Lịch sử Việt Nam cổ đại','Lịch sử thế giới','Cách mạng tháng Tám','Kháng chiến chống Pháp','Kháng chiến chống Mỹ','Lịch sử hiện đại'],
+  'Địa lý':['Địa lý tự nhiên','Địa lý dân cư','Địa lý kinh tế','Địa lý Việt Nam','Địa lý châu lục','Bản đồ và kỹ năng'],
+  'GDCD':['Pháp luật đại cương','Đạo đức - lối sống','Kinh tế thị trường','Quyền công dân','Chính sách Nhà nước','An toàn giao thông'],
+};
+let selMon=null,selLop=null,selChuDe=null,selDauRa=[],selHT=null,selTL=null,selPC=null,fileNames=[];
+
+document.querySelectorAll('.mon-card').forEach(c=>{
+  c.onclick=()=>{
+    document.querySelectorAll('.mon-card').forEach(x=>x.classList.remove('sel'));
+    c.classList.add('sel'); selMon=c.dataset.mon; selLop=null;
+    document.getElementById('other-mon').style.display='none';
+    const lp=document.getElementById('lop-picker');
+    const pills=document.getElementById('lop-pills');
+    pills.innerHTML=''; lp.style.display='block';
+    [6,7,8,9,10,11,12].forEach(l=>{
+      const el=document.createElement('div');
+      el.className='pill'; el.textContent='Lớp '+l;
+      el.onclick=()=>{pills.querySelectorAll('.pill').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');selLop=l;};
+      pills.appendChild(el);
+    });
+    const wrap=document.getElementById('chu-de-wrap');
+    wrap.innerHTML='';
+    (CHU_DE[selMon]||[]).forEach(cd=>{
+      const el=document.createElement('div');el.className='pill';el.textContent=cd;
+      el.onclick=()=>{wrap.querySelectorAll('.pill').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');selChuDe=cd;document.getElementById('other-cd').style.display='none';};
+      wrap.appendChild(el);
+    });
+    const oth=document.createElement('div');oth.className='pill';oth.textContent='Chủ đề khác';
+    oth.onclick=()=>{wrap.querySelectorAll('.pill').forEach(x=>x.classList.remove('sel'));oth.classList.add('sel');selChuDe=null;document.getElementById('other-cd').style.display='block';document.getElementById('other-cd').focus();};
+    wrap.appendChild(oth);
+  };
+});
+
+document.querySelectorAll('.dau-ra-card').forEach(c=>{
+  c.onclick=()=>{
+    c.classList.toggle('sel');
+    const v=c.dataset.dr;
+    if(c.classList.contains('sel')) selDauRa.push(v);
+    else selDauRa=selDauRa.filter(x=>x!==v);
+    // Short hint & auto-select hình thức
+    const isShort=selDauRa.includes('Short / Reels');
+    document.getElementById('short-hint').style.display=isShort?'block':'none';
+    if(isShort){
+      // Tự chọn chip thời lượng 60s nếu chưa chọn short chip
+      const hasShortTL=selTL&&['30 giây','60 giây','90 giây'].includes(selTL);
+      if(!hasShortTL){
+        document.querySelectorAll('.tl-chip').forEach(x=>x.classList.remove('sel'));
+        const chip60=document.querySelector('.tl-chip[data-tl="60 giây"]');
+        if(chip60){chip60.classList.add('sel');selTL='60 giây';}
+      }
+    }
+  };
+});
+
+document.querySelectorAll('.tl-chip').forEach(c=>{
+  c.onclick=()=>{
+    document.querySelectorAll('.tl-chip').forEach(x=>x.classList.remove('sel'));
+    c.classList.add('sel'); selTL=c.dataset.tl;
+  };
+});
+
+document.querySelectorAll('.pc-card').forEach(c=>{
+  c.onclick=()=>{
+    document.querySelectorAll('.pc-card').forEach(x=>x.classList.remove('sel'));
+    c.classList.add('sel'); selPC=c.dataset.pc;
+  };
+});
+
+document.querySelectorAll('.pill[data-ht]').forEach(p=>{
+  p.onclick=()=>{document.querySelectorAll('.pill[data-ht]').forEach(x=>x.classList.remove('sel'));p.classList.add('sel');selHT=p.dataset.ht;};
+});
+
+document.getElementById('file-input').addEventListener('change',function(){
+  fileNames=[...this.files].map(f=>f.name);
+  const list=document.getElementById('file-list');
+  list.innerHTML='';
+  fileNames.forEach(n=>{
+    const chip=document.createElement('div');chip.className='file-chip';
+    chip.innerHTML='<i class="ti ti-file" style="font-size:14px" aria-hidden="true"></i> '+n;
+    list.appendChild(chip);
+  });
+  const note=document.getElementById('analysis-note');
+  if(fileNames.length>0){
+    note.className='';
+    note.innerHTML='<strong>✓ '+fileNames.length+' tài liệu đã tải lên.</strong> Agent <code>doc-tai-lieu-giao-duc</code> sẽ trích xuất công thức, định nghĩa và ví dụ; <code>agent-tai-lieu-phong-cach</code> sẽ gợi ý phong cách phù hợp trước khi tạo nội dung. Bạn cũng có thể chọn phong cách thủ công bên trên.';
+    note.style.display='block';
+  } else {
+    note.style.display='none';
+  }
+});
+
+document.getElementById('btn-submit').onclick=()=>{
+  const mon=selMon||document.getElementById('other-mon').value||'(chưa chọn)';
+  const lop=selLop?'Lớp '+selLop:'(chưa chọn)';
+  const cd=selChuDe||document.getElementById('other-cd').value||'(chưa chọn)';
+  const dr=selDauRa.length?selDauRa.join(', '):'(chưa chọn)';
+  const tl=selTL||'(chưa chọn)';
+  const ht=selHT||'(chưa chọn)';
+  const pc=selPC?(' · Phong cách video: '+selPC):'';
+  const files=fileNames.length?' · Tài liệu: '+fileNames.join(', '):'';
+  const paste=document.getElementById('paste-area').value;
+  const extra=paste?' · Nội dung paste: "'+paste.substring(0,100)+(paste.length>100?'...':'')+'"':'';
+
+  // Khi có tài liệu: yêu cầu agent phân tích trước rồi mới tạo nội dung
+  let agentNote='';
+  if(fileNames.length>0){
+    if(!selPC){
+      // Chưa chọn phong cách — để agent gợi ý
+      agentNote=' · YÊU CẦU: Dùng doc-tai-lieu-giao-duc để trích xuất extracted_content từ tài liệu, sau đó dùng agent-tai-lieu-phong-cach để gợi ý phong cách phù hợp; trình bày gợi ý và hỏi xác nhận trước khi tạo nội dung.';
+    } else {
+      // Đã chọn phong cách — trích xuất content rồi tiến hành
+      agentNote=' · YÊU CẦU: Dùng doc-tai-lieu-giao-duc để trích xuất extracted_content từ tài liệu và truyền cho agent-video-ngan-fast (không tạo lại từ đầu). Phong cách đã chốt: '+selPC+'.';
+    }
+  }
+
+  sendPrompt('Bài dạy — Môn: '+mon+' '+lop+' · Chủ đề: '+cd+' · Đầu ra: '+dr+' · Thời lượng: '+tl+' · Hình thức: '+ht+pc+files+extra+agentNote);
+};
+document.querySelector('.mon-card[data-mon="Hóa học"]')?.click();
+</script>

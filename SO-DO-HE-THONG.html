@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sơ đồ Hệ thống AI Agent Giáo Viên</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #0f1117;
+    color: #e8eaf0;
+    padding: 24px;
+    font-size: 12px;
+    min-width: 900px;
+  }
+  h1 { text-align: center; font-size: 17px; color: #7ec8e3; margin-bottom: 4px; letter-spacing: 1px; }
+  .subtitle { text-align: center; font-size: 10px; color: #888; margin-bottom: 18px; }
+
+  .btn-save {
+    display: block; margin: 0 auto 18px;
+    background: #1a5a3a; color: #7fdf9f; border: 1px solid #2a8a5a;
+    border-radius: 6px; padding: 7px 22px; cursor: pointer; font-size: 12px;
+    font-family: inherit;
+  }
+  .btn-save:hover { background: #226644; }
+
+  .diagram { display: flex; flex-direction: column; gap: 8px; }
+
+  .layer { border-radius: 10px; padding: 12px 14px; }
+  .layer-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 10px; opacity: 0.75;
+  }
+  .L0 { background: #1a1f2e; border: 1px solid #2a3a5c; }
+  .L1 { background: #1a2a1a; border: 1px solid #2a5c2a; }
+  .L2 { background: #2a1a1a; border: 1px solid #5c2a2a; }
+  .L3 { background: #1a1a2a; border: 1px solid #3a2a5c; }
+  .L4 { background: #1a2a2a; border: 1px solid #2a5c5c; }
+  .L5 { background: #2a2a1a; border: 1px solid #5c5c2a; }
+  .L6 { background: #1a2a22; border: 1px solid #2a5c42; }
+  .Lout { background: #101810; border: 1px solid #2a7a2a; text-align: center; padding: 12px; }
+
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .box {
+    border-radius: 7px; padding: 9px 11px;
+    font-size: 11px; flex: 1; min-width: 140px; line-height: 1.5;
+  }
+  .box strong { display: block; font-size: 12px; margin-bottom: 3px; }
+  .box .formula {
+    font-family: 'Consolas', monospace; font-size: 10px;
+    background: rgba(255,255,255,0.07); border-radius: 4px;
+    padding: 4px 7px; margin-top: 5px; display: block; color: #f0d080;
+    white-space: pre;
+  }
+
+  .kw {
+    background: #2a4a1a; color: #7fdf5f; border-radius: 4px;
+    padding: 1px 6px; font-size: 10px; font-family: monospace;
+    margin: 2px 2px 0 0; display: inline-block;
+  }
+
+  .arrow { text-align: center; font-size: 18px; color: #555; line-height: 1; margin: -2px 0; }
+
+  .b-blue   { background: #0e2a45; border: 1px solid #1a5a8a; }
+  .b-green  { background: #0e3018; border: 1px solid #1a6028; }
+  .b-red    { background: #3a0e0e; border: 1px solid #7a2020; }
+  .b-purple { background: #1e0e3a; border: 1px solid #4a2080; }
+  .b-teal   { background: #0e2a2a; border: 1px solid #1a6060; }
+  .b-yellow { background: #2a2a0e; border: 1px solid #6a6010; }
+  .b-gray   { background: #1e1e1e; border: 1px solid #444; }
+
+  .gate-row { display: flex; gap: 8px; }
+  .gate-box {
+    flex: 1; border-radius: 7px; padding: 10px;
+    font-size: 11px; line-height: 1.55;
+    border-width: 2px; border-style: solid;
+  }
+  .gate1 { background: #1a0a0a; border-color: #cc2222; }
+  .gate2 { background: #0a1a0a; border-color: #22aa22; }
+  .gate3 { background: #0a0a1a; border-color: #2244cc; }
+  .gate-title { font-size: 13px; font-weight: 700; margin-bottom: 5px; }
+
+  .formula-box {
+    background: #1a1a0a; border: 1px solid #6a6010;
+    border-radius: 8px; padding: 12px 16px;
+    font-family: 'Consolas', monospace; font-size: 11px;
+    line-height: 1.9; color: #f0d080; flex: 1;
+  }
+  .formula-box .label {
+    color: #aaa; font-size: 10px;
+    font-family: 'Segoe UI', sans-serif;
+    margin-bottom: 2px; display: block;
+  }
+
+  .col2 { display: flex; gap: 8px; }
+
+  .api-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .api-box {
+    flex: 1; min-width: 120px; border-radius: 7px;
+    padding: 9px 11px; font-size: 11px; line-height: 1.55;
+  }
+  .api-box strong { font-size: 12px; display: block; margin-bottom: 3px; }
+  .price { font-size: 10px; color: #f0a040; font-weight: 700; margin-top: 3px; }
+
+  .note-box {
+    background: #1e1e1e; border: 1px solid #444; border-radius: 7px;
+    padding: 8px 12px; font-size: 11px; color: #aaa;
+    margin-top: 8px; line-height: 1.6;
+  }
+  .highlight { color: #7fdf9f; font-weight: 700; }
+  .warn { color: #f07040; font-weight: 700; }
+
+  .out-kw {
+    background: #1a4a2a; color: #7fdf9f; border-radius: 5px;
+    padding: 3px 9px; font-size: 11px; font-family: monospace;
+    margin: 3px; display: inline-block;
+  }
+  .out-title { font-size: 11px; font-weight: 700; color: #7fdf9f; opacity: 0.85; margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff !important; color: #000 !important; padding: 10px; }
+    .btn-save { display: none !important; }
+    .layer { border: 1px solid #ccc !important; background: #f9f9f9 !important; }
+    .gate1, .gate2, .gate3, .box, .api-box { border: 1px solid #ccc !important; background: #f4f4f4 !important; }
+    .formula-box { background: #f8f6e8 !important; color: #333 !important; border: 1px solid #ccc !important; }
+    .kw, .out-kw { background: #e8ffe8 !important; color: #226622 !important; }
+    h1, .gate-title, .highlight { color: #114488 !important; }
+    .warn { color: #cc4400 !important; }
+    .layer-title { color: #333 !important; opacity: 1 !important; }
+    .price { color: #884400 !important; }
+    .arrow { color: #888 !important; }
+  }
+</style>
+</head>
+<body>
+
+<h1>HỆ THỐNG AI AGENT GIÁO VIÊN — SƠ ĐỒ TOÀN BỘ</h1>
+<div class="subtitle">Công thức · Luồng kích hoạt · Quy tắc tính scene/word · API automation · v1.0 · 2026-06-23</div>
+
+<button class="btn-save" onclick="window.print()">In / Lưu PDF (Ctrl+P → Save as PDF)</button>
+
+<div class="diagram">
+
+  <!-- TẦNG 0 -->
+  <div class="layer L0">
+    <div class="layer-title">TẦNG 0 — KÍCH HOẠT (Input)</div>
+    <div class="row">
+      <div class="box b-gray">
+        <strong>Lệnh kích hoạt</strong>
+        <span class="kw">/auto</span>
+        <span class="kw">/tai-lieu-thanh-video</span>
+        <span class="kw">/kiem-dinh-chuan [file]</span>
+        <span class="kw">mô phỏng / PhET</span><br><br>
+        → Claude đọc CLAUDE.md → nạp đúng agent + skill + workflow
+      </div>
+      <div class="box b-gray">
+        <strong>Hồ sơ bài học tối thiểu</strong>
+        Môn · Lớp · Chủ đề<br>
+        Mục tiêu (hành vi Bloom quan sát được)<br>
+        Thời lượng · Hình thức dạy<br>
+        Thiết bị · Đối tượng HS<br>
+        Loại đầu ra mong muốn
+      </div>
+      <div class="box b-gray">
+        <strong>Chọn Preset Video (bắt buộc)</strong>
+        <span class="kw">"người thật"</span> → PRESET-01-NGUOI-THAT<br>
+        <span class="kw">"3D / vi mô"</span> → PRESET-02-3D<br>
+        <span class="kw">"hybrid"</span> → PRESET-03-HYBRID<br>
+        <span class="kw">"MANABIE-2D" / "hoạt hình 2D"</span> → PRESET-04<br>
+        <span class="kw">"whiteboard" / "Khan Academy"</span> → PRESET-05<br>
+        <span class="kw">"Kurzgesagt" / "storytelling"</span> → PRESET-06<br>
+        <span class="kw">"3Blue1Brown" / "Manim"</span> → PRESET-07
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <!-- TẦNG 1 -->
+  <div class="layer L1">
+    <div class="layer-title">TẦNG 1 — XỬ LÝ TÀI LIỆU (Agent: doc-tai-lieu-giao-duc)</div>
+    <div class="row">
+      <div class="box b-green">
+        <strong>01 · Manifest</strong>
+        Liệt kê toàn bộ tài liệu đầu vào<br>
+        <span class="formula">Đọc từ: tai-lieu-dau-vao/&lt;mon&gt;/lop-&lt;n&gt;/
+Bổ sung: tai-lieu-nguoi-dung/ của lớp đó</span>
+      </div>
+      <div class="box b-green">
+        <strong>02 · Source Map</strong>
+        Ánh xạ: Đoạn nội dung → Tài liệu gốc<br>
+        Đánh dấu độ tin cậy từng nguồn<br>
+        Ghi vào: nguon-su-dung.md
+      </div>
+      <div class="box b-green">
+        <strong>03 · Knowledge Brief</strong>
+        Tóm tắt kiến thức cốt lõi của bài<br>
+        Xác định khái niệm sai thường gặp<br>
+        Làm đầu vào cho GATE 1
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <!-- TẦNG 2 -->
+  <div class="layer L2">
+    <div class="layer-title">TẦNG 2 — THIẾT KẾ BÀI DẠY (Agent: thiet-ke-bai-day-vat-ly)</div>
+    <div class="row">
+      <div class="box b-red">
+        <strong>04 · Giáo án chuẩn</strong>
+        Thông tin bài học<br>
+        Yêu cầu cần đạt (CTGDPT 2018)<br>
+        Mục tiêu Bloom đo được<br>
+        Tiến trình bảng (GV/HS/Sản phẩm)<br>
+        Phân hóa · An toàn · BTVN<br>
+        <span class="formula">Chuẩn: skills/thiet-ke-bai-day-vat-ly/
+         assets/chuan-dau-ra.md</span>
+      </div>
+      <div class="box b-red">
+        <strong>05 · Kịch bản Script</strong>
+        Cấu trúc bắt buộc:<br>
+        Hook → Vấn đề → Quan sát<br>
+        → Giải thích → Check hiểu → Chốt<br>
+        Mỗi cảnh: Mục đích | Lời thoại | Hành động<br>
+        | Câu hỏi | Phản hồi | Học liệu | Chuyển cảnh<br>
+        <span class="formula">Chuẩn: viet-kich-ban-video-giao-duc/SKILL.md</span>
+      </div>
+      <div class="box b-red">
+        <strong>Tính số scene &amp; từ</strong>
+        <strong style="color:#f07070">CÔNG THỨC BẤT BIẾN:</strong>
+        <span class="formula">1 scene = 8–10 giây
+1 giây  = 2.5 từ (lip-sync)
+
+Số scene = Tổng giây ÷ 9 (trung bình)
+Số từ    = Tổng giây × 2.5
+
+60s  → 7 scene · 150 từ
+10p  → 67 scene · 1.500 từ
+30p* → 200 scene · 4.500 từ
+45p  → 300 scene · 6.750 từ
+(*phần video của giáo án 45p)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <!-- TẦNG 3 -->
+  <div class="layer L3">
+    <div class="layer-title">TẦNG 3 — SẢN XUẤT MEDIA (Storyboard → Image Prompt → Video Prompt → Voice)</div>
+    <div class="row">
+      <div class="box b-purple">
+        <strong>06 · Storyboard (10 cột)</strong>
+        Scene ID | Timecode | Mục đích sư phạm<br>
+        Visual | Graphics/Overlay | Lời dẫn/Thoại<br>
+        Chữ hậu kỳ | Âm thanh | Nguồn | Kiểm định<br><br>
+        → Khóa Continuity Bible trước khi prompt:<br>
+        Nhân vật · Trang phục · Bối cảnh · Màu đại lượng<br>
+        Hệ quy chiếu · Preset đang dùng · Zone màu
+      </div>
+      <div class="box b-purple">
+        <strong>07 · Image Prompt (EN, standalone)</strong>
+        <span class="formula">[VISUAL ANCHOR — toàn bộ]
+[SUBJECT]. [ACTION]. [ENVIRONMENT].
+SCIENCE ACCURACY LOCK: [ràng buộc vật lý]
+COMPOSITION: rule-of-thirds...
+CAMERA: eye-level, static frame.
+LIGHTING: soft even light.
+COLOR: Zone A #FFF8D0 / Zone B #1BB0EA.
+STYLE: 2D flat vector, MANABIE-2D.
+Leave bottom-left clear for text.
+No embedded text. 16:9 aspect ratio.
+---
+Negative: 3D, photorealistic, text, watermark</span>
+      </div>
+      <div class="box b-purple">
+        <strong>08 · Video Prompt (3 phần tách biệt)</strong>
+        <span style="color:#aaa;font-size:10px">① Phần A → AI video tool (English):</span>
+        <span class="formula">[CONTINUITY ANCHOR — copy nguyên văn]
+One continuous Xs shot.
+ANIMATE FROM REFERENCE IMAGE.
+0:00–0:02 OPENING: establish scene.
+0:02–0:07 CORE: [hiện tượng chính].
+0:07–0:09 TEACHING PEAK: [highlight].
+0:09–0:10 CLOSING: hold final frame.
+SCIENCE ACCURACY LOCK.
+SOUND: no speech, no voice, ambient only.</span>
+        <span style="color:#aaa;font-size:10px">② Phần B → TTS (tiếng Việt) ③ Hậu kỳ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <!-- TẦNG 4 -->
+  <div class="layer L4">
+    <div class="layer-title">TẦNG 4 — KIỂM ĐỊNH 3-GATE BẮT BUỘC (rules/VALIDATION-FRAMEWORK.md)</div>
+    <div class="gate-row">
+      <div class="gate-box gate1">
+        <div class="gate-title" style="color:#ff6666">GATE 1 · KHOA HỌC</div>
+        Agent: <strong>kiem-dinh-vat-ly-chuan</strong><br>
+        Tra cứu duy nhất: <code>KNOWLEDGE-BASE-CHUAN.md</code><br><br>
+        Kiểm tra:<br>
+        ✗ Công thức đúng · Đơn vị SI chuẩn<br>
+        ✗ Quy ước dấu (chiều vectơ)<br>
+        ✗ Điều kiện áp dụng<br>
+        ✗ Hình ảnh không vi phạm khoa học<br>
+        ✗ Khái niệm sai thường gặp<br><br>
+        <span style="color:#ff4444;font-weight:700">BLOCKER → CẤM TIẾP TỤC</span>
+      </div>
+      <div class="gate-box gate2">
+        <div class="gate-title" style="color:#66ff66">GATE 2 · SƯ PHẠM</div>
+        Agent: <strong>kiem-dinh-su-pham</strong> (độc lập)<br>
+        Rubric 7 tiêu chí:<br><br>
+        ✗ Mục tiêu rõ (Bloom quan sát được)<br>
+        ✗ Hoạt động có sản phẩm đo được<br>
+        ✗ Đánh giá đủ · Phân hóa HS<br>
+        ✗ An toàn thí nghiệm<br>
+        ✗ Khả thi với thiết bị hiện có<br>
+        ✗ Nguồn minh bạch<br>
+        ✗ Checkpoint đúng vị trí<br><br>
+        <span style="color:#44ff44;font-weight:700">MAJOR → phải sửa trước bàn giao</span>
+      </div>
+      <div class="gate-box gate3">
+        <div class="gate-title" style="color:#6688ff">GATE 3 · QUY TRÌNH</div>
+        Agent: <strong>quan-ly-san-xuat</strong><br><br>
+        ✗ Scene count đúng công thức<br>
+        ✗ Số từ/scene ≤ giây × 2.5<br>
+        ✗ Continuity Bible nhất quán<br>
+        ✗ Prompt độc lập (không "như trên")<br>
+        ✗ Image–Video cặp 1-1 đúng ID<br>
+        ✗ VISUAL ANCHOR sao chép nguyên văn<br>
+        ✗ 15 file production package đủ<br>
+        ✗ Thư mục đúng chuẩn naming<br><br>
+        <span style="color:#4466ff;font-weight:700">MINOR → gợi ý, không bắt buộc</span>
+      </div>
+    </div>
+    <div class="note-box">
+      <span class="warn">BLOCKER bất kỳ tại bất kỳ GATE nào = DỪNG TOÀN BỘ PIPELINE</span><br>
+      Phải sửa lỗi → chạy lại GATE đó → PASS → mới được tiếp tục bước tiếp theo hoặc gọi API tự động hóa.
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <!-- TẦNG 5 -->
+  <div class="layer L5">
+    <div class="layer-title">TẦNG 5 — CÔNG THỨC CHUẨN (nguồn duy nhất: rules/CONG-THUC-SCENE-WORD.md)</div>
+    <div class="col2">
+      <div class="formula-box">
+        <span class="label">CÔNG THỨC GỐC — BẤT BIẾN, KHÔNG ĐƯỢC THAY ĐỔI</span>
+        1 scene  = 8–10 giây video<br>
+        1 giây   = 2.5 từ  (lip-sync chuẩn tiếng Việt)<br>
+        <br>
+        Số scene = Tổng giây ÷ Giây/scene<br>
+        Số từ    = Tổng giây × 2.5<br>
+        <br>
+        <span class="label">BẢNG TRA NHANH (cột 9s = trung bình dùng)</span>
+        60 giây  →   7 scene ·    150 từ<br>
+        10 phút  →  67 scene ·  1.500 từ<br>
+        20 phút  → 133 scene ·  3.000 từ<br>
+        30 phút* → 200 scene ·  4.500 từ<br>
+        45 phút  → 300 scene ·  6.750 từ<br>
+        60 phút  → 400 scene ·  9.000 từ<br>
+        <span class="label">(*30p = phần video thực sự của giáo án 45p)</span>
+      </div>
+      <div class="formula-box">
+        <span class="label">VOICE-OVER LIP SYNC</span>
+        Chuẩn:  2.5 từ/giây = 150 từ/phút<br>
+        Chậm (khái niệm/công thức): 2.0 từ/giây<br>
+        Nhanh (tóm tắt/chuyển cảnh): 3.0 từ/giây<br>
+        TTS speed: 0.95× tốc độ mặc định tool<br>
+        <br>
+        <span class="label">SỐ TỪ TỐI ĐA MỖI SCENE</span>
+        Scene  8s = 20 từ<br>
+        Scene  9s = 22 từ  ← trung bình dùng<br>
+        Scene 10s = 25 từ<br>
+        <br>
+        <span class="label">KIỂM TRA NHANH</span>
+        đếm từ ÷ 2.5 = số giây đọc<br>
+        phải ≈ thời lượng scene ± 1 giây<br>
+        <br>
+        <span class="label">LỖI THƯỜNG GẶP CẦN TRÁNH</span>
+        ✗ "45p = 36 scene"  →  đúng: 270–300 scene<br>
+        ✗ "130 từ/phút"     →  đúng: 150 từ/phút<br>
+        ✗ "1 scene = 1 phút" →  đúng: 1 scene = 8–10s
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">▼  (Chỉ chạy khi SUMMARY-VALIDATION.md = PASS ✓)</div>
+
+  <!-- TẦNG 6 -->
+  <div class="layer L6">
+    <div class="layer-title">TẦNG 6 — API AUTOMATION (rules/AUTO-API-PIPELINE.md + auto_pipeline.py)</div>
+    <div class="api-row">
+      <div class="api-box b-teal">
+        <strong>BƯỚC 1 · ẢNH</strong>
+        Flux Pro via Replicate<br>
+        1280×720 · 2D flat<br>
+        MANABIE-2D style<br>
+        ~25 steps inference<br>
+        <div class="price">$0.055/ảnh</div>
+      </div>
+      <div class="api-box b-teal">
+        <strong>BƯỚC 2 · VIDEO</strong>
+        Kling 1.6 API<br>
+        Image-to-video<br>
+        8–10s/shot · 16:9<br>
+        Static frame (MANABIE)<br>
+        <div class="price">$0.28/clip 10s</div>
+      </div>
+      <div class="api-box b-teal">
+        <strong>BƯỚC 3 · VOICE</strong>
+        FPT.AI TTS v5<br>
+        speed=0.95 · mp3<br>
+        lannhi / minhquang<br>
+        Giọng Việt tự nhiên nhất<br>
+        <div class="price">5.000đ / 10K ký tự</div>
+      </div>
+      <div class="api-box b-teal">
+        <strong>BƯỚC 4 · GHÉP</strong>
+        FFmpeg CLI / MoviePy<br>
+        mp4 + mp3 → merged<br>
+        concat all scenes<br>
+        subtitle .srt burn-in<br>
+        <div class="price">Miễn phí</div>
+      </div>
+    </div>
+    <div class="note-box">
+      <span class="highlight">Chi phí ước tính:</span>
+      Video 60s (~7 scene) = <span class="highlight">~$2.4 (~60.000đ)</span>
+      &nbsp;·&nbsp;
+      10 phút (~67 scene) = <span class="highlight">~$21 (~525.000đ)</span>
+      &nbsp;·&nbsp;
+      Giáo án 45p (~200 scene video) = <span class="highlight">~$67 (~1.700.000đ)</span>
+      <br>
+      <span style="color:#aaa">Tối ưu: Nhóm scene cùng background → dùng chung keyframe → tiết kiệm 40–60% chi phí ảnh</span>
+    </div>
+    <div class="note-box" style="margin-top:6px;color:#ccc">
+      <strong>ENV cần thiết:</strong>
+      <span style="font-family:monospace;font-size:10px">
+        REPLICATE_API_TOKEN · KLING_API_TOKEN · FPT_API_TOKEN
+      </span>
+      — Xem hướng dẫn đăng ký tại <strong>rules/AUTO-API-PIPELINE.md § V</strong>
+    </div>
+  </div>
+
+  <div class="arrow">▼</div>
+
+  <!-- OUTPUT -->
+  <div class="layer Lout">
+    <div class="out-title">Output cuối cùng</div>
+    <span class="out-kw">dau-ra/bai-day/&lt;mon&gt;/lop-&lt;n&gt;/&lt;chu-de&gt;/&lt;ngay&gt;/ (15 file chuẩn)</span>
+    <span class="out-kw">VIDEO-FINAL/video-final-sub.mp4</span>
+    <span class="out-kw">REPORT-GATE1.md + GATE2.md + GATE3.md</span>
+    <span class="out-kw">SUMMARY-VALIDATION.md = PASS ✓</span>
+  </div>
+
+</div>
+
+<div style="text-align:center;margin-top:18px;font-size:10px;color:#555;">
+  AI Agent Giáo Viên · NDGROUP 2026 · Phiên bản 1.0 · 2026-06-23
+</div>
+
+</body>
+</html>

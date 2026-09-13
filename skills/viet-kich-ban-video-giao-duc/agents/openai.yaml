@@ -1,0 +1,4 @@
+interface:
+  display_name: "Viết kịch bản video giáo dục"
+  short_description: "Chuyển kiến thức thành kịch bản và storyboard"
+  default_prompt: "Use $viet-kich-ban-video-giao-duc to turn lesson content into a production-ready educational video script."

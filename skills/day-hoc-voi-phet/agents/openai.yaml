@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dạy học với PhET"
+  short_description: "Thiết kế hoạt động và video từ mô phỏng PhET"
+  default_prompt: "Use $day-hoc-voi-phet to design a source-aligned physics inquiry activity using an appropriate PhET simulation."

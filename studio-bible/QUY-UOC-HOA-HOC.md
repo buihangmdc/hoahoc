@@ -1,0 +1,25 @@
+# Quy ước Hóa học cho sản xuất hình ảnh
+
+- **Màu sắc nguyên tố chuẩn CPK:**
+  - Carbon (C): Màu xám đen hoặc đen (#333333).
+  - Hydrogen (H): Màu trắng hoặc xám rất nhạt (#FFFFFF).
+  - Oxygen (O): Màu đỏ tươi (#EE2222).
+  - Nitrogen (N): Màu xanh lam đậm (#2244EE).
+  - Chlorine (Cl): Màu xanh lá cây (#22CC22).
+  - Sulfur (S): Màu vàng (#EEDD22).
+  - Phosphorus (P): Màu cam (#FF8800).
+- **Cấu trúc phân tử & Liên kết:**
+  - Kích thước quả cầu nguyên tử tương ứng bán kính tương đối ($r_H < r_C < r_O$).
+  - Liên kết đơn vẽ dạng thanh gậy đơn; liên kết đôi vẽ 2 thanh song song; liên kết ba vẽ 3 thanh; liên kết hydrogen vẽ dạng nét đứt.
+  - Khóa góc liên kết chuẩn hình học không gian (ví dụ góc H-O-H trong H2O xấp xỉ 104.5°, CH4 tứ diện đều 109.5°, CO2 thẳng 180°).
+- **Dụng cụ thí nghiệm thủy tinh:**
+  - Sử dụng đúng dụng cụ: ống nghiệm, bình tam giác (Erlenmeyer), cốc thủy tinh (Beaker), ống đong, buret, pipet, phễu chiết, bình cầu.
+  - Thủy tinh trong suốt, có vạch chia độ rõ ràng, ngấn chất lỏng vẽ hơi cong mặt khum (meniscus).
+- **Hiện tượng thí nghiệm:**
+  - Kết tủa: màu sắc chuẩn (ví dụ BaSO4 trắng, Cu(OH)2 xanh lam, Fe(OH)3 nâu đỏ, AgCl trắng); vẽ kết tủa lắng xuống đáy hoặc vẩn đục.
+  - Thoát khí: bọt khí sinh ra từ bề mặt chất phản ứng hoặc trong lòng dung dịch, bay lên trên.
+  - Ngọn lửa: màu ngọn lửa đặc trưng kim loại (Na: vàng tươi, K: tím nhạt, Cu: xanh lục).
+- **An toàn phòng thí nghiệm:**
+  - Nhân vật học sinh/giáo viên bắt buộc đeo kính bảo hộ, găng tay, mặc áo blouse trắng.
+  - Không mô tả thao tác dùng tay cầm trực tiếp hóa chất hoặc ngửi/nếm hóa chất.
+  - Biểu tượng cảnh báo nguy hiểm GHS (ngọn lửa, ăn mòn, đầu lâu độc hại) đặt rõ ràng trên chai lọ hóa chất.

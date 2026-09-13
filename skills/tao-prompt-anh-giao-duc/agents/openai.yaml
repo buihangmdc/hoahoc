@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tạo prompt ảnh giáo dục"
+  short_description: "Tạo ảnh minh họa đúng khoa học và nhất quán"
+  default_prompt: "Use $tao-prompt-anh-giao-duc to create standalone educational image prompts."

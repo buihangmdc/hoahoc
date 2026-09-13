@@ -1,0 +1,4 @@
+interface:
+  display_name: "Đóng gói video bài giảng"
+  short_description: "Điều phối toàn bộ pipeline sản xuất video"
+  default_prompt: "Use $dong-goi-video-bai-giang to build a complete teaching-video production package."

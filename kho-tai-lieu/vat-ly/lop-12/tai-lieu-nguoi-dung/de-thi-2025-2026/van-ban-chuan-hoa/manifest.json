@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-07-14T04:15:39.636645+00:00",
+  "source_root": "D:\\HỆ THỐNG AI NDGROUP 2026\\GIAO KHÁCH HÀNG 2026 AI AGENT\\AI AGENT GIÁO VIÊN\\kho-tai-lieu\\Tài liệu",
+  "file_count": 11,
+  "unique_file_count": 10,
+  "duplicate_groups": [
+    {
+      "sha256": "000d00ddde324278454d61772544891225b09c3c3aac6a91bef6d4bee8596aa1",
+      "files": [
+        "z8035239516520_7e9a104030cdc181508497f9ffc0c1a6.jpg",
+        "z8035239550905_aba1e7d7c771237859c72a0a8875a25c.jpg"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "2-DE TOT NGHIEP 2025 IN HS.pdf",
+      "extension": ".pdf",
+      "size_bytes": 484706,
+      "grade_inferred": null,
+      "sha256": "f7da340353121d74ae3bf8a56faf20f9ccb90c5c97717378d6662038d6fe943b",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "LỜI GIẢI CHI TIẾT ĐỀ THI VẬT LÝ 2026 - MÃ ĐỀ 0230.pdf",
+      "extension": ".pdf",
+      "size_bytes": 503979,
+      "grade_inferred": null,
+      "sha256": "9115fbe22a1130438907d7ad11a6993725e06c627a6ff292ad9aad6fc27ba640",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "Soạn bài tập vật lí với các chú ý sau.docx",
+      "extension": ".docx",
+      "size_bytes": 14717,
+      "grade_inferred": null,
+      "sha256": "032692c9bad7d06d0ff0db6859fd8494e7a500907751c69bc9fba9133e307c7a",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "SOẠN PROMPT ẢNH INFOGRAPHIC.docx",
+      "extension": ".docx",
+      "size_bytes": 13477,
+      "grade_inferred": null,
+      "sha256": "bd3939e5258b89006ca5c5e2c050e13a41529daef8e876aca9be699d907fe67f",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "z8035239491078_6d426db27ec102d8c9b6fdc1d4b7a1ff.jpg",
+      "extension": ".jpg",
+      "size_bytes": 316436,
+      "grade_inferred": null,
+      "sha256": "dfa744c11128abb382f09e45cc67f27c7a53b8b6e05d7ec69d5fde40af3af035",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "z8035239495740_abc9661228b29bfa42626058f1d2be18.jpg",
+      "extension": ".jpg",
+      "size_bytes": 325605,
+      "grade_inferred": null,
+      "sha256": "59819c30014edf7a4fdb4cbde975bb5cf5109c4d76997846c00af43150bd656e",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "z8035239507711_2aa9e35632aaccbec2f3623cc929170d.jpg",
+      "extension": ".jpg",
+      "size_bytes": 318843,
+      "grade_inferred": null,
+      "sha256": "c2d4407185ffb389a3c13f3564ce67cff961665fdfb6f2ebe82eecdb43afb24a",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "z8035239516520_7e9a104030cdc181508497f9ffc0c1a6.jpg",
+      "extension": ".jpg",
+      "size_bytes": 306706,
+      "grade_inferred": null,
+      "sha256": "000d00ddde324278454d61772544891225b09c3c3aac6a91bef6d4bee8596aa1",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "z8035239533105_01a70d0a7f9d14753e9250ec6d69d6f2.jpg",
+      "extension": ".jpg",
+      "size_bytes": 335510,
+      "grade_inferred": null,
+      "sha256": "d9cdba8855369ed07e687b62d784ffe387e5e00667e0632ceb4a8fbd50f0191e",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "z8035239541889_c0a303cd646011d519b264aefc4a13e6.jpg",
+      "extension": ".jpg",
+      "size_bytes": 324521,
+      "grade_inferred": null,
+      "sha256": "e5c97091d21d3f5c0f3ec028ec4eabc3d54455b79ba1e929943655a0c7cfe4f1",
+      "duplicate_of": null
+    },
+    {
+      "relative_path": "z8035239550905_aba1e7d7c771237859c72a0a8875a25c.jpg",
+      "extension": ".jpg",
+      "size_bytes": 306706,
+      "grade_inferred": null,
+      "sha256": "000d00ddde324278454d61772544891225b09c3c3aac6a91bef6d4bee8596aa1",
+      "duplicate_of": "z8035239516520_7e9a104030cdc181508497f9ffc0c1a6.jpg"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Biên tập ngôn ngữ giáo dục"
+  short_description: "Chuẩn hóa câu từ và lời giảng theo độ tuổi"
+  default_prompt: "Use $bien-tap-ngon-ngu-giao-duc to edit Vietnamese educational content for accuracy, clarity, age fit, and read-aloud delivery."

@@ -1,0 +1,3 @@
+# Tạo prompt ảnh Hóa học
+
+Từ `$ARGUMENTS`, xác định lớp, khái niệm/mô hình phân tử/thí nghiệm, mục đích sử dụng và tỉ lệ khung hình. Dùng skills `thiet-ke-bai-day-hoa-hoc` và `tao-prompt-anh-giao-duc`; đọc `studio-bible/QUY-UOC-HOA-HOC.md` và `studio-bible/PHONG-CACH-HINH-ANH.md`; xuất prompt độc lập bằng tiếng Anh, negative prompt, chemistry science lock (mã màu CPK, góc liên kết, dụng cụ thủy tinh chuẩn), chữ hậu kỳ tiếng Việt và alt-text.

@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "Thiết kế đề kiểm tra Hóa học"
+  short_description: "Tạo ma trận, đặc tả và đề kiểm tra Hóa học 6–12"
+  default_prompt: "Use $thiet-ke-de-kiem-tra-hoa-hoc to create a standards-aligned Vietnamese chemistry assessment package."

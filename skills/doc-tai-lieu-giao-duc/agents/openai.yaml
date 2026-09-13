@@ -1,0 +1,4 @@
+interface:
+  display_name: "Đọc tài liệu giáo dục"
+  short_description: "Phân tích và chuẩn hóa tài liệu đầu vào"
+  default_prompt: "Use $doc-tai-lieu-giao-duc to analyze source teaching materials with traceability."

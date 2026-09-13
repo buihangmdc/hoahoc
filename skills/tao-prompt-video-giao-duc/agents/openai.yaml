@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tạo prompt video giáo dục"
+  short_description: "Tạo prompt video theo shot và continuity"
+  default_prompt: "Use $tao-prompt-video-giao-duc to create production-ready educational video prompts."

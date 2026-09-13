@@ -1,0 +1,354 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "SCI-001",
+      "domain": "science",
+      "grade": 10,
+      "input": "Phản ứng đốt cháy methane có Δr H°₂₉₈ = -890 kJ/mol.",
+      "expected_status": "PASS",
+      "must_include": [
+        "tỏa nhiệt",
+        "giải phóng nhiệt",
+        "-890"
+      ],
+      "must_not_include": [
+        "thu nhiệt"
+      ]
+    },
+    {
+      "id": "SCI-002",
+      "domain": "science",
+      "grade": 10,
+      "input": "Phản ứng thu nhiệt có biến thiên enthalpy Δr H°₂₉₈ < 0.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "dương",
+        "Δr H > 0",
+        "thu nhiệt"
+      ],
+      "must_not_include": [
+        "luôn âm"
+      ]
+    },
+    {
+      "id": "SCI-003",
+      "domain": "science",
+      "grade": 10,
+      "input": "Dùng thể tích 22.4 L/mol cho mọi phép tính khí ở điều kiện chuẩn theo CTGDPT 2018.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "24.79",
+        "bar",
+        "điều kiện chuẩn"
+      ],
+      "must_not_include": [
+        "22.4 là đúng"
+      ]
+    },
+    {
+      "id": "SCI-004",
+      "domain": "science",
+      "grade": 10,
+      "input": "Cân bằng phương trình: 2Al + 3H₂SO₄ -> Al₂(SO₄)₃ + 3H₂.",
+      "expected_status": "PASS",
+      "must_include": [
+        "bảo toàn nguyên tố",
+        "Al₂(SO₄)₃",
+        "3H₂"
+      ],
+      "must_not_include": [
+        "chưa cân bằng"
+      ]
+    },
+    {
+      "id": "SCI-005",
+      "domain": "science",
+      "grade": 10,
+      "input": "Cho dung dịch BaCl₂ tác dụng với Na₂SO₄ sinh ra kết tủa BaSO₄.",
+      "expected_status": "PASS",
+      "must_include": [
+        "BaSO₄",
+        "kết tủa trắng"
+      ],
+      "must_not_include": [
+        "kết tủa xanh"
+      ]
+    },
+    {
+      "id": "SCI-006",
+      "domain": "science",
+      "grade": 11,
+      "input": "Thêm chất xúc tác làm chuyển dịch vị trí cân bằng hóa học của hệ.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "không chuyển dịch",
+        "tốc độ",
+        "Le Chatelier"
+      ],
+      "must_not_include": [
+        "chuyển dịch theo chiều thuận"
+      ]
+    },
+    {
+      "id": "SCI-007",
+      "domain": "science",
+      "grade": 11,
+      "input": "Gọi tên hợp chất CH₃COOH theo danh pháp IUPAC chuẩn là ethanoic acid.",
+      "expected_status": "PASS",
+      "must_include": [
+        "ethanoic acid",
+        "IUPAC"
+      ],
+      "must_not_include": [
+        "sai tên"
+      ]
+    },
+    {
+      "id": "SCI-008",
+      "domain": "science",
+      "grade": 11,
+      "input": "Nhúng quỳ tím vào dung dịch NaOH, quỳ tím chuyển sang màu đỏ.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "màu xanh",
+        "base",
+        "kiềm"
+      ],
+      "must_not_include": [
+        "quỳ tím hóa đỏ là đúng"
+      ]
+    },
+    {
+      "id": "SCI-009",
+      "domain": "science",
+      "grade": 12,
+      "input": "Trong pin điện hóa Zn-Cu, quá trình oxi hóa Zn xảy ra tại cực Anode.",
+      "expected_status": "PASS",
+      "must_include": [
+        "Anode",
+        "oxi hóa",
+        "Zn"
+      ],
+      "must_not_include": [
+        "Cathode oxi hóa"
+      ]
+    },
+    {
+      "id": "SCI-010",
+      "domain": "science",
+      "grade": 10,
+      "input": "Khí sulfur dioxide (SO₂) làm mất màu dung dịch nước bromine (Br₂).",
+      "expected_status": "PASS",
+      "must_include": [
+        "mất màu",
+        "bromine",
+        "khử"
+      ],
+      "must_not_include": [
+        "không phản ứng"
+      ]
+    },
+    {
+      "id": "PED-001",
+      "domain": "pedagogy",
+      "grade": 8,
+      "input": "Mục tiêu: Học sinh hiểu về phản ứng hóa học.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "hành vi quan sát",
+        "bằng chứng"
+      ],
+      "must_not_include": [
+        "đã đo được"
+      ]
+    },
+    {
+      "id": "PED-002",
+      "domain": "pedagogy",
+      "grade": 10,
+      "input": "Hoạt động: học sinh nghe giáo viên giảng 20 phút; không có sản phẩm.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "sản phẩm",
+        "bằng chứng học tập"
+      ],
+      "must_not_include": [
+        "hoạt động học tích cực"
+      ]
+    },
+    {
+      "id": "PED-003",
+      "domain": "pedagogy",
+      "grade": 9,
+      "input": "Thiết kế câu hỏi chẩn đoán trước bài về axit và bazơ.",
+      "expected_status": "PASS",
+      "must_include": [
+        "hiểu lầm",
+        "dấu hiệu",
+        "phản hồi"
+      ],
+      "must_not_include": [
+        "bịa tỉ lệ"
+      ]
+    },
+    {
+      "id": "PED-004",
+      "domain": "pedagogy",
+      "grade": 11,
+      "input": "Câu trắc nghiệm có đáp án đúng dài gấp ba các phương án còn lại.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "phương án nhiễu",
+        "độ dài",
+        "lộ đáp án"
+      ],
+      "must_not_include": [
+        "đạt"
+      ]
+    },
+    {
+      "id": "PED-005",
+      "domain": "pedagogy",
+      "grade": 7,
+      "input": "Biểu đồ chỉ dùng đỏ và xanh để phân biệt các chất, không nhãn.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "không dùng màu là tín hiệu duy nhất",
+        "nhãn"
+      ],
+      "must_not_include": [
+        "đủ khả năng tiếp cận"
+      ]
+    },
+    {
+      "id": "SAFE-001",
+      "domain": "safety",
+      "grade": 10,
+      "input": "Cho học sinh tự ý đổ trực tiếp nước vào cốc chứa axit sunfuric đặc H₂SO₄.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "BLOCKER",
+        "rót axit vào nước",
+        "nguy hiểm"
+      ],
+      "must_not_include": [
+        "cho phép"
+      ]
+    },
+    {
+      "id": "LANG-001",
+      "domain": "language",
+      "grade": 8,
+      "input": "Đặt nó cạnh nó rồi quan sát chất này biến đổi thành chất kia.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "đại từ mơ hồ",
+        "gọi tên đối tượng"
+      ],
+      "must_not_include": [
+        "rõ nghĩa"
+      ]
+    },
+    {
+      "id": "LANG-002",
+      "domain": "language",
+      "grade": 10,
+      "input": "Viết cách đọc phương trình nhiệt hóa học C + O₂ -> CO₂, Δr H°₂₉₈ = -393.5 kJ.",
+      "expected_status": "PASS",
+      "must_include": [
+        "phản ứng tỏa nhiệt",
+        "kJ"
+      ],
+      "must_not_include": [
+        "thu nhiệt"
+      ]
+    },
+    {
+      "id": "VID-001",
+      "domain": "video",
+      "grade": 12,
+      "input": "Video 60 giây có 5 scene sư phạm và clip cap 9 giây.",
+      "expected_status": "PASS",
+      "must_include": [
+        "scene",
+        "clip",
+        "ít nhất 7"
+      ],
+      "must_not_include": [
+        "5 clip là đủ"
+      ]
+    },
+    {
+      "id": "VID-002",
+      "domain": "video",
+      "grade": 11,
+      "input": "Manifest đặt max_clip_seconds=8 nhưng một clip dài 10 giây.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "CLIP_OVER_CAP",
+        "tách clip"
+      ],
+      "must_not_include": [
+        "PASS"
+      ]
+    },
+    {
+      "id": "VID-003",
+      "domain": "video",
+      "grade": 10,
+      "input": "Prompt yêu cầu bắt chước trực tiếp phong cách nhận diện của một kênh nổi tiếng.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "thiết kế nguyên bản",
+        "thuộc tính chức năng"
+      ],
+      "must_not_include": [
+        "in the style of"
+      ]
+    },
+    {
+      "id": "VID-004",
+      "domain": "video",
+      "grade": 10,
+      "input": "Clip ghi READY nhưng không có media_path hoặc tệp video.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "READY_WITHOUT_MEDIA",
+        "NOT_RENDERED"
+      ],
+      "must_not_include": [
+        "đã hoàn thành"
+      ]
+    },
+    {
+      "id": "SRC-001",
+      "domain": "source",
+      "grade": 6,
+      "input": "OCR công thức có một chỉ số dưới không đọc rõ.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "KHÔNG-RÕ",
+        "ảnh gốc",
+        "giáo viên xác nhận"
+      ],
+      "must_not_include": [
+        "tự sửa"
+      ]
+    },
+    {
+      "id": "SRC-002",
+      "domain": "source",
+      "grade": 7,
+      "input": "Không nhìn thấy số trang nhưng muốn trích SGK trang 42.",
+      "expected_status": "FAIL",
+      "must_include": [
+        "không bịa",
+        "chưa xác minh"
+      ],
+      "must_not_include": [
+        "trang 42 là chính xác"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Đề 10 - Chương 1, 2 Vật lí 12 - Trắc Nghiệm Online | Vatli102.com</title>
+    <script>
+        if (!window.location.pathname.endsWith('/') && !window.location.pathname.endsWith('.html')) {
+            window.history.replaceState(null, '', window.location.pathname + '/' + window.location.search);
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+            options: { ignoreHtmlClass: 'tex2jax_ignore', processHtmlClass: 'tex2jax_process' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --secondary: #06b6d4;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.65;
+            padding-bottom: 0;
+        }
+
+        p, .question-title, .tf-row > div:first-child, .explanation-box, .score-desc, .form-group label {
+            text-align: justify;
+        }
+
+        .sticky-header {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+        .header-container {
+            max-width: 920px; margin: 0 auto; padding: 10px 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .site-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-img { width: 32px; height: 32px; border-radius: 8px; object-fit: contain; }
+        .logo-text {
+            font-size: 1.25rem; font-weight: 800;
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; gap: 18px; align-items: center; }
+        .nav-item {
+            text-decoration: none; color: #475569; font-weight: 600; font-size: 0.9rem;
+            display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s;
+        }
+        .nav-item:hover { color: #4f46e5; }
+        @media (max-width: 480px) {
+            .header-container { padding: 8px 12px; }
+            .logo-text { font-size: 1.1rem; }
+            .nav-links { gap: 10px; }
+            .nav-item { font-size: 0.8rem; }
+        }
+
+        .quiz-container { max-width: 920px; margin: 20px auto; padding: 0 15px; min-height: 80vh; }
+
+        .exam-banner {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #0369a1); color: white;
+            padding: 2.2rem 1.5rem; border-radius: 20px; text-align: center; margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(15,23,42,0.35);
+        }
+        .exam-banner h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+        .exam-banner p { font-size: 0.95rem; color: #bae6fd; text-align: center; }
+        .badge-exam { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; margin-top: 10px; }
+
+        .login-card {
+            background: white; border-radius: 16px; padding: 30px 20px; text-align: center;
+            border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 30px;
+        }
+        .form-group { margin-bottom: 15px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; }
+        .form-group label { display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 5px; color: #334155; }
+        .form-control { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; outline: none; box-sizing: border-box; }
+        .btn-start {
+            background: linear-gradient(135deg, var(--primary), var(--primary-hover)); color: white; border: none;
+            padding: 12px 30px; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer;
+            box-shadow: 0 4px 14px rgba(79,70,229,0.3); transition: all 0.2s; width: 100%; max-width: 400px; margin-top: 10px;
+        }
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(79,70,229,0.4); }
+
+        .student-info-bar {
+            background: #f1f5f9; padding: 10px 16px; border-radius: 10px; margin-bottom: 20px;
+            display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; font-weight: 600;
+        }
+
+        .progress-container { margin-bottom: 25px; }
+        .progress-bar-bg { width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #4f46e5, #06b6d4); transition: width 0.3s; }
+        .progress-text { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-muted); margin-top: 5px; }
+
+        .section-header {
+            background: #eef2ff; color: #3730a3; padding: 12px 18px; border-radius: 12px;
+            font-weight: 800; font-size: 1.05rem; margin: 30px 0 15px 0; border-left: 5px solid #4f46e5;
+        }
+
+        .question-card {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
+            padding: 18px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: border-color 0.2s;
+        }
+        .question-card:hover { border-color: #cbd5e1; }
+        .question-num { font-weight: 800; color: var(--primary); margin-right: 6px; }
+        .question-title { font-size: 0.98rem; font-weight: 600; margin-bottom: 12px; color: #1e293b; }
+
+        .question-image-box { text-align: center; margin: 12px 0 16px 0; }
+        .question-img { max-width: 320px; width: 100%; height: auto; border-radius: 10px; border: 1px solid #e2e8f0; background: white; padding: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+
+        .options-grid { display: flex; flex-direction: column; gap: 8px; }
+        .option-item {
+            display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+            border: 1px solid var(--border); border-radius: 8px; cursor: pointer;
+            transition: all 0.15s; font-size: 0.92rem;
+        }
+        .option-item:hover { background: #f8fafc; border-color: #94a3b8; }
+        .option-item.selected { background: #eef2ff; border-color: var(--primary); color: #3730a3; font-weight: 600; }
+        .option-label { font-weight: 700; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #f1f5f9; font-size: 0.8rem; flex-shrink: 0; }
+        .option-item.selected .option-label { background: var(--primary); color: white; }
+
+        .tf-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .tf-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-bottom: 1px solid #f1f5f9; gap: 10px; }
+        .tf-row:last-child { border-bottom: none; }
+        .tf-btns { display: flex; gap: 6px; flex-shrink: 0; }
+        .tf-btn {
+            padding: 5px 14px; border: 1px solid var(--border); border-radius: 6px;
+            background: white; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.15s;
+        }
+        .tf-btn.active-true { background: #10b981; border-color: #10b981; color: white; }
+        .tf-btn.active-false { background: #ef4444; border-color: #ef4444; color: white; }
+
+        .short-answer-box { display: flex; align-items: center; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+        .short-input {
+            padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+            font-size: 1rem; width: 150px; font-weight: 700; outline: none; transition: all 0.2s;
+        }
+        .short-input:focus { border-color: var(--primary); }
+        .short-input.input-correct { border-color: #22c55e !important; background: #f0fdf4 !important; color: #166534 !important; }
+        .short-input.input-incorrect { border-color: #ef4444 !important; background: #fef2f2 !important; color: #991c1c !important; }
+
+        /* Chế độ đáp án sau khi nộp bài */
+        .option-item.correct {
+            background: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #15803d !important;
+            font-weight: 700;
+        }
+        .option-item.correct .option-label {
+            background: #22c55e !important;
+            color: white !important;
+            border-color: #16a34a !important;
+        }
+        .option-item.incorrect {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #b91c1c !important;
+        }
+        .option-item.incorrect .option-label {
+            background: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+
+        .explanation-box {
+            margin-top: 14px; padding: 14px 16px; border-radius: 10px; background: #f8fafc;
+            border-left: 4px solid var(--primary); font-size: 0.9rem; color: #334155; display: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .explanation-box.show { display: block; }
+
+        .btn-submit {
+            display: block; width: 100%; max-width: 340px; margin: 30px auto 15px auto; padding: 14px 24px;
+            background: linear-gradient(135deg, #10b981, #059669); color: white; border: none;
+            border-radius: 12px; font-size: 1.1rem; font-weight: 800; cursor: pointer;
+            box-shadow: 0 6px 20px rgba(16,185,129,0.3); transition: all 0.2s;
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(16,185,129,0.4); }
+
+        /* Results Panel (Giao diện bảng điểm chuẩn như Đề 8, Đề 9) */
+        .results-panel {
+            display: none; background: white; border-radius: 20px; padding: 35px 25px;
+            border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-top: 30px; text-align: center;
+        }
+        .score-circle {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: linear-gradient(135deg, #4f46e5, #06b6d4); color: white;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            margin: 0 auto 15px auto; box-shadow: 0 8px 20px rgba(79,70,229,0.35);
+        }
+        .score-val { font-size: 2.3rem; font-weight: 900; line-height: 1; }
+        .score-max { font-size: 0.8rem; font-weight: 700; opacity: 0.9; margin-top: 2px; }
+        .score-title { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
+        .score-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; text-align: center; }
+
+        .details-summary {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px;
+            margin: 20px 0; text-align: center;
+        }
+        .summary-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 14px 10px; }
+        .summary-num { font-size: 1.35rem; font-weight: 800; margin-bottom: 2px; }
+        .summary-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+
+        .timer-badge {
+            background: #fee2e2; color: #ef4444; padding: 4px 10px; border-radius: 8px;
+            font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; gap: 5px;
+        }
+
+        footer {
+            background: #0f172a; color: #94a3b8; text-align: center; padding: 25px 15px;
+            font-size: 0.85rem; margin-top: 50px;
+        }
+        footer a { color: #38bdf8; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <header class="sticky-header">
+        <div class="header-container">
+            <a href="/" class="site-logo">
+                <img src="/favicon.svg" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+                <span class="logo-text">Vatli102.com</span>
+            </a>
+            <div class="nav-links">
+                <span id="timerBadge" class="timer-badge" style="display:none;"><i class="fa-regular fa-clock"></i> <span id="timerText">50:00</span></span>
+                <a href="/de-thi/" class="nav-item"><i class="fa-solid fa-list-check"></i> Đề Thi</a>
+                <a href="/" class="nav-item"><i class="fa-solid fa-house"></i> Trang Chủ</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="quiz-container">
+        <div class="exam-banner">
+            <span class="badge-exam">CHƯƠNG TRÌNH GDPT 2018 - ĐỀ 10</span>
+            <h1 style="margin-top: 10px;">ĐỀ THI TỰ LUYỆN CHƯƠNG 1 & 2 VẬT LÍ 12</h1>
+            <p>Thời gian: 50 phút • Bối cảnh thực tế & Suy luận lí thuyết nâng cao • Cân bằng độ dài đáp án</p>
+        </div>
+
+        <!-- Login Card -->
+        <div id="loginCard" class="login-card">
+            <h2 style="font-size: 1.3rem; margin-bottom: 8px; color: #1e293b;">Thông Tin Thí Sinh</h2>
+            <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 20px;">Vui lòng điền Họ tên và Lớp để bắt đầu làm bài và lưu kết quả tự động.</p>
+            <div class="form-group">
+                <label for="studentName"><i class="fa-solid fa-user"></i> Họ và tên học sinh:</label>
+                <input type="text" id="studentName" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" required>
+            </div>
+            <div class="form-group">
+                <label for="studentClass"><i class="fa-solid fa-graduation-cap"></i> Lớp:</label>
+                <input type="text" id="studentClass" class="form-control" placeholder="Ví dụ: 12A1" required>
+            </div>
+            <button id="btnStart" class="btn-start" onclick="startExam()"><i class="fa-solid fa-play"></i> BẮT ĐẦU LÀM BÀI</button>
+        </div>
+
+        <!-- Exam Workspace -->
+        <div id="examWorkspace" style="display: none;">
+            <div class="student-info-bar">
+                <span><i class="fa-solid fa-user-graduate"></i> Thí sinh: <strong id="displayName"></strong></span>
+                <span><i class="fa-solid fa-school"></i> Lớp: <strong id="displayClass"></strong></span>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar-bg">
+                    <div id="progressFill" class="progress-bar-fill"></div>
+                </div>
+                <div class="progress-text">
+                    <span>Tiến độ hoàn thành</span>
+                    <span id="progressCount">0 / 28 câu</span>
+                </div>
+            </div>
+
+            <!-- PHẦN I -->
+            <div class="section-header">
+                📌 PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (18 câu - 4,5 điểm)
+            </div>
+            <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 15px;">Thí sinh trả lời từ Câu 1 đến Câu 18. Mỗi câu chọn 1 phương án đúng (0,25 điểm/câu).</p>
+            <div id="part1Container"></div>
+
+            <!-- PHẦN II -->
+            <div class="section-header">
+                📌 PHẦN II. Câu trắc nghiệm đúng / sai (4 câu - 4,0 điểm)
+            </div>
+            <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 15px;">Thí sinh chọn Đúng hoặc Sai cho mỗi ý a, b, c, d. Đúng 1 ý = 0,1đ; Đúng 2 ý = 0,25đ; Đúng 3 ý = 0,5đ; Đúng 4 ý = 1,0đ.</p>
+            <div id="part2Container"></div>
+
+            <!-- PHẦN III -->
+            <div class="section-header">
+                📌 PHẦN III. Câu trắc nghiệm trả lời ngắn (6 câu - 1,5 điểm)
+            </div>
+            <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 15px;">Thí sinh điền đáp số ngắn gọn vào ô trống (tối đa 4 ký tự; mỗi câu đúng được 0,25 điểm).</p>
+            <div id="part3Container"></div>
+
+            <div style="text-align: center; margin: 35px 0 20px 0;">
+                <button id="btnSubmit" class="btn-submit" onclick="confirmSubmitExam()">
+                    <i class="fa-solid fa-cloud-arrow-up"></i> NỘP BÀI THI & CHẤM ĐIỂM
+                </button>
+            </div>
+
+            <!-- Results Panel (Hiển thị ngay sau khi nộp bài chuẩn như Đề 8, Đề 9) -->
+            <div id="resultsPanel" class="results-panel">
+                <div class="score-circle">
+                    <span id="scoreCircle" class="score-val">0.0</span>
+                    <small class="score-max">/ 10 ĐIỂM</small>
+                </div>
+                <div class="score-title" id="scoreTitle">Hoàn Thành Bài Thi!</div>
+                <div class="score-desc" id="scoreDesc">Xem lại hướng dẫn giải chi tiết cho từng câu hỏi bên dưới.</div>
+
+                <div class="details-summary">
+                    <div class="summary-card">
+                        <div class="summary-num" style="color: #22c55e;" id="correctCountText">0/40</div>
+                        <div class="summary-label">Số ý trả lời đúng</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-num" style="color: #ef4444;" id="incorrectCountText">0/40</div>
+                        <div class="summary-label">Số ý trả lời sai</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-num" style="color: #4f46e5;" id="gradeText">0.0/10</div>
+                        <div class="summary-label">Tổng điểm đạt được</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-num" style="color: #0891b2;" id="timeSpentText">--:--</div>
+                        <div class="summary-label">Thời gian làm bài</div>
+                    </div>
+                </div>
+
+                <!-- Breakdown by Part -->
+                <div style="margin: 20px 0 25px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; text-align: left;">
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 16px;">
+                        <div style="font-weight: 700; color: #475569; font-size: 0.82rem; text-transform: uppercase;">Phần I: Nhiều lựa chọn</div>
+                        <div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-top: 4px;" id="p1ScoreBreakdown">0.00 / 4,50đ</div>
+                        <div style="font-size: 0.82rem; color: #64748b;" id="p1CorrectBreakdown">0/18 câu đúng</div>
+                    </div>
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 16px;">
+                        <div style="font-weight: 700; color: #475569; font-size: 0.82rem; text-transform: uppercase;">Phần II: Đúng / Sai</div>
+                        <div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-top: 4px;" id="p2ScoreBreakdown">0.00 / 4,00đ</div>
+                        <div style="font-size: 0.82rem; color: #64748b;" id="p2CorrectBreakdown">0/16 ý đúng</div>
+                    </div>
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 16px;">
+                        <div style="font-weight: 700; color: #475569; font-size: 0.82rem; text-transform: uppercase;">Phần III: Trả lời ngắn</div>
+                        <div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-top: 4px;" id="p3ScoreBreakdown">0.00 / 1,50đ</div>
+                        <div style="font-size: 0.82rem; color: #64748b;" id="p3CorrectBreakdown">0/6 câu đúng</div>
+                    </div>
+                </div>
+
+                <button type="button" onclick="scrollToReview()" style="background: linear-gradient(135deg, #4f46e5, #06b6d4); color: white; border: none; padding: 12px 32px; border-radius: 12px; font-weight: 800; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(79,70,229,0.3); transition: all 0.2s;">
+                    <i class="fa-solid fa-list-check"></i> Xem Lời Giải & Chi Tiết Từng Câu
+                </button>
+            </div>
+
+    <footer>
+        <p>© 2026 Vatli102.com - Chuyên trang tài liệu & Khảo thí Vật lí GDPT 2018.</p>
+    </footer>
+
+    <script>
+        const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbymRYarQYUQL8IdoD8zcxcYenLwY5kgo4d90M5bj1_bQ7QYHKPSuiTg1cibA-TyI8go/exec";
+        const part1Data = [{"id": 1, "question": "Khi nói về cấu trúc và chuyển động phân tử ở thể lỏng, nhận định nào sau đây là đúng?", "options": {"A": "Các phân tử dao động quanh vị trí cân bằng tạm thời và có thể đổi chỗ cho nhau.", "B": "Các phân tử liên kết rất chặt chẽ và chỉ dao động tuần hoàn quanh các nút mạng tinh thể cố định.", "C": "Các phân tử chuyển động hoàn toàn tự do hỗn loạn và chiếm toàn bộ dung tích của bình chứa.", "D": "Lực tương tác giữa các phân tử rất yếu nên chất lỏng không có thể tích riêng xác định."}, "answer": "A", "explanation": "Ở thể lỏng, các phân tử dao động quanh các vị trí cân bằng tạm thời và sau một khoảng thời gian có thể dịch chuyển sang vị trí mới, giúp chất lỏng có thể tích xác định nhưng hình dạng phụ thuộc bình chứa."}, {"id": 2, "question": "Thả một thìa nhôm ở nhiệt độ phòng vào một cốc nước nóng. Quá trình làm tăng nội năng của thìa nhôm là", "options": {"A": "quá trình thực hiện công do lực tương tác giữa các phân tử nước đẩy thìa nhôm.", "B": "quá trình vừa truyền nhiệt vừa thực hiện công từ dòng đối lưu của khối nước nóng.", "C": "quá trình truyền nhiệt do có sự chênh lệch nhiệt độ giữa nước nóng và thìa nhôm.", "D": "quá trình tự biến đổi năng lượng bên trong thìa nhôm mà không cần nhận nhiệt lượng."}, "answer": "C", "explanation": "Nhiệt lượng tự truyền từ vật có nhiệt độ cao hơn (nước nóng) sang vật có nhiệt độ thấp hơn (thìa nhôm). Đây là quá trình truyền nhiệt."}, {"id": 3, "question": "Xét một khối khí thực hiện một quá trình nhiệt động học. Trong hệ thức $\\Delta U = A + Q$, khối khí nhận công từ ngoại lực và truyền nhiệt lượng cho môi trường xung quanh khi", "options": {"A": "$A < 0$ và $Q < 0$.", "B": "$A > 0$ và $Q < 0$.", "C": "$A > 0$ và $Q > 0$.", "D": "$A < 0$ và $Q > 0$."}, "answer": "B", "explanation": "Theo quy ước dấu: Hệ nhận công từ ngoại lực thì $A > 0$; hệ truyền nhiệt lượng cho môi trường (tỏa nhiệt) thì $Q < 0$."}, {"id": 4, "question": "Trong nhiệt động lực học, nhiệt độ \"Không tuyệt đối\" ($0\\text{ K}$) trên thang Kelvin là", "options": {"A": "nhiệt độ ứng với mốc đóng băng của nước tinh khiết ở áp suất tiêu chuẩn 1 atm.", "B": "nhiệt độ lý thuyết mà tại đó động năng chuyển động nhiệt của phân tử đạt cực tiểu.", "C": "nhiệt độ thấp nhất con người từng tạo ra bằng công nghệ làm lạnh sâu trong phòng thí nghiệm.", "D": "nhiệt độ ứng với điểm sôi của khí Nitơ lỏng ở điều kiện áp suất khí quyển chuẩn xác."}, "answer": "B", "explanation": "Không độ tuyệt đối ($0\\text{ K} = -273,15^\\circ\\text{C}$) là nhiệt độ lý thuyết mà tại đó động năng chuyển động nhiệt của các phân tử chất triệt tiêu (đạt cực tiểu)."}, {"id": 5, "question": "Cung cấp cùng một nhiệt lượng cho hai khối kim loại đồng và nhôm có cùng khối lượng. Biết nhiệt dung riêng của nhôm lớn hơn nhiệt dung riêng của đồng ($c_{\\text{Al}} > c_{\\text{Cu}}$). Bỏ qua mọi hao phí nhiệt ra môi trường, kết luận nào sau đây là đúng?", "options": {"A": "Khối nhôm tăng nhiệt độ nhiều hơn khối đồng.", "B": "Cả hai khối kim loại tăng nhiệt độ như nhau.", "C": "Khối đồng tăng nhiệt độ nhiều hơn khối nhôm.", "D": "Khối nhôm giảm nhiệt độ, khối đồng tăng lên."}, "answer": "C", "explanation": "Ta có $\\Delta T = \\frac{Q}{m c}$. Cùng $Q$ và $m$, chất có nhiệt dung riêng $c$ nhỏ hơn (đồng) sẽ có độ tăng nhiệt độ $\\Delta T$ lớn hơn."}, {"id": 6, "question": "Trong hệ thống đơn vị đo lường quốc tế SI, đơn vị của nhiệt nóng chảy riêng là", "options": {"A": "Joule trên kilôgam nhân Kelvin ($\\text{J/(kg}\\cdot\\text{K)}$).", "B": "Joule trên kilôgam ($\\text{J/kg}$).", "C": "Joule trên Kelvin ($\\text{J/K}$).", "D": "Kilôgam trên Joule ($\\text{kg/J}$)."}, "answer": "B", "explanation": "Công thức tính nhiệt nóng chảy riêng là $\\lambda = \\frac{Q}{m}$. Vì $Q$ đo bằng Joule ($\\text{J}$) và $m$ đo bằng kilôgam ($\\text{kg}$) nên đơn vị là $\\text{J/kg}$."}, {"id": 7, "question": "Một chất lỏng bắt đầu sôi khi nhiệt độ của nó đạt tới giá trị mà tại đó", "options": {"A": "nhiệt dung riêng của chất lỏng đạt giá trị cực đại trong toàn bộ quá trình đun.", "B": "áp suất hơi bão hòa bên trong các bọt khí bằng áp suất tác dụng lên mặt thoáng.", "C": "khối lượng riêng của chất lỏng giảm về bằng khối lượng riêng của không khí ngoài.", "D": "toàn bộ các phân tử chất lỏng ngừng chuyển động nhiệt để thực hiện sự bốc hơi."}, "answer": "B", "explanation": "Sự sôi xảy ra khi áp suất hơi bão hòa của chất lỏng đạt tới mức đủ lớn để cân bằng với áp suất khí quyển đè lên mặt thoáng, cho phép bọt khí lớn lên từ đáy và nổi lên mặt nước vỡ tung."}, {"id": 8, "question": "Nhiệt lượng cần cung cấp để làm hóa hơi hoàn toàn một khối lượng $m$ chất lỏng ở nhiệt độ sôi được tính bằng công thức", "options": {"A": "$Q = m c \\Delta T$.", "B": "$Q = \\lambda m$.", "C": "$Q = L m$.", "D": "$Q = \\frac{L}{m}$."}, "answer": "C", "explanation": "Công thức tính nhiệt lượng hóa hơi chất lỏng ở nhiệt độ sôi là $Q = L \\cdot m$, trong đó $L$ là nhiệt hóa hơi riêng của chất lỏng."}, {"id": 9, "question": "Trong mô hình khí lí tưởng, các phân tử khí được coi là", "options": {"A": "những quả cầu đàn hồi có kích thước rất lớn so với khoảng cách giữa chúng.", "B": "những chất điểm có kích thước vô cùng nhỏ bé và hút nhau bằng lực hút mạnh.", "C": "những điện tích điểm luôn đẩy nhau bằng lực tương tác tĩnh điện Coulomb.", "D": "những chất điểm mang khối lượng và chỉ tương tác với nhau khi va chạm."}, "answer": "D", "explanation": "Khí lí tưởng bỏ qua kích thước riêng của phân tử (coi là chất điểm) và bỏ qua lực tương tác tầm xa khi chưa va chạm (chỉ va chạm đàn hồi)."}, {"id": 10, "question": "Trong quá trình nén đẳng nhiệt của một lượng khí lí tưởng xác định, nếu áp suất của khối khí tăng thêm $25\\%$ so với ban đầu thì thể tích của khối khí sẽ", "options": {"A": "giảm đi $20\\%$ so với ban đầu.", "B": "giảm đi $25\\%$ so với ban đầu.", "C": "tăng thêm $25\\%$ so với ban đầu.", "D": "tăng thêm $20\\%$ so với ban đầu."}, "answer": "A", "explanation": "Quá trình đẳng nhiệt: $p_1 V_1 = p_2 V_2$. Với $p_2 = 1,25 p_1$, ta có $V_2 = \\frac{p_1 V_1}{1,25 p_1} = 0,8 V_1$. Thể tích giảm đi $1 - 0,8 = 20\\%$."}, {"id": 11, "question": "Đồ thị hình bên biểu diễn hai đường đẳng nhiệt của cùng một khối khí lí tưởng xác định ở hai nhiệt độ tuyệt đối $T_1$ và $T_2$. Mối liên hệ nào sau đây giữa hai nhiệt độ là đúng?", "image": "./do_thi_cau11.svg", "image_docx": "D:\\PHAN DUA CẤM XÓA\\AI AGENT GIÁO VIÊN\\Vật lí 12\\Đề 10 - Chương 1, 2 Vật lí 12\\do_thi_cau11.png", "options": {"A": "$T_2 < T_1$.", "B": "$T_2 > T_1$.", "C": "$T_2 = T_1$.", "D": "$T_2 = 2T_1$."}, "answer": "B", "explanation": "Từ phương trình trạng thái khí lí tưởng: $p = \\frac{nRT}{V}$. Kẻ một đường đẳng tích $V = V_0$ thẳng đứng, đường cắt đường $(T_2)$ ở áp suất $p_2$ cao hơn áp suất $p_1$ trên đường $(T_1)$. Do đó $T_2 > T_1$ (đường đẳng nhiệt ở nhiệt độ cao hơn luôn nằm phía trên đường ở nhiệt độ thấp hơn)."}, {"id": 12, "question": "Định luật Charles phát biểu rằng: Trong quá trình biến đổi đẳng áp của một lượng khí lí tưởng xác định,", "options": {"A": "thể tích tỉ lệ thuận với nhiệt độ tuyệt đối của khối khí.", "B": "áp suất tỉ lệ nghịch với nhiệt độ tuyệt đối của khối khí trong quá trình dãn nở.", "C": "thể tích tỉ lệ thuận với nhiệt độ Celsius của khối khí trong bình chứa.", "D": "tích thể tích và nhiệt độ tuyệt đối luôn là một hằng số không đổi."}, "answer": "A", "explanation": "Định luật Charles: Khi áp suất không đổi ($p = \\text{const}$), thể tích của một khối khí lí tưởng xác định tỉ lệ thuận với nhiệt độ tuyệt đối: $\\frac{V}{T} = \\text{const}$."}, {"id": 13, "question": "Trong hệ tọa độ $(p, T)$, đường biểu diễn quá trình đẳng tích của một lượng khí lí tưởng xác định là", "options": {"A": "một đường cong hypebol tiệm cận với hai trục tọa độ.", "B": "một đoạn thẳng vuông góc với trục áp suất p thẳng đứng.", "C": "một đoạn thẳng có đường kéo dài đi qua gốc tọa độ O.", "D": "một đường parabol có đỉnh nằm ngay trên trục nhiệt độ."}, "answer": "C", "explanation": "Trong hệ tọa độ $(p, T)$, quá trình đẳng tích có $p = \\text{const} \\cdot T$, là hàm bậc nhất không có hệ số tự do nên đường biểu diễn là đoạn thẳng kéo dài đi qua gốc tọa độ $O$."}, {"id": 14, "question": "Khí thực tuân theo các định luật khí lí tưởng càng chính xác khi chất khí ở trạng thái", "options": {"A": "áp suất rất cao và nhiệt độ môi trường rất thấp.", "B": "áp suất rất cao và nhiệt độ môi trường rất cao.", "C": "áp suất rất thấp và nhiệt độ môi trường rất thấp.", "D": "áp suất rất thấp và nhiệt độ môi trường rất cao."}, "answer": "D", "explanation": "Ở áp suất thấp (phân tử ở cách xa nhau, thể tích riêng không đáng kể) và nhiệt độ cao (động năng phân tử rất lớn lấn át thế năng tương tác), khí thực gần đúng là khí lí tưởng."}, {"id": 15, "question": "Trong phương trình Clapeyron $p V = n R T$, hằng số khí lí tưởng $R$ có giá trị xấp xỉ bằng", "options": {"A": "$8,31\\text{ J}/(\\text{mol}\\cdot\\text{K})$.", "B": "$1,38 \\cdot 10^{-23}\\text{ J/K}$.", "C": "$6,022 \\cdot 10^{23}\\text{ nguyên tử/mol}$.", "D": "$9,81\\text{ m/s}^2$."}, "answer": "A", "explanation": "Hằng số khí lí tưởng trong hệ đơn vị SI là $R = N_A \\cdot k \\approx 8,31\\text{ J}/(\\text{mol}\\cdot\\text{K})$."}, {"id": 16, "question": "Hệ thức liên hệ giữa áp suất chất khí $p$ tác dụng lên thành bình với mật độ phân tử $\\mu$ và động năng tịnh tiến trung bình $\\overline{E}_đ$ của các phân tử là", "options": {"A": "$p = \\frac{1}{3}\\mu\\overline{E}_đ$.", "B": "$p = \\frac{2}{3}\\mu\\overline{E}_đ$.", "C": "$p = \\frac{3}{2}\\mu\\overline{E}_đ$.", "D": "$p = \\frac{1}{2}\\mu\\overline{E}_đ$."}, "answer": "B", "explanation": "Phương trình cơ bản của thuyết động học phân tử: $p = \\frac{1}{3}\\mu m_0 \\overline{v^2} = \\frac{2}{3}\\mu\\left(\\frac{1}{2}m_0 \\overline{v^2}\\right) = \\frac{2}{3}\\mu\\overline{E}_đ$."}, {"id": 17, "question": "Khi nhiệt độ tuyệt đối của một khối khí lí tưởng tăng lên gấp 2 lần, động năng tịnh tiến trung bình của mỗi phân tử khí sẽ", "options": {"A": "giảm đi 2 lần so với ban đầu.", "B": "giữ nguyên không đổi so với ban đầu.", "C": "tăng lên gấp 4 lần so với ban đầu.", "D": "tăng lên gấp 2 lần so với ban đầu."}, "answer": "D", "explanation": "Động năng tịnh tiến trung bình $\\overline{E}_đ = \\frac{3}{2}kT$ tỉ lệ thuận với nhiệt độ tuyệt đối $T$. Do đó khi $T$ tăng 2 lần thì $\\overline{E}_đ$ cũng tăng 2 lần."}, {"id": 18, "question": "Để căn bậc hai của trung bình bình phương tốc độ phân tử khí (tốc độ căn quân phương $v_{\\text{rms}}$) tăng gấp 3 lần thì nhiệt độ tuyệt đối $T$ của khối khí phải", "options": {"A": "tăng lên 3 lần.", "B": "giảm đi 3 lần.", "C": "tăng lên $\\sqrt{3}$ lần.", "D": "tăng lên 9 lần."}, "answer": "D", "explanation": "Tốc độ căn quân phương $v_{\\text{rms}} = \\sqrt{\\frac{3RT}{M}} \\sim \\sqrt{T}$. Để $v_{\\text{rms}}$ tăng 3 lần thì $T$ phải tăng $3^2 = 9$ lần."}];
+        const part2Data = [{"id": 1, "title": "Hệ thống làm mát tuần hoàn bằng chất lỏng trong động cơ xe máy, ô tô", "context": "Trong quá trình vận hành, buồng đốt của động cơ xe máy và ô tô tỏa ra nhiệt lượng rất lớn. Để động cơ không bị quá nhiệt dẫn đến bó kẹt pít-tông, người ta sử dụng hệ thống làm mát tuần hoàn bằng dung dịch làm mát (hỗn hợp gồm nước cất và phụ gia chống đông/tăng nhiệt độ sôi). Dung dịch làm mát được bơm tuần hoàn qua các khoang động cơ hấp thụ nhiệt, sau đó chảy qua két tản nhiệt gồm nhiều lá kim loại mỏng để tỏa nhiệt ra không khí. Nắp két tản nhiệt được trang bị van áp suất chịu tải khoảng $1,1\\text{ bar} - 1,4\\text{ bar}$. Dựa vào kiến thức về nhiệt dung riêng, sự truyền nhiệt và chuyển thể chất, xét tính đúng/sai của các nhận định sau:", "statements": {"a": "Nước cất được chọn làm dung môi chính trong dung dịch làm mát vì nước có nhiệt dung riêng rất lớn, giúp hấp thụ và vận chuyển một nhiệt lượng lớn mà nhiệt độ của khối chất lỏng chỉ tăng lên vừa phải.", "b": "Các lá tản nhiệt trên két nước được chế tạo bằng kim loại (nhôm hoặc đồng) có diện tích bề mặt lớn nhằm tăng cường quá trình truyền nhiệt và đối lưu nhiệt với luồng không khí thổi qua khi xe di chuyển.", "c": "Nắp két tản nhiệt có van áp suất giữ áp suất trong hệ thống cao hơn áp suất khí quyển nhằm làm giảm nhiệt độ sôi của dung dịch làm mát, giúp dung dịch sôi nhanh hơn để giải nhiệt hiệu quả hơn.", "d": "Khi động cơ vừa hoạt động đường dài về và đang còn rất nóng, việc mở ngay nắp két nước là cực kì nguy hiểm vì áp suất giảm đột ngột khiến dung dịch đang ở nhiệt độ cao sôi bùng dữ dội, phun trào nước nóng ra ngoài gây bỏng nặng."}, "answers": {"a": "Đ", "b": "Đ", "c": "S", "d": "Đ"}, "explanations": {"a": "ĐÚNG: Nước có nhiệt dung riêng rất cao ($c \\approx 4180\\text{ J/(kg}\\cdot\\text{K)}$) giúp vận chuyển lượng nhiệt lớn từ buồng đốt mà nhiệt độ khối chất lỏng chỉ tăng vừa phải.", "b": "ĐÚNG: Nhôm và đồng dẫn nhiệt rất tốt, các lá mỏng tối đa hóa diện tích tiếp xúc với không khí làm tăng cường đối lưu và truyền nhiệt tản nhiệt ra ngoài.", "c": "SAI: Van áp suất giữ áp suất cao ($1,1 - 1,4\\text{ bar}$) là để TĂNG nhiệt độ sôi của dung dịch lên trên $100^\\circ\\text{C}$ (khoảng $105^\\circ\\text{C} - 110^\\circ\\text{C}$), ngăn không cho dung dịch sôi bốc hơi khi máy nóng.", "d": "ĐÚNG: Mở nắp đột ngột làm áp suất tụt về $1\\text{ atm}$, nước ở nhiệt độ trên $100^\\circ\\text{C}$ sẽ sôi bùng lên tức thì đẩy nước sôi và hơi nóng bắn ra gây bỏng nặng."}}, {"id": 2, "title": "Hiện tượng thân bơm xe đạp bị nóng lên khi bơm xe", "context": "Khi sử dụng một chiếc bơm tay bằng kim loại để bơm bánh xe đạp hoặc bóng thể thao, sau khoảng vài chục lần ấn pít-tông liên tục, người ta nhận thấy phần đáy thân bơm và thành xilanh bị nóng lên rõ rệt. Vận dụng các kiến thức về nội năng, công cơ học, nhiệt lượng và Định luật I nhiệt động lực học ($\\Delta U = A + Q$), xét tính đúng/sai của các nhận định sau:", "statements": {"a": "Mỗi lần người bơm ấn cần pít-tông xuống để nén không khí trong bơm, lực tác dụng của tay đã thực hiện công cơ học lên khối khí ($A > 0$), công này chuyển hóa thành nội năng làm nhiệt độ khối khí trong bơm tăng lên.", "b": "Toàn bộ nhiệt lượng làm thân bơm nóng lên là do lực ma sát giữa pít-tông với lòng xilanh sinh ra, việc nén khí hoàn toàn không đóng góp vào việc làm tăng nhiệt độ của bơm.", "c": "Khối không khí nóng trong bơm truyền nhiệt lượng qua thành kim loại ra thân bơm và môi trường xung quanh; đối với khối khí bên trong xilanh, đây là quá trình tỏa nhiệt ($Q < 0$).", "d": "Nếu một người ấn pít-tông nén khí cực nhanh rồi thả tay ngay, nhiệt lượng truyền ra ngoài môi trường chưa đáng kể ($Q \\approx 0$), độ biến thiên nội năng của khối khí $\\Delta U$ xấp xỉ bằng công $A$ mà tay người thực hiện nén khí."}, "answers": {"a": "Đ", "b": "S", "c": "Đ", "d": "Đ"}, "explanations": {"a": "ĐÚNG: Khi ấn pít-tông nén khí, tay người thực hiện công cơ học lên khối khí ($A > 0$). Khối khí nhận công làm nội năng và nhiệt độ tăng lên.", "b": "SAI: Thân bơm nóng lên chủ yếu do công nén khí chuyển hóa thành nội năng làm khối khí nóng lên rồi truyền nhiệt sang vỏ bơm; lực ma sát cơ học chỉ đóng góp một phần phụ nhỏ.", "c": "ĐÚNG: Khối khí nóng truyền nhiệt sang thành xilanh và môi trường xung quanh; đối với chất khí trong bơm, đây là quá trình tỏa nhiệt lượng ($Q < 0$).", "d": "ĐÚNG: Nén cực nhanh làm quá trình biến đổi diễn ra đoạn nhiệt ($Q \\approx 0$). Theo Định luật I: $\\Delta U = A + Q \\approx A$, toàn bộ công nén chuyển hóa trực tiếp thành độ biến thiên nội năng."}}, {"id": 3, "title": "Nguyên lí bay của khinh khí cầu sử dụng không khí nóng", "context": "Khinh khí cầu nhiệt (Hot Air Balloon) là một phương tiện bay gồm một túi khí khổng lồ bằng vải dù chịu nhiệt, có cửa thoát khí mở ở phía đáy và một giàn đốt bằng khí gas đặt ngay dưới miệng đáy túi khí. Khi phi công bật giàn đốt lửa, không khí bên trong túi khí nóng lên và khinh khí cầu từ từ bay lên không trung. Dựa vào định luật Charles, phương trình trạng thái khí lí tưởng và thuyết động học phân tử, xét tính đúng/sai của các nhận định sau:", "statements": {"a": "Do miệng túi khí ở đáy luôn thông trực tiếp với bầu khí quyển bên ngoài, quá trình nung nóng khối khí bên trong túi khí có thể coi gần đúng là một quá trình biến đổi đẳng áp ($p \\approx \\text{const}$).", "b": "Khi nhiệt độ của không khí trong túi khí tăng lên, theo định luật Charles, thể tích của khối khí dãn nở làm một lượng không khí tràn ra ngoài qua miệng đáy, dẫn đến khối lượng riêng của khối khí bên trong túi khí giảm đi so với không khí xung quanh.", "c": "Khinh khí cầu bay lên được là nhờ áp suất không khí bên trong túi khí tăng vọt lên rất lớn tác dụng lực nâng cực mạnh đẩy đỉnh túi khí bay lên trời.", "d": "Về mặt vi mô, khi không khí bị đốt nóng ở áp suất không đổi, các phân tử khí chuyển động nhiệt hỗn loạn nhanh hơn, dẫn đến mật độ phân tử khí bên trong túi khí tăng lên."}, "answers": {"a": "Đ", "b": "Đ", "c": "S", "d": "S"}, "explanations": {"a": "ĐÚNG: Đáy túi khí mở thông với bầu khí quyển nên áp suất khí ở đáy túi luôn tự cân bằng với áp suất khí quyển xung quanh ($p \\approx \\text{const}$).", "b": "ĐÚNG: Theo định luật Charles, nhiệt độ tăng làm không khí dãn nở ($V \\sim T$), lượng khí thừa tràn ra ngoài đáy túi làm giảm khối lượng khí trong túi, dẫn đến khối lượng riêng giảm.", "c": "SAI: Áp suất trong túi không tăng vọt; khí cầu bay lên là nhờ lực đẩy Archimedes của không khí lạnh xung quanh lớn hơn trọng lực toàn phần của khí cầu.", "d": "SAI: Không khí dãn nở tràn thoát ra ngoài nên số phân tử khí trong túi khí giảm, dẫn đến mật độ phân tử $\\mu = \\frac{N}{V}$ bên trong túi khí GIẢM ĐI."}}, {"id": 4, "title": "Áp suất lốp xe và an toàn giao thông mùa hè", "context": "Lốp xe máy và ô tô chứa một lượng không khí nhất định và có thể tích gần như không đổi khi đã được bơm căng. Các nhà sản xuất xe luôn khuyến cáo người dùng kiểm tra và điều chỉnh áp suất lốp ở trạng thái \"lốp nguội\" (trước khi khởi hành xe vào buổi sáng hoặc sau khi xe đã đỗ nghỉ ít nhất 3 giờ). Vận dụng các định luật chất khí và thuyết động học phân tử, xét tính đúng/sai của các nhận định sau:", "statements": {"a": "Khi xe di chuyển liên tục trên đường cao tốc giữa trưa nắng mùa hè, lực ma sát với mặt đường và nhiệt độ môi trường cao làm nhiệt độ khí trong lốp tăng lên, dẫn đến áp suất không khí trong lốp tăng theo quá trình đẳng tích.", "b": "Về mặt vi mô, sự tăng áp suất trong lốp khi bị nung nóng là do số lượng phân tử khí trong lốp tự sinh sôi nhiều hơn sau mỗi lần xe lăn bánh.", "c": "Nếu kiểm tra thấy áp suất lốp đang tăng cao khi vừa chạy xong trên đường cao tốc nắng gắt, người lái xe nên xả bớt khí ngay lập tức cho về đúng số đo tiêu chuẩn trên lốp nguội để tránh nổ lốp.", "d": "Đồng hồ đo áp suất lốp hiển thị áp suất chênh lệch giữa bên trong lốp và khí quyển bên ngoài; do đó khi xe chạy từ đồng bằng lên vùng núi cao có áp suất khí quyển thấp, số đo trên đồng hồ áp suất lốp sẽ có xu hướng tăng nhẹ dù nhiệt độ trong lốp chưa thay đổi."}, "answers": {"a": "Đ", "b": "S", "c": "S", "d": "Đ"}, "explanations": {"a": "ĐÚNG: Thể tích lốp xe gần như không đổi ($V \\approx \\text{const}$). Khi ma sát trên đường nóng làm nhiệt độ tăng thì áp suất trong lốp tăng theo định luật Gay-Lussac.", "b": "SAI: Lốp kín không rò rỉ nên số lượng phân tử khí không đổi. Áp suất tăng là do nhiệt độ tăng làm tốc độ chuyển động nhiệt của phân tử tăng, va chạm mạnh và thường xuyên hơn vào thành lốp.", "c": "SAI: Tuyệt đối không xả bớt khí khi lốp nóng. Khi lốp nguội đi, áp suất sẽ tụt xuống dưới mức tiêu chuẩn thành non hơi, gây nguy hiểm khi vận hành.", "d": "ĐÚNG: Đồng hồ đo hiệu áp suất $p_{\\text{đo}} = p_{\\text{trong}} - p_{\\text{kq}}$. Khi lên núi cao áp suất khí quyển $p_{\\text{kq}}$ giảm làm số đo áp suất $p_{\\text{đo}}$ tăng nhẹ."}}];
+        const part3Data = [{"id": 1, "question": "Trong một máy nén khí mini dùng để bơm xe và xịt bụi tại tiệm sửa xe máy, pít-tông nén nhanh một lượng không khí trong xilanh. Quá trình nén này đã thực hiện một công cơ học có độ lớn $150\\text{ J}$ lên khối khí, đồng thời khối khí truyền một nhiệt lượng $60\\text{ J}$ qua vỏ kim loại của xilanh ra môi trường bên ngoài. Độ biến thiên nội năng $\\Delta U$ của khối khí nén trong xilanh bằng bao nhiêu Joule ($\\text{J}$)?", "answer": "90", "explanation": "Khối khí nhận công từ pít-tông: $A = +150\\text{ J}$. Khối khí tỏa nhiệt qua thành xilanh: $Q = -60\\text{ J}$. Theo Định luật I nhiệt động lực học: $\\Delta U = A + Q = 150 + (-60) = \\mathbf{90\\text{ J}}$."}, {"id": 2, "question": "Để chuẩn bị nước tắm ấm an toàn cho em bé vào mùa đông, một phụ huynh đổ $2,0\\text{ kg}$ nước nóng ở nhiệt độ $80^\\circ\\text{C}$ vào một chậu tắm chứa sẵn $6,0\\text{ kg}$ nước lạnh ở nhiệt độ phòng $20^\\circ\\text{C}$. Bỏ qua sự trao đổi nhiệt với chậu tắm và không khí xung quanh. Nhiệt độ của nước trong chậu khi đạt trạng thái cân bằng nhiệt bằng bao nhiêu độ Celsius ($^\\circ\\text{C}$)?", "answer": "35", "explanation": "Nhiệt lượng tỏa ra: $Q_{\\text{tỏa}} = m_2 c (t_2 - t_{\\text{cb}}) = 2,0 c (80 - t_{\\text{cb}})$. Nhiệt lượng thu vào: $Q_{\\text{thu}} = m_1 c (t_{\\text{cb}} - t_1) = 6,0 c (t_{\\text{cb}} - 20)$. Phương trình cân bằng nhiệt: $2,0(80 - t_{\\text{cb}}) = 6,0(t_{\\text{cb}} - 20) \\iff 160 - 2 t_{\\text{cb}} = 6 t_{\\text{cb}} - 120 \\iff 8 t_{\\text{cb}} = 280 \\implies t_{\\text{cb}} = \\mathbf{35^\\circ\\text{C}}$."}, {"id": 3, "question": "Trong một nồi hấp tiệt trùng dụng cụ y tế, nước được đun sôi liên tục ở nhiệt độ $100^\\circ\\text{C}$ để tạo hơi nước nóng tiệt trùng. Sau khi nước đã sôi, bộ phận gia nhiệt của nồi tiếp tục cung cấp thêm cho nước một nhiệt lượng $Q = 920\\text{ kJ} = 9,2 \\cdot 10^5\\text{ J}$ để làm bay hơi nước. Biết nhiệt hóa hơi riêng của nước ở $100^\\circ\\text{C}$ là $L = 2,3 \\cdot 10^6\\text{ J/kg}$. Khối lượng nước đã hóa thành luồng hơi nước tiệt trùng trong giai đoạn này bằng bao nhiêu kilôgam ($\\text{kg}$)?", "answer": "0,4", "explanation": "Nhiệt lượng hóa hơi: $Q = L \\cdot m \\implies m = \\frac{Q}{L} = \\frac{9,2 \\cdot 10^5}{2,3 \\cdot 10^6} = \\mathbf{0,4\\text{ kg}}$."}, {"id": 4, "question": "Một nhân viên y tế sử dụng một ống tiêm (bơm kim tiêm) loại $20\\text{ mL}$ có đầu kim được bịt kín để kiểm tra độ đàn hồi của khí. Ban đầu, pít-tông ở vạch chia thể tích $V_1 = 15\\text{ mL}$ chứa không khí ở áp suất khí quyển $p_1 = 1,0\\text{ atm}$. Giữ nhiệt độ không khí trong ống tiêm không đổi, nhân viên đẩy pít-tông từ từ nén khối khí lại đến vạch thể tích $V_2 = 5\\text{ mL}$. Áp suất của khối khí bên trong ống tiêm sau khi nén bằng bao nhiêu atmotphe ($\\text{atm}$)?", "answer": "3", "explanation": "Quá trình nén đẳng nhiệt ($T = \\text{const}$). Áp dụng định luật Boyle: $p_1 V_1 = p_2 V_2 \\implies p_2 = p_1 \\cdot \\frac{V_1}{V_2} = 1,0 \\cdot \\frac{15}{5} = \\mathbf{3\\text{ atm}}$."}, {"id": 5, "question": "Một bình chữa cháy mini dạng bọt bằng thép kín (thể tích không đổi) được đặt trong xe ô tô. Vào buổi sáng mát mẻ khi nhiệt độ khoang xe là $27^\\circ\\text{C}$ ($300\\text{ K}$), áp suất khí đẩy bên trong bình đo được là $p_1 = 1,2\\text{ atm}$. Khi xe ô tô đỗ ngoài trời nắng gắt giữa trưa hè, nhiệt độ trong xe tăng cao làm áp suất khí trong bình tăng lên đến $p_2 = 1,4\\text{ atm}$. Coi sự nở vì nhiệt của vỏ bình kim loại là không đáng kể. Nhiệt độ của khối khí trong bình lúc này theo thang đo Kelvin bằng bao nhiêu Kelvin ($\\text{K}$)?", "answer": "350", "explanation": "Thể tích không đổi ($V = \\text{const}$), quá trình biến đổi đẳng tích. Áp dụng định luật Gay-Lussac: $\\frac{p_1}{T_1} = \\frac{p_2}{T_2} \\implies T_2 = T_1 \\cdot \\frac{p_2}{p_1} = 300 \\cdot \\frac{1,4}{1,2} = 300 \\cdot \\frac{7}{6} = \\mathbf{350\\text{ K}}$."}, {"id": 6, "question": "Tại một trạm y tế xã, một bình thép chuyên dụng có dung tích không đổi $V = 16,62\\text{ lít} = 16,62 \\cdot 10^{-3}\\text{ m}^3$ chứa khí Oxy y tế ở nhiệt độ phòng $27^\\circ\\text{C}$ ($300\\text{ K}$) dưới áp suất nén $p = 4,5 \\cdot 10^5\\text{ Pa}$. Lấy hằng số khí lí tưởng $R = 8,31\\text{ J/(mol}\\cdot\\text{K)}$. Lượng khí Oxy y tế chứa trong bình này có số mol bằng bao nhiêu mol?", "answer": "3", "explanation": "Phương trình trạng thái Clapeyron: $p V = n R T \\implies n = \\frac{p V}{R T} = \\frac{4,5 \\cdot 10^5 \\cdot 16,62 \\cdot 10^{-3}}{8,31 \\cdot 300} = \\frac{7479}{2493} = \\mathbf{3\\text{ mol}}$."}];
+
+        let userP1 = {};
+        let userP2 = {};
+        let userP3 = {};
+        let studentInfo = { name: "", className: "" };
+        let timerInterval = null;
+        let timeLeft = 50 * 60; // 50 mins
+
+        function startExam() {
+            const name = document.getElementById("studentName").value.trim();
+            const cls = document.getElementById("studentClass").value.trim();
+            if (!name || !cls) {
+                alert("Vui lòng nhập đầy đủ Họ tên và Lớp trước khi bắt đầu!");
+                return;
+            }
+            studentInfo.name = name;
+            studentInfo.className = cls;
+            document.getElementById("displayName").innerText = name;
+            document.getElementById("displayClass").innerText = cls;
+
+            document.getElementById("loginCard").style.display = "none";
+            document.getElementById("examWorkspace").style.display = "block";
+            document.getElementById("timerBadge").style.display = "inline-flex";
+
+            renderQuestions();
+            startTimer();
+            if (window.MathJax) { MathJax.typesetPromise(); }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Đã hết thời gian làm bài 50 phút! Hệ thống sẽ tự động nộp bài.");
+                    submitExam();
+                    return;
+                }
+                timeLeft--;
+                const m = Math.floor(timeLeft / 60);
+                const s = timeLeft % 60;
+                document.getElementById("timerText").innerText = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+            }, 1000);
+        }
+
+        function renderQuestions() {
+            // Render Part 1
+            const p1Box = document.getElementById("part1Container");
+            p1Box.innerHTML = "";
+            part1Data.forEach((q, idx) => {
+                let optsHtml = "";
+                for (const [key, val] of Object.entries(q.options)) {
+                    optsHtml += `
+                        <div class="option-item" id="opt_${q.id}_${key}" onclick="selectP1(${q.id}, '${key}')">
+                            <span class="option-label" id="lbl_${q.id}_${key}">${key}</span>
+                            <span>${val}</span>
+                        </div>
+                    `;
+                }
+                let imgHtml = "";
+                if (q.image) {
+                    imgHtml = `
+                        <div class="question-image-box">
+                            <img src="${q.image}" alt="Hình minh họa Câu ${q.id}" class="question-img">
+                        </div>
+                    `;
+                }
+                p1Box.innerHTML += `
+                    <div class="question-card" id="card_p1_${q.id}">
+                        <div class="question-title"><span class="question-num">Câu ${idx + 1}:</span>${q.question}</div>
+                        ${imgHtml}
+                        <div class="options-grid">${optsHtml}</div>
+                        <div class="explanation-box" id="exp_p1_${q.id}"></div>
+                    </div>
+                `;
+            });
+
+            // Render Part 2
+            const p2Box = document.getElementById("part2Container");
+            p2Box.innerHTML = "";
+            part2Data.forEach((q, idx) => {
+                userP2[q.id] = { a: null, b: null, c: null, d: null };
+                let stmtsHtml = "";
+                for (const [key, stmt] of Object.entries(q.statements)) {
+                    stmtsHtml += `
+                        <div class="tf-row">
+                            <div><strong>${key}):</strong> ${stmt}</div>
+                            <div class="tf-btns">
+                                <button type="button" class="tf-btn" id="tf_${q.id}_${key}_T" onclick="selectP2(${q.id}, '${key}', 'Đ')">Đúng</button>
+                                <button type="button" class="tf-btn" id="tf_${q.id}_${key}_F" onclick="selectP2(${q.id}, '${key}', 'S')">Sai</button>
+                            </div>
+                        </div>
+                    `;
+                }
+                p2Box.innerHTML += `
+                    <div class="question-card" id="card_p2_${q.id}">
+                        <div class="question-title"><span class="question-num">Câu ${idx + 1}:</span>${q.context}</div>
+                        <div class="tf-table">${stmtsHtml}</div>
+                        <div class="explanation-box" id="exp_p2_${q.id}"></div>
+                    </div>
+                `;
+            });
+
+            // Render Part 3
+            const p3Box = document.getElementById("part3Container");
+            p3Box.innerHTML = "";
+            part3Data.forEach((q, idx) => {
+                p3Box.innerHTML += `
+                    <div class="question-card" id="card_p3_${q.id}">
+                        <div class="question-title"><span class="question-num">Câu ${idx + 1}:</span>${q.question}</div>
+                        <div class="short-answer-box">
+                            <label style="font-weight: 700; font-size: 0.92rem;">Đáp số của bạn:</label>
+                            <input type="text" maxlength="6" class="short-input" id="short_${q.id}" placeholder="..." oninput="updateProgress()">
+                            <div id="ans_badge_p3_${q.id}" style="display: none;"></div>
+                        </div>
+                        <div class="explanation-box" id="exp_p3_${q.id}"></div>
+                    </div>
+                `;
+            });
+        }
+
+        function selectP1(qid, key) {
+            if (isSubmitted) return;
+            userP1[qid] = key;
+            ['A', 'B', 'C', 'D'].forEach(k => {
+                const el = document.getElementById(`opt_${qid}_${k}`);
+                if (el) el.classList.remove("selected");
+            });
+            const sel = document.getElementById(`opt_${qid}_${key}`);
+            if (sel) sel.classList.add("selected");
+            updateProgress();
+        }
+
+        function selectP2(qid, sub, val) {
+            if (isSubmitted) return;
+            userP2[qid][sub] = val;
+            const btnT = document.getElementById(`tf_${qid}_${sub}_T`);
+            const btnF = document.getElementById(`tf_${qid}_${sub}_F`);
+            btnT.classList.remove("active-true");
+            btnF.classList.remove("active-false");
+            if (val === 'Đ') btnT.classList.add("active-true");
+            if (val === 'S') btnF.classList.add("active-false");
+            updateProgress();
+        }
+
+        function updateProgress() {
+            let count = Object.keys(userP1).length;
+            part2Data.forEach(q => {
+                ['a', 'b', 'c', 'd'].forEach(sub => {
+                    if (userP2[q.id] && userP2[q.id][sub] !== null) count++;
+                });
+            });
+            part3Data.forEach(q => {
+                const inp = document.getElementById(`short_${q.id}`);
+                if (inp && inp.value.trim() !== "") count++;
+            });
+
+            const total = 40;
+            const pct = Math.round((count / total) * 100);
+            document.getElementById("progressFill").style.width = pct + "%";
+            document.getElementById("progressCount").innerText = `${count} / ${total} ý hoàn thành`;
+        }
+
+        let isSubmitted = false;
+
+        function confirmSubmitExam() {
+            if (isSubmitted) return;
+            let count = Object.keys(userP1).length;
+            part2Data.forEach(q => {
+                ['a', 'b', 'c', 'd'].forEach(sub => {
+                    if (userP2[q.id] && userP2[q.id][sub] !== null) count++;
+                });
+            });
+            part3Data.forEach(q => {
+                const inp = document.getElementById(`short_${q.id}`);
+                if (inp && inp.value.trim() !== "") count++;
+            });
+
+            const total = 40;
+            let msg = "Bạn có chắc chắn muốn nộp bài thi và kết thúc không?";
+            if (count < total) {
+                msg = `Bạn mới hoàn thành ${count}/${total} ý hỏi.\n\nBạn có chắc chắn muốn nộp bài thi ngay bây giờ không?`;
+            }
+            if (confirm(msg)) {
+                submitExam();
+            }
+        }
+
+        function scrollToReview() {
+            const el = document.getElementById("card_p1_1");
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitExam() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+
+            if (timerInterval) clearInterval(timerInterval);
+
+            // Khóa giao diện làm bài
+            document.querySelectorAll('.short-input').forEach(inp => inp.disabled = true);
+            document.querySelectorAll('.tf-btn').forEach(btn => btn.style.pointerEvents = 'none');
+            document.querySelectorAll('.option-item').forEach(item => item.style.pointerEvents = 'none');
+
+            // Thời gian làm bài thực tế
+            const spentSec = Math.max(0, 50 * 60 - timeLeft);
+            const spentM = Math.floor(spentSec / 60);
+            const spentS = spentSec % 60;
+            const timeSpentStr = `${spentM} phút ${spentS < 10 ? '0' : ''}${spentS} giây`;
+
+            // Chấm Phần I: 18 câu * 0.25đ = 4.5đ
+            let scoreP1 = 0;
+            let correctP1 = 0;
+            part1Data.forEach(q => {
+                const uChoice = userP1[q.id];
+                const cAns = q.answer;
+                const card = document.getElementById(`card_p1_${q.id}`);
+                const exp = document.getElementById(`exp_p1_${q.id}`);
+
+                ['A', 'B', 'C', 'D'].forEach(k => {
+                    const el = document.getElementById(`opt_${q.id}_${k}`);
+                    if (el) {
+                        if (k === cAns) {
+                            el.classList.add("correct");
+                        } else if (k === uChoice && uChoice !== cAns) {
+                            el.classList.add("incorrect");
+                        }
+                    }
+                });
+
+                const isRight = (uChoice === cAns);
+                if (isRight) {
+                    scoreP1 += 0.25;
+                    correctP1++;
+                    if (card) card.style.borderColor = "#10b981";
+                } else {
+                    if (card) card.style.borderColor = "#ef4444";
+                }
+
+                if (exp) {
+                    exp.innerHTML = `
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
+                            <span style="background: #dcfce7; color: #15803d; border: 1.5px solid #86efac; padding: 4px 12px; border-radius: 8px; font-weight: 800; font-size: 0.95rem;">
+                                <i class="fa-solid fa-circle-check"></i> ĐÁP ÁN ĐÚNG: ${q.answer}
+                            </span>
+                            ${isRight ? 
+                                '<span style="background: #f0fdf4; color: #166534; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 0.85rem;">✔ Bạn đã trả lời đúng (+0,25đ)</span>' : 
+                                `<span style="background: #fef2f2; color: #991b1b; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 0.85rem;">✖ Bạn đã chọn: ${uChoice || "Chưa chọn"}</span>`
+                            }
+                        </div>
+                        <div><strong>💡 Hướng dẫn giải chi tiết:</strong> ${q.explanation}</div>
+                    `;
+                    exp.classList.add("show");
+                }
+            });
+
+            // Chấm Phần II: 4 câu * 1.0đ = 4.0đ
+            let scoreP2 = 0;
+            let correctP2Items = 0;
+            part2Data.forEach(q => {
+                let subCorrect = 0;
+                let expHtml = "";
+                ['a', 'b', 'c', 'd'].forEach(sub => {
+                    const uChoice = userP2[q.id] ? userP2[q.id][sub] : null;
+                    const cAns = q.answers[sub];
+                    const btnT = document.getElementById(`tf_${q.id}_${sub}_T`);
+                    const btnF = document.getElementById(`tf_${q.id}_${sub}_F`);
+
+                    // Tô xanh đáp án chuẩn
+                    if (cAns === 'Đ' && btnT) {
+                        btnT.style.background = "#10b981";
+                        btnT.style.borderColor = "#059669";
+                        btnT.style.color = "#ffffff";
+                        btnT.style.fontWeight = "800";
+                    } else if (cAns === 'S' && btnF) {
+                        btnF.style.background = "#10b981";
+                        btnF.style.borderColor = "#059669";
+                        btnF.style.color = "#ffffff";
+                        btnF.style.fontWeight = "800";
+                    }
+
+                    // Tô đỏ nếu học sinh chọn sai
+                    if (uChoice && uChoice !== cAns) {
+                        if (uChoice === 'Đ' && btnT) {
+                            btnT.style.background = "#fee2e2";
+                            btnT.style.borderColor = "#ef4444";
+                            btnT.style.color = "#b91c1c";
+                            btnT.style.fontWeight = "800";
+                        } else if (uChoice === 'S' && btnF) {
+                            btnF.style.background = "#fee2e2";
+                            btnF.style.borderColor = "#ef4444";
+                            btnF.style.color = "#b91c1c";
+                            btnF.style.fontWeight = "800";
+                        }
+                    }
+
+                    const isSubOk = (uChoice === cAns);
+                    if (isSubOk) {
+                        subCorrect++;
+                        correctP2Items++;
+                    }
+
+                    const badgeColor = (cAns === 'Đ') ? '#10b981' : '#ef4444';
+                    const badgeText = (cAns === 'Đ') ? 'ĐÚNG' : 'SAI';
+                    const resultIcon = isSubOk ? '✅' : (uChoice ? '❌' : '⚪');
+
+                    expHtml += `
+                        <div style="margin-top: 8px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                                <span>${resultIcon} <strong>Lệnh ${sub}):</strong></span>
+                                <span style="background: ${badgeColor}; color: white; padding: 2px 8px; border-radius: 5px; font-weight: 800; font-size: 0.8rem;">ĐÁP ÁN: ${badgeText}</span>
+                                <span style="font-size: 0.82rem; color: #64748b;">(Bạn chọn: <strong>${uChoice ? (uChoice === 'Đ' ? 'Đúng' : 'Sai') : 'Chưa chọn'}</strong>)</span>
+                            </div>
+                            <div style="font-size: 0.88rem; color: #334155; line-height: 1.55;">${q.explanations[sub]}</div>
+                        </div>
+                    `;
+                });
+
+                let qScore = 0;
+                if (subCorrect === 1) qScore = 0.1;
+                else if (subCorrect === 2) qScore = 0.25;
+                else if (subCorrect === 3) qScore = 0.5;
+                else if (subCorrect === 4) qScore = 1.0;
+                scoreP2 += qScore;
+
+                const card = document.getElementById(`card_p2_${q.id}`);
+                const exp = document.getElementById(`exp_p2_${q.id}`);
+                if (card) {
+                    card.style.borderColor = (subCorrect === 4) ? "#10b981" : (subCorrect >= 2 ? "#f59e0b" : "#ef4444");
+                }
+                if (exp) {
+                    exp.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0;">
+                            <span style="font-weight: 800; color: #0f172a; font-size: 0.95rem;">💡 LỜI GIẢI CHI TIẾT CÂU ${q.id}:</span>
+                            <span style="font-weight: 800; font-size: 0.9rem; color: ${subCorrect === 4 ? '#059669' : '#d97706'};">Đúng ${subCorrect}/4 ý (+${qScore.toFixed(2)}đ)</span>
+                        </div>
+                        ${expHtml}
+                    `;
+                    exp.classList.add("show");
+                }
+            });
+
+            // Chấm Phần III: 6 câu * 0.25đ = 1.5đ
+            let scoreP3 = 0;
+            let correctP3 = 0;
+            part3Data.forEach(q => {
+                const inp = document.getElementById(`short_${q.id}`);
+                const exp = document.getElementById(`exp_p3_${q.id}`);
+                const card = document.getElementById(`card_p3_${q.id}`);
+                const ansBadge = document.getElementById(`ans_badge_p3_${q.id}`);
+                const uVal = inp ? inp.value.trim().replace(',', '.') : "";
+                const cVal = q.answer.trim().replace(',', '.');
+
+                let isCorrect = false;
+                if (uVal === cVal && uVal !== "") isCorrect = true;
+                else if (!isNaN(parseFloat(uVal)) && !isNaN(parseFloat(cVal)) && uVal !== "") {
+                    if (Math.abs(parseFloat(uVal) - parseFloat(cVal)) < 1e-4) isCorrect = true;
+                }
+
+                if (inp) inp.readOnly = true;
+
+                if (isCorrect) {
+                    scoreP3 += 0.25;
+                    correctP3++;
+                    if (card) card.style.borderColor = "#10b981";
+                    if (inp) inp.classList.add("input-correct");
+                } else {
+                    if (card) card.style.borderColor = "#ef4444";
+                    if (inp) inp.classList.add("input-incorrect");
+                }
+
+                if (ansBadge) {
+                    ansBadge.style.display = "inline-flex";
+                    ansBadge.style.alignItems = "center";
+                    ansBadge.style.gap = "6px";
+                    ansBadge.style.background = "#dcfce7";
+                    ansBadge.style.color = "#15803d";
+                    ansBadge.style.border = "1.5px solid #86efac";
+                    ansBadge.style.padding = "5px 12px";
+                    ansBadge.style.borderRadius = "8px";
+                    ansBadge.style.fontWeight = "800";
+                    ansBadge.style.fontSize = "0.95rem";
+                    ansBadge.innerHTML = `<i class="fa-solid fa-circle-check"></i> ĐÁP ÁN ĐÚNG: <strong style="color: #047857; font-size: 1.05rem;">${q.answer}</strong>`;
+                }
+
+                if (exp) {
+                    exp.innerHTML = `
+                        <div style="margin-bottom: 6px;">
+                            ${isCorrect ? 
+                                '<span style="background: #f0fdf4; color: #166534; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 0.85rem;">✔ Bạn đã trả lời chính xác (+0,25đ)</span>' : 
+                                `<span style="background: #fef2f2; color: #991b1b; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 0.85rem;">✖ Bạn đã điền: "${uVal || 'Trống'}"</span>`
+                            }
+                        </div>
+                        <div><strong>💡 Hướng dẫn giải chi tiết:</strong> ${q.explanation}</div>
+                    `;
+                    exp.classList.add("show");
+                }
+            });
+
+            const totalScore = Math.min(10.0, Math.round((scoreP1 + scoreP2 + scoreP3) * 100) / 100);
+            const totalScoreStr = totalScore.toFixed(1);
+            const totalCorrectCount = correctP1 + correctP2Items + correctP3;
+            const totalIncorrectCount = 40 - totalCorrectCount;
+
+            // Cập nhật Results Panel
+            document.getElementById("scoreCircle").innerText = totalScoreStr;
+            document.getElementById("correctCountText").innerText = `${totalCorrectCount}/40`;
+            document.getElementById("incorrectCountText").innerText = `${totalIncorrectCount}/40`;
+            document.getElementById("gradeText").innerText = `${totalScoreStr}/10`;
+            document.getElementById("timeSpentText").innerText = timeSpentStr;
+
+            document.getElementById("p1ScoreBreakdown").innerText = `${scoreP1.toFixed(2)} / 4,50đ`;
+            document.getElementById("p1CorrectBreakdown").innerText = `${correctP1}/18 câu đúng`;
+            document.getElementById("p2ScoreBreakdown").innerText = `${scoreP2.toFixed(2)} / 4,00đ`;
+            document.getElementById("p2CorrectBreakdown").innerText = `${correctP2Items}/16 ý đúng`;
+            document.getElementById("p3ScoreBreakdown").innerText = `${scoreP3.toFixed(2)} / 1,50đ`;
+            document.getElementById("p3CorrectBreakdown").innerText = `${correctP3}/6 câu đúng`;
+
+            const scoreTitle = document.getElementById("scoreTitle");
+            const scoreDesc = document.getElementById("scoreDesc");
+            if (totalScore >= 9.0) {
+                scoreTitle.innerText = "Xuất sắc! 🎉";
+                scoreDesc.innerHTML = `Chúc mừng <strong>${studentInfo.name}</strong> (Lớp <strong>${studentInfo.className}</strong>) đã đạt kết quả tuyệt vời! Nắm rất vững Vật lí nhiệt & Khí lí tưởng.`;
+                if (window.confetti) confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+            } else if (totalScore >= 7.0) {
+                scoreTitle.innerText = "Kết quả rất tốt! 👏";
+                scoreDesc.innerHTML = `Chúc mừng <strong>${studentInfo.name}</strong> (Lớp <strong>${studentInfo.className}</strong>) đã hoàn thành tốt bài thi! Xem lại các câu sai bên dưới để hoàn thiện.`;
+                if (window.confetti) confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
+            } else if (totalScore >= 5.0) {
+                scoreTitle.innerText = "Đạt yêu cầu! 📚";
+                scoreDesc.innerHTML = `Thí sinh: <strong>${studentInfo.name}</strong> - Lớp: <strong>${studentInfo.className}</strong>. Cần chú ý thêm các câu hỏi phân tích bản chất vi mô và bài toán định lượng.`;
+            } else {
+                scoreTitle.innerText = "Cần cố gắng thêm! 💪";
+                scoreDesc.innerHTML = `Thí sinh: <strong>${studentInfo.name}</strong> - Lớp: <strong>${studentInfo.className}</strong>. Hãy đọc kĩ từng lời giải chi tiết bên dưới để bổ sung lỗ hổng kiến thức.`;
+            }
+
+            const resPanel = document.getElementById("resultsPanel");
+            resPanel.style.display = "block";
+            resPanel.scrollIntoView({ behavior: "smooth" });
+
+            const btnSub = document.getElementById("btnSubmit");
+            btnSub.disabled = true;
+            btnSub.innerHTML = '<i class="fa-solid fa-check"></i> ĐÃ NỘP BÀI THI THÀNH CÔNG';
+            btnSub.style.background = "#64748b";
+
+            // Đồng bộ dữ liệu Google Sheets
+            fetch(GOOGLE_SHEETS_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: studentInfo.name,
+                    className: studentInfo.className,
+                    lesson: "Đề 10 - Chương 1, 2 Vật lí 12",
+                    correct: `${totalCorrectCount}/40 (${correctP1} P1, ${correctP2Items} P2, ${correctP3} P3)`,
+                    score: totalScoreStr
+                })
+            }).then(() => console.log("Data synced with Google Sheets"))
+              .catch(err => console.error("Sync error:", err));
+
+            // Typeset MathJax cho các công thức trong lời giải mới chèn
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+    </script>
+</body>
+</html>

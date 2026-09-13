@@ -1,0 +1,21 @@
+# Chuẩn khoa học Hóa học
+
+- **Danh pháp IUPAC chuẩn CTGDPT 2018:** Bắt buộc sử dụng danh pháp quốc tế (ví dụ: sodium, potassium, calcium, magnesium, aluminium, iron, copper, zinc; sulfuric acid, hydrochloric acid, nitric acid; sulfur dioxide, carbon monoxide; methane, ethene, ethyne, ethanol, ethanoic acid...).
+- **Phương trình hóa học:**
+  - Cân bằng tuyệt đối số nguyên tử của từng nguyên tố ở 2 vế.
+  - Phản ứng oxi hóa - khử: bảo toàn electron và bảo toàn điện tích.
+  - Luôn ghi rõ trạng thái chất: rắn `(s)`, lỏng `(l)`, khí `(g)`, dung dịch `(aq)`.
+  - Ghi đúng điều kiện phản ứng: nhiệt độ t°, áp suất p, chất xúc tác xt, ánh sáng as.
+- **Nhiệt hóa học:** Ghi đúng phương trình nhiệt hóa học và biến thiên enthalpy chuẩn Δr H°₂₉₈ (tỏa nhiệt < 0, thu nhiệt > 0).
+- **Cân bằng và Tốc độ phản ứng:**
+  - Phản ứng thuận nghịch dùng mũi tên thuận nghịch ⇌.
+  - Áp dụng chính xác nguyên lí Le Chatelier cho chuyển dịch cân bằng.
+  - Biểu thức hằng số cân bằng Kc, Kp không chứa nồng độ chất rắn nguyên chất.
+- **Cấu trúc phân tử & Liên kết:**
+  - Thể hiện đúng cấu tạo hóa học, hóa trị, số oxi hóa, obitan nguyên tử/phân tử, liên kết ion, cộng hóa trị, liên kết hydrogen và tương tác van der Waals.
+  - Biểu diễn mô hình phân tử theo quy ước màu CPK chuẩn (C: đen/xám, H: trắng, O: đỏ, N: xanh lam, Cl: xanh lá, S: vàng).
+- **An toàn thí nghiệm hóa học:**
+  - Tuân thủ quy tắc an toàn phòng thí nghiệm: Không được nếm, không ngửi trực tiếp; rót từ từ acid đặc vào nước, không làm ngược lại; thao tác với chất độc/dễ bay hơi trong tủ hút.
+  - Xử lý chất thải hóa học và sơ cứu bỏng acid/kiềm theo quy chuẩn.
+- **Số liệu & Mô phỏng:**
+  - Không tạo số liệu thực nghiệm "quá hoàn hảo" một cách phi lý; phân biệt rõ số liệu mô phỏng ảo (PhET, ChemCollective) với số đo thực tế và nêu rõ giới hạn mô hình.

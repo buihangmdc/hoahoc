@@ -1,0 +1,3 @@
+# Tạo prompt video Hóa học
+
+Từ `$ARGUMENTS`, xác định lớp, hiện tượng/phản ứng hóa học, thời lượng và công cụ video nếu có. Dùng skills `thiet-ke-bai-day-hoa-hoc` và `tao-prompt-video-giao-duc`; đọc đúng preset trong `studio-bible/` và `studio-bible/QUY-UOC-HOA-HOC.md`. Chia scene sư phạm thành clip theo `max_clip_seconds` của manifest công cụ; nếu chưa có, dùng 9 giây như giả định có ghi nhãn. Khóa camera plane, start/end state, hiện tượng biến đổi (sủi bọt khí, kết tủa, đổi màu), continuity, voice-over, âm thanh và tính đúng đắn khoa học Hóa học.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Thiết kế bài dạy Vật lý"
+  short_description: "Tạo giáo án và học liệu Vật lý 6–12"
+  default_prompt: "Use $thiet-ke-bai-day-vat-ly to create a standards-aligned Vietnamese physics lesson package."
