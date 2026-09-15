@@ -1,310 +1,31 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📝 ĐỀ ÔN TẬP AMINE (20 CÂU THÔNG HIỂU - VẬN DỤNG) - HÓA HỌC 12</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+"""
+Script: generate_quiz_amine_th_vd_20.py
+Purpose: Generate 20 Multiple Choice Questions (A, B, C, D) for Amine (Grade 12 Chemistry):
+- 60% Thong hieu (12 questions)
+- 40% Van dung (8 questions)
+- NO COMBUSTION PROBLEMS
+- Real-world context (culinary, pharma, textile, wastewater, chemical safety, lab testing)
+- Outputs:
+  1. dau-ra/lop-12/bai-tap/de-on-tap-amine-20-cau-th-vd.md
+  2. dau-ra/lop-12/bai-tap/de-on-tap-amine-20-cau-th-vd.docx
+  3. dau-ra/lop-12/bai-tap/de-on-tap-amine-20-cau-th-vd.html
+"""
 
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --primary: #0284c7;
-            --primary-hover: #0369a1;
-            --secondary: #0d9488;
-            --bg-body: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #0f172a;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-        }
+import os
+import sys
+import json
+from pathlib import Path
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-dark);
-            line-height: 1.65;
-            padding-bottom: 40px;
-        }
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
-        p, .question-title, .explanation-box, .score-desc, .form-group label {
-            text-align: justify;
-        }
+sys.path.insert(0, os.path.abspath("."))
+from scripts.export_to_docx import create_styled_document
 
-        .sticky-header {
-            position: sticky; top: 0; z-index: 1000;
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-        }
-        .header-container {
-            max-width: 920px; margin: 0 auto; padding: 10px 15px;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .site-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-        .logo-text {
-            font-size: 1.25rem; font-weight: 800;
-            background: linear-gradient(135deg, #0284c7, #0d9488);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .nav-links { display: flex; gap: 18px; align-items: center; }
-        .timer-badge {
-            background: #fee2e2; color: #ef4444; padding: 4px 10px; border-radius: 8px;
-            font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; gap: 5px;
-        }
+GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwRRiM81mghvA7cInvJgb4rPLzWOAE3s44wer0BJcURQ4hWwoykS19pkNQ9LyzH6Q8lTQ/exec"
 
-        .quiz-container { max-width: 920px; margin: 20px auto; padding: 0 15px; min-height: 80vh; }
-
-        .exam-banner {
-            background: linear-gradient(135deg, #0f172a, #0369a1, #0f766e); color: white;
-            padding: 2.2rem 1.5rem; border-radius: 20px; text-align: center; margin-bottom: 20px;
-            box-shadow: 0 10px 25px rgba(15,23,42,0.25);
-        }
-        .exam-banner h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
-        .exam-banner p { font-size: 0.95rem; color: #e0f2fe; text-align: center; }
-        .badge-exam { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; margin-top: 10px; }
-
-        .login-card {
-            background: white; border-radius: 16px; padding: 30px 20px; text-align: center;
-            border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 30px;
-        }
-        .login-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
-        .login-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
-        .form-group { max-width: 360px; margin: 0 auto 15px auto; text-align: left; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.88rem; }
-        .form-control {
-            width: 100%; padding: 10px 14px; border: 1.5px solid var(--border);
-            border-radius: 8px; font-size: 0.95rem; outline: none; transition: border-color 0.2s;
-        }
-        .form-control:focus { border-color: var(--primary); }
-        .btn-start {
-            background: var(--primary); color: white; border: none; padding: 12px 30px;
-            font-size: 1rem; font-weight: 700; border-radius: 30px; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3); transition: all 0.2s;
-        }
-        .btn-start:hover { background: var(--primary-hover); transform: translateY(-2px); }
-
-        .student-info-bar {
-            background: white; padding: 12px 18px; border-radius: 10px; margin-bottom: 18px;
-            display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 600;
-            border: 1px solid var(--border);
-        }
-
-        .progress-container { margin-bottom: 20px; }
-        .progress-bar-bg { background: #e2e8f0; border-radius: 10px; height: 10px; overflow: hidden; }
-        .progress-bar-fill { background: linear-gradient(90deg, #0284c7, #0d9488); height: 100%; width: 0%; transition: width 0.3s; }
-        .progress-text { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; }
-
-        .section-header {
-            background: linear-gradient(135deg, #0284c7, #0369a1); color: white;
-            padding: 10px 16px; border-radius: 8px; font-size: 1.05rem; font-weight: 700;
-            margin: 25px 0 15px 0; display: flex; align-items: center; gap: 8px;
-        }
-
-        .question-card {
-            background: var(--card-bg); border-radius: 12px; padding: 18px 20px;
-            margin-bottom: 18px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-        }
-        .question-title { font-size: 1rem; font-weight: 600; margin-bottom: 14px; line-height: 1.6; }
-        .question-num { color: var(--primary); font-weight: 700; margin-right: 4px; }
-        .level-badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-left: 6px; }
-        .level-thong-hieu { background: #dcfce7; color: #15803d; }
-        .level-van-dung { background: #fef3c7; color: #b45309; }
-
-        .options-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
-        @media (min-width: 640px) {
-            .options-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        .option-item {
-            background: #f8fafc; border: 1.5px solid var(--border); border-radius: 8px;
-            padding: 10px 14px; display: flex; align-items: center; gap: 10px; cursor: pointer;
-            transition: all 0.2s; font-size: 0.95rem;
-        }
-        .option-item:hover { background: #f1f5f9; border-color: #cbd5e1; }
-        .option-item.selected {
-            background: #e0f2fe; border-color: var(--primary); color: #0369a1; font-weight: 600;
-        }
-        .option-item.correct {
-            background: #dcfce7 !important; border-color: #22c55e !important; color: #15803d !important; font-weight: 700;
-        }
-        .option-item.incorrect {
-            background: #fee2e2 !important; border-color: #ef4444 !important; color: #b91c1c !important;
-        }
-        .option-label {
-            display: inline-flex; justify-content: center; align-items: center;
-            width: 26px; height: 26px; border-radius: 50%; background: white;
-            border: 1.5px solid #cbd5e1; font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
-        }
-        .option-item.selected .option-label {
-            background: var(--primary); color: white; border-color: var(--primary);
-        }
-
-        .explanation-box {
-            display: none; background: #f0fdf4; border-left: 4px solid #22c55e;
-            padding: 12px 16px; margin-top: 14px; border-radius: 0 8px 8px 0;
-            font-size: 0.92rem; color: #166534; line-height: 1.6;
-        }
-        .explanation-box.show { display: block; animation: fadeIn 0.4s; }
-
-        .btn-submit {
-            background: linear-gradient(135deg, #0284c7, #0d9488); color: white;
-            border: none; padding: 14px 40px; font-size: 1.1rem; font-weight: 700;
-            border-radius: 30px; cursor: pointer; box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
-            transition: all 0.25s;
-        }
-        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(2, 132, 199, 0.45); }
-
-        .results-panel {
-            display: none; background: white; border-radius: 20px; padding: 30px 20px;
-            text-align: center; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            margin-top: 25px;
-        }
-        .score-circle {
-            width: 120px; height: 120px; border-radius: 50%;
-            background: linear-gradient(135deg, #0284c7, #0d9488);
-            color: white; display: flex; flex-direction: column; justify-content: center;
-            align-items: center; margin: 0 auto 15px auto; box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
-        }
-        .score-val { font-size: 2.2rem; font-weight: 800; line-height: 1; }
-        .score-max { font-size: 0.8rem; font-weight: 600; opacity: 0.9; }
-        .score-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
-        .score-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; text-align: center; }
-
-        .details-summary {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 12px; margin-top: 20px;
-        }
-        .summary-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
-        .summary-num { font-size: 1.4rem; font-weight: 800; }
-        .summary-label { font-size: 0.82rem; color: var(--text-muted); }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-        footer {
-            text-align: center; margin-top: 40px; font-size: 0.85rem; color: var(--text-muted);
-        }
-    </style>
-</head>
-<body>
-    <header class="sticky-header">
-        <div class="header-container">
-            <a href="#" class="site-logo">
-                <i class="fa-solid fa-flask-vial" style="font-size: 1.4rem; color: var(--primary);"></i>
-                <span class="logo-text">HÓA HỌC 12 ONLINE</span>
-            </a>
-            <div class="nav-links">
-                <div id="timerBadge" class="timer-badge" style="display: none;">
-                    <i class="fa-regular fa-clock"></i>
-                    <span id="timerText">40:00</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="quiz-container">
-        <div class="exam-banner">
-            <h1>📝 ĐỀ ÔN TẬP AMINE (20 CÂU TRẮC NGHIỆM)</h1>
-            <p>60% THÔNG HIỂU - 40% VẬN DỤNG | 100% BỐI CẢNH THỰC TẾ | KHÔNG CÓ BÀI TẬP ĐỐT CHÁY</p>
-            <span class="badge-exam">HỆ THỐNG KIỂM TRA ĐÁNH GIÁ CHUẨN GDPT 2018</span>
-        </div>
-
-        <div id="loginCard" class="login-card">
-            <div class="login-title">Thông Tin Học Sinh Làm Bài</div>
-            <div class="login-subtitle">Vui lòng điền họ tên và lớp để hệ thống tự động ghi nhận kết quả và đồng bộ về Google Sheet của giáo viên</div>
-            <div class="form-group">
-                <label for="studentName"><i class="fa-solid fa-user"></i> Họ và tên học sinh:</label>
-                <input type="text" id="studentName" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" required>
-            </div>
-            <div class="form-group">
-                <label for="studentClass"><i class="fa-solid fa-graduation-cap"></i> Lớp:</label>
-                <input type="text" id="studentClass" class="form-control" placeholder="Ví dụ: 12A1" required>
-            </div>
-            <button id="btnStart" class="btn-start" onclick="startExam()"><i class="fa-solid fa-play"></i> BẮT ĐẦU LÀM BÀI</button>
-        </div>
-
-        <div id="examWorkspace" style="display: none;">
-            <div class="student-info-bar">
-                <span><i class="fa-solid fa-user-graduate"></i> Học sinh: <strong id="displayName"></strong></span>
-                <span><i class="fa-solid fa-school"></i> Lớp: <strong id="displayClass"></strong></span>
-            </div>
-
-            <div class="progress-container">
-                <div class="progress-bar-bg">
-                    <div id="progressFill" class="progress-bar-fill"></div>
-                </div>
-                <div class="progress-text">
-                    <span>Tiến độ hoàn thành:</span>
-                    <span id="progressCount">0 / 20 câu (0%)</span>
-                </div>
-            </div>
-
-            <div class="section-header">
-                <i class="fa-solid fa-lightbulb"></i> A. MỨC ĐỘ THÔNG HIỂU (12 CÂU - TỪ CÂU 1 ĐẾN CÂU 12)
-            </div>
-            <div id="part1Container"></div>
-
-            <div class="section-header" style="background: linear-gradient(135deg, #0d9488, #0f766e);">
-                <i class="fa-solid fa-calculator"></i> B. MỨC ĐỘ VẬN DỤNG THỰC TẾ (8 CÂU - TỪ CÂU 13 ĐẾN CÂU 20)
-            </div>
-            <div id="part2Container"></div>
-
-            <div style="text-align: center; margin: 30px 0;">
-                <button id="btnSubmit" class="btn-submit" onclick="confirmSubmitExam()"><i class="fa-solid fa-paper-plane"></i> NỘP BÀI THI</button>
-            </div>
-
-            <div id="resultsPanel" class="results-panel">
-                <div class="score-circle">
-                    <span id="scoreCircle" class="score-val">0.0</span>
-                    <span class="score-max">/ 10 ĐIỂM</span>
-                </div>
-                <div class="score-title" id="scoreTitle">Hoàn thành bài ôn tập!</div>
-                <div class="score-desc" id="scoreDesc">Kết quả chi tiết và phân tích từng câu hỏi bên dưới.</div>
-
-                <div class="details-summary">
-                    <div class="summary-card">
-                        <div class="summary-num" style="color: #22c55e;" id="correctCountText">0</div>
-                        <div class="summary-label">Số câu đúng</div>
-                    </div>
-                    <div class="summary-card">
-                        <div class="summary-num" style="color: #ef4444;" id="incorrectCountText">0</div>
-                        <div class="summary-label">Số câu sai</div>
-                    </div>
-                    <div class="summary-card">
-                        <div class="summary-num" style="color: #0284c7;" id="gradeText">0.0/10</div>
-                        <div class="summary-label">Điểm số</div>
-                    </div>
-                    <div class="summary-card">
-                        <div class="summary-num" style="color: #64748b;" id="timeSpentText">00:00</div>
-                        <div class="summary-label">Thời gian làm bài</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2026 Hệ thống khảo sát & ôn tập môn Hóa học THPT - Cô Bùi Thị Hằng</p>
-            <p>Trường THPT Mạc Đĩnh Chi – Nam Sách | Giáo án & Bài tập chuẩn GDPT 2018</p>
-        </footer>
-    </div>
-
-    <script>
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwRRiM81mghvA7cInvJgb4rPLzWOAE3s44wer0BJcURQ4hWwoykS19pkNQ9LyzH6Q8lTQ/exec";
-        const questionsData = [
+questions = [
+    # --- PHẦN THÔNG HIỂU (12 CÂU: CÂU 1 -> CÂU 12) ---
     {
         "id": 1,
         "level": "Thông hiểu",
@@ -461,6 +182,8 @@
         "answer": "B",
         "explanation": "Amine bậc II có cấu tạo dạng R-NH-R' với tổng số nguyên tử carbon bằng 4:\n- TH1: Gốc R là 1C (-CH₃) và R' là 3C (-C₃H₇). Gốc propyl có 2 đồng phân mạch cacbon:\n  (1) CH₃-NH-CH₂-CH₂-CH₃ (N-methylpropan-1-amine / methylpropylamine)\n  (2) CH₃-NH-CH(CH₃)₂ (N-methylpropan-2-amine / isopropylmethylamine)\n- TH2: Cả hai gốc R và R' đều là 2C (-C₂H₅):\n  (3) CH₃-CH₂-NH-CH₂-CH₃ (N-ethylethanamine / diethylamine)\nVậy có đúng 3 đồng phân cấu tạo amine bậc II."
     },
+
+    # --- PHẦN VẬN DỤNG (8 CÂU: CÂU 13 -> CÂU 20 - BỐI CẢNH THỰC TẾ & KHÔNG CÓ BÀI TẬP ĐỐT CHÁY) ---
     {
         "id": 13,
         "level": "Vận dụng",
@@ -565,20 +288,390 @@
         "answer": "A",
         "explanation": "Phân tích tính đúng sai của từng nhận định:\n- (a) ĐÚNG: Acid acetic (trong giấm) hoặc acid citric (trong chanh) phản ứng với trimethylamine tạo muối ammonium tan, không bay hơi nên khử tanh triệt để.\n- (b) ĐÚNG: Hoạt chất dạng muối hydrochloride phân cực mạnh, tan tốt trong nước và dịch sinh học giúp hấp thu tối ưu và bảo quản bền vững.\n- (c) ĐÚNG: Methylamine có tính base tạo kết tủa Fe(OH)₃ màu nâu đỏ không tan; và với Cu²⁺ tạo kết tủa Cu(OH)₂ rồi tan trong amine dư tạo phức chất [Cu(CH₃NH₂)₄](OH)₂ màu xanh lam thẫm.\n- (d) ĐÚNG: Aniline phản ứng thế rất nhanh với nước bromine tạo kết tủa trắng 2,4,6-tribromoaniline.\n- (e) ĐÚNG: HCl chuyển aniline ít tan thành muối phenylammonium chloride tan trong nước, giúp lau rửa và thu gom an toàn chất độc.\n- (g) SAI: Phản ứng giữa hexamethylenediamine và adipic acid tách loại phân tử nước nên thuộc loại phản ứng ĐỒNG TRÙNG NGƯNG (polycondensation), KHÔNG PHẢI phản ứng trùng hợp (polymerization).\nVậy có 5 nhận định đúng: (a), (b), (c), (d), (e)."
     }
-];
-        let userAnswers = {};
+]
+
+def generate_markdown():
+    lines = []
+    lines.append("# BỘ ĐỀ ÔN TẬP CHUYÊN ĐỀ: AMINE")
+    lines.append("## MÔN HÓA HỌC 12 - BỘ SÁCH KẾT NỐI TRI THỨC VỚI CUỘC SỐNG")
+    lines.append("### Cấu trúc đề: 20 câu trắc nghiệm nhiều lựa chọn (60% Thông hiểu - 40% Vận dụng)")
+    lines.append("### Đặc điểm nổi bật: 100% bối cảnh thực tiễn đời sống, sản xuất, y dược; không có bài tập đốt cháy")
+    lines.append("Thời gian làm bài: 40 phút (Không kể thời gian phát đề)")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    lines.append("## PHẦN I. MA TRẬN PHÂN BỔ MỨC ĐỘ NHẬN THỨC")
+    lines.append("")
+    lines.append("| Nhóm mức độ | Số câu | Tỉ lệ (%) | Vị trí câu hỏi | Nội dung trọng tâm |")
+    lines.append("|---|:---:|:---:|:---:|---|")
+    lines.append("| **Thông hiểu** | 12 | 60% | Câu 1 - Câu 12 | Cấu trúc phân tử, lực base, nhiệt độ sôi, phản ứng hóa học (Fe³⁺, Cu²⁺, HNO₂, Br₂), cơ sở khử tanh cá, dạng muối dược phẩm, xử lý an toàn aniline, khói trắng HCl, phẩm màu azo, đồng phân amine |")
+    lines.append("| **Vận dụng** | 8 | 40% | Câu 13 - Câu 20 | Khử mùi tanh cá bằng giấm ăn, chuẩn độ amine nước thải thủy sản, tổng hợp paracetamol, sản xuất tơ nilon-6,6, định lượng kiểm nghiệm aniline, xác định amine trong dịch chiết cá, tổng hợp phẩm nhuộm azo Sudan I, đếm nhận định thực tế toàn diện |")
+    lines.append("| **Tổng cộng** | **20** | **100%** | **Câu 1 - Câu 20** | **Kiểm tra toàn diện kiến thức Amine theo chuẩn GDPT 2018** |")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    lines.append("## PHẦN II. NỘI DUNG ĐỀ THI")
+    lines.append("")
+    lines.append("*Thí sinh chọn một phương án đúng nhất trong các phương án A, B, C, D cho mỗi câu hỏi.*")
+    lines.append("")
+
+    for q in questions:
+        level_tag = f"[{q['level'].upper()}]"
+        lines.append(f"**Câu {q['id']}** {level_tag}: {q['question']}")
+        for opt_key in ["A", "B", "C", "D"]:
+            lines.append(f"{opt_key}. {q['options'][opt_key]}")
+        lines.append("")
+
+    lines.append("---")
+    lines.append("")
+    lines.append("## PHẦN III. BẢNG ĐÁP ÁN NHANH")
+    lines.append("")
+    lines.append("| Câu | Đáp án | Mức độ | Câu | Đáp án | Mức độ |")
+    lines.append("|:---:|:---:|:---:|:---:|:---:|:---:|")
+    for i in range(10):
+        q1 = questions[i]
+        q2 = questions[i + 10]
+        lines.append(f"| **{q1['id']}** | **{q1['answer']}** | {q1['level']} | **{q2['id']}** | **{q2['answer']}** | {q2['level']} |")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    lines.append("## PHẦN IV. HƯỚNG DẪN GIẢI CHI TIẾT VÀ PHÂN TÍCH SƯ PHẠM")
+    lines.append("")
+
+    for q in questions:
+        lines.append(f"### Câu {q['id']}: Chọn đáp án {q['answer']} ({q['level']})")
+        lines.append(f"**Đề bài tóm tắt:** {q['question'][:120]}...")
+        lines.append("")
+        lines.append("**Lời giải chi tiết:**")
+        lines.append(q['explanation'])
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def generate_html():
+    questions_json = json.dumps(questions, ensure_ascii=False, indent=4)
+    
+    html = f"""<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 ĐỀ ÔN TẬP AMINE (20 CÂU THÔNG HIỂU - VẬN DỤNG) - HÓA HỌC 12</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        window.MathJax = {{
+            tex: {{
+                inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+                displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
+                processEscapes: true
+            }},
+            options: {{
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }}
+        }};
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        :root {{
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --secondary: #0d9488;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }}
+
+        body {{
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.65;
+            padding-bottom: 40px;
+        }}
+
+        p, .question-title, .explanation-box, .score-desc, .form-group label {{
+            text-align: justify;
+        }}
+
+        .sticky-header {{
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }}
+        .header-container {{
+            max-width: 920px; margin: 0 auto; padding: 10px 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }}
+        .site-logo {{ display: flex; align-items: center; gap: 8px; text-decoration: none; }}
+        .logo-text {{
+            font-size: 1.25rem; font-weight: 800;
+            background: linear-gradient(135deg, #0284c7, #0d9488);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }}
+        .nav-links {{ display: flex; gap: 18px; align-items: center; }}
+        .timer-badge {{
+            background: #fee2e2; color: #ef4444; padding: 4px 10px; border-radius: 8px;
+            font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; gap: 5px;
+        }}
+
+        .quiz-container {{ max-width: 920px; margin: 20px auto; padding: 0 15px; min-height: 80vh; }}
+
+        .exam-banner {{
+            background: linear-gradient(135deg, #0f172a, #0369a1, #0f766e); color: white;
+            padding: 2.2rem 1.5rem; border-radius: 20px; text-align: center; margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(15,23,42,0.25);
+        }}
+        .exam-banner h1 {{ font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }}
+        .exam-banner p {{ font-size: 0.95rem; color: #e0f2fe; text-align: center; }}
+        .badge-exam {{ display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; margin-top: 10px; }}
+
+        .login-card {{
+            background: white; border-radius: 16px; padding: 30px 20px; text-align: center;
+            border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 30px;
+        }}
+        .login-title {{ font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }}
+        .login-subtitle {{ color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }}
+        .form-group {{ max-width: 360px; margin: 0 auto 15px auto; text-align: left; }}
+        .form-group label {{ display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.88rem; }}
+        .form-control {{
+            width: 100%; padding: 10px 14px; border: 1.5px solid var(--border);
+            border-radius: 8px; font-size: 0.95rem; outline: none; transition: border-color 0.2s;
+        }}
+        .form-control:focus {{ border-color: var(--primary); }}
+        .btn-start {{
+            background: var(--primary); color: white; border: none; padding: 12px 30px;
+            font-size: 1rem; font-weight: 700; border-radius: 30px; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3); transition: all 0.2s;
+        }}
+        .btn-start:hover {{ background: var(--primary-hover); transform: translateY(-2px); }}
+
+        .student-info-bar {{
+            background: white; padding: 12px 18px; border-radius: 10px; margin-bottom: 18px;
+            display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 600;
+            border: 1px solid var(--border);
+        }}
+
+        .progress-container {{ margin-bottom: 20px; }}
+        .progress-bar-bg {{ background: #e2e8f0; border-radius: 10px; height: 10px; overflow: hidden; }}
+        .progress-bar-fill {{ background: linear-gradient(90deg, #0284c7, #0d9488); height: 100%; width: 0%; transition: width 0.3s; }}
+        .progress-text {{ display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; }}
+
+        .section-header {{
+            background: linear-gradient(135deg, #0284c7, #0369a1); color: white;
+            padding: 10px 16px; border-radius: 8px; font-size: 1.05rem; font-weight: 700;
+            margin: 25px 0 15px 0; display: flex; align-items: center; gap: 8px;
+        }}
+
+        .question-card {{
+            background: var(--card-bg); border-radius: 12px; padding: 18px 20px;
+            margin-bottom: 18px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }}
+        .question-title {{ font-size: 1rem; font-weight: 600; margin-bottom: 14px; line-height: 1.6; }}
+        .question-num {{ color: var(--primary); font-weight: 700; margin-right: 4px; }}
+        .level-badge {{ display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-left: 6px; }}
+        .level-thong-hieu {{ background: #dcfce7; color: #15803d; }}
+        .level-van-dung {{ background: #fef3c7; color: #b45309; }}
+
+        .options-grid {{ display: grid; grid-template-columns: 1fr; gap: 10px; }}
+        @media (min-width: 640px) {{
+            .options-grid {{ grid-template-columns: 1fr 1fr; }}
+        }}
+
+        .option-item {{
+            background: #f8fafc; border: 1.5px solid var(--border); border-radius: 8px;
+            padding: 10px 14px; display: flex; align-items: center; gap: 10px; cursor: pointer;
+            transition: all 0.2s; font-size: 0.95rem;
+        }}
+        .option-item:hover {{ background: #f1f5f9; border-color: #cbd5e1; }}
+        .option-item.selected {{
+            background: #e0f2fe; border-color: var(--primary); color: #0369a1; font-weight: 600;
+        }}
+        .option-item.correct {{
+            background: #dcfce7 !important; border-color: #22c55e !important; color: #15803d !important; font-weight: 700;
+        }}
+        .option-item.incorrect {{
+            background: #fee2e2 !important; border-color: #ef4444 !important; color: #b91c1c !important;
+        }}
+        .option-label {{
+            display: inline-flex; justify-content: center; align-items: center;
+            width: 26px; height: 26px; border-radius: 50%; background: white;
+            border: 1.5px solid #cbd5e1; font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+        }}
+        .option-item.selected .option-label {{
+            background: var(--primary); color: white; border-color: var(--primary);
+        }}
+
+        .explanation-box {{
+            display: none; background: #f0fdf4; border-left: 4px solid #22c55e;
+            padding: 12px 16px; margin-top: 14px; border-radius: 0 8px 8px 0;
+            font-size: 0.92rem; color: #166534; line-height: 1.6;
+        }}
+        .explanation-box.show {{ display: block; animation: fadeIn 0.4s; }}
+
+        .btn-submit {{
+            background: linear-gradient(135deg, #0284c7, #0d9488); color: white;
+            border: none; padding: 14px 40px; font-size: 1.1rem; font-weight: 700;
+            border-radius: 30px; cursor: pointer; box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+            transition: all 0.25s;
+        }}
+        .btn-submit:hover {{ transform: translateY(-2px); box-shadow: 0 8px 25px rgba(2, 132, 199, 0.45); }}
+
+        .results-panel {{
+            display: none; background: white; border-radius: 20px; padding: 30px 20px;
+            text-align: center; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            margin-top: 25px;
+        }}
+        .score-circle {{
+            width: 120px; height: 120px; border-radius: 50%;
+            background: linear-gradient(135deg, #0284c7, #0d9488);
+            color: white; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; margin: 0 auto 15px auto; box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+        }}
+        .score-val {{ font-size: 2.2rem; font-weight: 800; line-height: 1; }}
+        .score-max {{ font-size: 0.8rem; font-weight: 600; opacity: 0.9; }}
+        .score-title {{ font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }}
+        .score-desc {{ color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; text-align: center; }}
+
+        .details-summary {{
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px; margin-top: 20px;
+        }}
+        .summary-card {{ background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }}
+        .summary-num {{ font-size: 1.4rem; font-weight: 800; }}
+        .summary-label {{ font-size: 0.82rem; color: var(--text-muted); }}
+
+        @keyframes fadeIn {{ from {{ opacity: 0; transform: translateY(8px); }} to {{ opacity: 1; transform: translateY(0); }} }}
+
+        footer {{
+            text-align: center; margin-top: 40px; font-size: 0.85rem; color: var(--text-muted);
+        }}
+    </style>
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-container">
+            <a href="#" class="site-logo">
+                <i class="fa-solid fa-flask-vial" style="font-size: 1.4rem; color: var(--primary);"></i>
+                <span class="logo-text">HÓA HỌC 12 ONLINE</span>
+            </a>
+            <div class="nav-links">
+                <div id="timerBadge" class="timer-badge" style="display: none;">
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="timerText">40:00</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="quiz-container">
+        <div class="exam-banner">
+            <h1>📝 ĐỀ ÔN TẬP AMINE (20 CÂU TRẮC NGHIỆM)</h1>
+            <p>60% THÔNG HIỂU - 40% VẬN DỤNG | 100% BỐI CẢNH THỰC TẾ | KHÔNG CÓ BÀI TẬP ĐỐT CHÁY</p>
+            <span class="badge-exam">HỆ THỐNG KIỂM TRA ĐÁNH GIÁ CHUẨN GDPT 2018</span>
+        </div>
+
+        <div id="loginCard" class="login-card">
+            <div class="login-title">Thông Tin Học Sinh Làm Bài</div>
+            <div class="login-subtitle">Vui lòng điền họ tên và lớp để hệ thống tự động ghi nhận kết quả và đồng bộ về Google Sheet của giáo viên</div>
+            <div class="form-group">
+                <label for="studentName"><i class="fa-solid fa-user"></i> Họ và tên học sinh:</label>
+                <input type="text" id="studentName" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" required>
+            </div>
+            <div class="form-group">
+                <label for="studentClass"><i class="fa-solid fa-graduation-cap"></i> Lớp:</label>
+                <input type="text" id="studentClass" class="form-control" placeholder="Ví dụ: 12A1" required>
+            </div>
+            <button id="btnStart" class="btn-start" onclick="startExam()"><i class="fa-solid fa-play"></i> BẮT ĐẦU LÀM BÀI</button>
+        </div>
+
+        <div id="examWorkspace" style="display: none;">
+            <div class="student-info-bar">
+                <span><i class="fa-solid fa-user-graduate"></i> Học sinh: <strong id="displayName"></strong></span>
+                <span><i class="fa-solid fa-school"></i> Lớp: <strong id="displayClass"></strong></span>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar-bg">
+                    <div id="progressFill" class="progress-bar-fill"></div>
+                </div>
+                <div class="progress-text">
+                    <span>Tiến độ hoàn thành:</span>
+                    <span id="progressCount">0 / 20 câu (0%)</span>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <i class="fa-solid fa-lightbulb"></i> A. MỨC ĐỘ THÔNG HIỂU (12 CÂU - TỪ CÂU 1 ĐẾN CÂU 12)
+            </div>
+            <div id="part1Container"></div>
+
+            <div class="section-header" style="background: linear-gradient(135deg, #0d9488, #0f766e);">
+                <i class="fa-solid fa-calculator"></i> B. MỨC ĐỘ VẬN DỤNG THỰC TẾ (8 CÂU - TỪ CÂU 13 ĐẾN CÂU 20)
+            </div>
+            <div id="part2Container"></div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <button id="btnSubmit" class="btn-submit" onclick="confirmSubmitExam()"><i class="fa-solid fa-paper-plane"></i> NỘP BÀI THI</button>
+            </div>
+
+            <div id="resultsPanel" class="results-panel">
+                <div class="score-circle">
+                    <span id="scoreCircle" class="score-val">0.0</span>
+                    <span class="score-max">/ 10 ĐIỂM</span>
+                </div>
+                <div class="score-title" id="scoreTitle">Hoàn thành bài ôn tập!</div>
+                <div class="score-desc" id="scoreDesc">Kết quả chi tiết và phân tích từng câu hỏi bên dưới.</div>
+
+                <div class="details-summary">
+                    <div class="summary-card">
+                        <div class="summary-num" style="color: #22c55e;" id="correctCountText">0</div>
+                        <div class="summary-label">Số câu đúng</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-num" style="color: #ef4444;" id="incorrectCountText">0</div>
+                        <div class="summary-label">Số câu sai</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-num" style="color: #0284c7;" id="gradeText">0.0/10</div>
+                        <div class="summary-label">Điểm số</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-num" style="color: #64748b;" id="timeSpentText">00:00</div>
+                        <div class="summary-label">Thời gian làm bài</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Hệ thống khảo sát & ôn tập môn Hóa học THPT - Cô Bùi Thị Hằng</p>
+            <p>Trường THPT Mạc Đĩnh Chi – Nam Sách | Giáo án & Bài tập chuẩn GDPT 2018</p>
+        </footer>
+    </div>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = "{GOOGLE_SHEET_URL}";
+        const questionsData = {questions_json};
+        let userAnswers = {{}};
         let examSubmitted = false;
         let totalTimeSeconds = 40 * 60;
         let timeRemaining = totalTimeSeconds;
         let timerInterval = null;
 
-        function startExam() {
+        function startExam() {{
             const nameInput = document.getElementById('studentName').value.trim();
             const classInput = document.getElementById('studentClass').value.trim();
-            if (!nameInput || !classInput) {
+            if (!nameInput || !classInput) {{
                 alert('Vui lòng nhập đầy đủ Họ và tên cùng Lớp học trước khi bắt đầu!');
                 return;
-            }
+            }}
 
             document.getElementById('displayName').innerText = nameInput;
             document.getElementById('displayClass').innerText = classInput;
@@ -590,107 +683,107 @@
             renderQuestions();
             startTimer();
 
-            if (window.MathJax && window.MathJax.typesetPromise) {
+            if (window.MathJax && window.MathJax.typesetPromise) {{
                 MathJax.typesetPromise();
-            }
-        }
+            }}
+        }}
 
-        function startTimer() {
-            timerInterval = setInterval(() => {
-                if (timeRemaining <= 0) {
+        function startTimer() {{
+            timerInterval = setInterval(() => {{
+                if (timeRemaining <= 0) {{
                     clearInterval(timerInterval);
                     alert('Đã hết thời gian làm bài! Hệ thống sẽ tự động nộp bài.');
                     submitExam();
                     return;
-                }
+                }}
                 timeRemaining--;
                 const mins = Math.floor(timeRemaining / 60);
                 const secs = timeRemaining % 60;
                 document.getElementById('timerText').innerText = 
-                    `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
-            }, 1000);
-        }
+                    `${{mins < 10 ? '0' : ''}}${{mins}}:${{secs < 10 ? '0' : ''}}${{secs}}`;
+            }}, 1000);
+        }}
 
-        function renderQuestions() {
+        function renderQuestions() {{
             const c1 = document.getElementById('part1Container');
             const c2 = document.getElementById('part2Container');
             c1.innerHTML = '';
             c2.innerHTML = '';
 
-            questionsData.forEach(q => {
+            questionsData.forEach(q => {{
                 const target = (q.id <= 12) ? c1 : c2;
                 const badgeClass = (q.level === 'Thông hiểu') ? 'level-thong-hieu' : 'level-van-dung';
 
                 let optsHtml = '';
-                ['A', 'B', 'C', 'D'].forEach(optKey => {
+                ['A', 'B', 'C', 'D'].forEach(optKey => {{
                     optsHtml += `
-                        <div class="option-item" id="opt-${q.id}-${optKey}" onclick="selectOption(${q.id}, '${optKey}')">
-                            <span class="option-label">${optKey}</span>
-                            <span class="option-text">${q.options[optKey]}</span>
+                        <div class="option-item" id="opt-${{q.id}}-${{optKey}}" onclick="selectOption(${{q.id}}, '${{optKey}}')">
+                            <span class="option-label">${{optKey}}</span>
+                            <span class="option-text">${{q.options[optKey]}}</span>
                         </div>
                     `;
-                });
+                }});
 
                 const cardHtml = `
-                    <div class="question-card" id="qcard-${q.id}">
+                    <div class="question-card" id="qcard-${{q.id}}">
                         <div class="question-title">
-                            <span class="question-num">Câu ${q.id}.</span>
-                            <span class="level-badge ${badgeClass}">${q.level}</span>
-                            ${q.question}
+                            <span class="question-num">Câu ${{q.id}}.</span>
+                            <span class="level-badge ${{badgeClass}}">${{q.level}}</span>
+                            ${{q.question}}
                         </div>
                         <div class="options-grid">
-                            ${optsHtml}
+                            ${{optsHtml}}
                         </div>
-                        <div class="explanation-box" id="exp-${q.id}">
-                            <strong><i class="fa-solid fa-circle-check"></i> Đáp án đúng: ${q.answer}</strong><br>
-                            ${q.explanation.replace(/\n/g, '<br>')}
+                        <div class="explanation-box" id="exp-${{q.id}}">
+                            <strong><i class="fa-solid fa-circle-check"></i> Đáp án đúng: ${{q.answer}}</strong><br>
+                            ${{q.explanation.replace(/\\n/g, '<br>')}}
                         </div>
                     </div>
                 `;
                 target.insertAdjacentHTML('beforeend', cardHtml);
-            });
-        }
+            }});
+        }}
 
-        function selectOption(qId, optKey) {
+        function selectOption(qId, optKey) {{
             if (examSubmitted) return;
             userAnswers[qId] = optKey;
 
-            ['A', 'B', 'C', 'D'].forEach(k => {
-                const el = document.getElementById(`opt-${qId}-${k}`);
+            ['A', 'B', 'C', 'D'].forEach(k => {{
+                const el = document.getElementById(`opt-${{qId}}-${{k}}`);
                 if (el) el.classList.remove('selected');
-            });
+            }});
 
-            const selEl = document.getElementById(`opt-${qId}-${optKey}`);
+            const selEl = document.getElementById(`opt-${{qId}}-${{optKey}}`);
             if (selEl) selEl.classList.add('selected');
 
             updateProgress();
-        }
+        }}
 
-        function updateProgress() {
+        function updateProgress() {{
             const count = Object.keys(userAnswers).length;
             const total = questionsData.length;
             const pct = Math.round((count / total) * 100);
             document.getElementById('progressFill').style.width = pct + '%';
-            document.getElementById('progressCount').innerText = `${count} / ${total} câu (${pct}%)`;
-        }
+            document.getElementById('progressCount').innerText = `${{count}} / ${{total}} câu (${{pct}}%)`;
+        }}
 
-        function confirmSubmitExam() {
+        function confirmSubmitExam() {{
             if (examSubmitted) return;
             const answered = Object.keys(userAnswers).length;
             const total = questionsData.length;
-            if (answered < total) {
-                if (!confirm(`Bạn mới trả lời ${answered} / ${total} câu hỏi. Bạn có chắc chắn muốn nộp bài sớm không?`)) {
+            if (answered < total) {{
+                if (!confirm(`Bạn mới trả lời ${{answered}} / ${{total}} câu hỏi. Bạn có chắc chắn muốn nộp bài sớm không?`)) {{
                     return;
-                }
-            } else {
-                if (!confirm('Bạn có chắc chắn muốn nộp bài thi để chấm điểm không?')) {
+                }}
+            }} else {{
+                if (!confirm('Bạn có chắc chắn muốn nộp bài thi để chấm điểm không?')) {{
                     return;
-                }
-            }
+                }}
+            }}
             submitExam();
-        }
+        }}
 
-        function submitExam() {
+        function submitExam() {{
             if (examSubmitted) return;
             examSubmitted = true;
             clearInterval(timerInterval);
@@ -700,33 +793,33 @@
             let totalCorrect = 0;
             let totalIncorrect = 0;
 
-            questionsData.forEach(q => {
+            questionsData.forEach(q => {{
                 const userChoice = userAnswers[q.id];
                 const isCorrect = (userChoice === q.answer);
-                if (isCorrect) {
+                if (isCorrect) {{
                     totalCorrect++;
-                } else {
+                }} else {{
                     totalIncorrect++;
-                }
+                }}
 
-                Object.keys(q.options).forEach(k => {
-                    const el = document.getElementById(`opt-${q.id}-${k}`);
-                    if (el) {
-                        if (k === q.answer) {
+                Object.keys(q.options).forEach(k => {{
+                    const el = document.getElementById(`opt-${{q.id}}-${{k}}`);
+                    if (el) {{
+                        if (k === q.answer) {{
                             el.classList.add('correct');
-                        } else if (k === userChoice) {
+                        }} else if (k === userChoice) {{
                             el.classList.add('incorrect');
-                        }
-                    }
-                });
+                        }}
+                    }}
+                }});
 
-                const expEl = document.getElementById(`exp-${q.id}`);
+                const expEl = document.getElementById(`exp-${{q.id}}`);
                 if (expEl) expEl.classList.add('show');
-            });
+            }});
 
             const score = (totalCorrect * 0.5).toFixed(2);
             document.getElementById('scoreCircle').innerText = score;
-            document.getElementById('gradeText').innerText = `${score}/10`;
+            document.getElementById('gradeText').innerText = `${{score}}/10`;
             document.getElementById('correctCountText').innerText = totalCorrect;
             document.getElementById('incorrectCountText').innerText = totalIncorrect;
 
@@ -734,13 +827,13 @@
             const sMins = Math.floor(spentSeconds / 60);
             const sSecs = spentSeconds % 60;
             document.getElementById('timeSpentText').innerText = 
-                `${sMins < 10 ? '0' : ''}${sMins}:${sSecs < 10 ? '0' : ''}${sSecs}`;
+                `${{sMins < 10 ? '0' : ''}}${{sMins}}:${{sSecs < 10 ? '0' : ''}}${{sSecs}}`;
 
             document.getElementById('resultsPanel').style.display = 'block';
-            document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('resultsPanel').scrollIntoView({{ behavior: 'smooth' }});
 
-            sendResultsToGoogleSheet({
-                timestamp: new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }),
+            sendResultsToGoogleSheet({{
+                timestamp: new Date().toLocaleString("vi-VN", {{ timeZone: "Asia/Ho_Chi_Minh" }}),
                 studentName: document.getElementById('displayName').innerText,
                 studentClass: document.getElementById('displayClass').innerText,
                 score: score,
@@ -748,30 +841,63 @@
                 incorrectCount: totalIncorrect,
                 timeSpent: document.getElementById('timeSpentText').innerText,
                 examTitle: "20 Câu Trắc Nghiệm Amine (60% TH - 40% VD Thực Tế) - Hóa Học 12"
-            });
+            }});
 
-            if (window.MathJax && window.MathJax.typesetPromise) {
+            if (window.MathJax && window.MathJax.typesetPromise) {{
                 MathJax.typesetPromise();
-            }
+            }}
 
-            if (parseFloat(score) >= 7.0 && typeof confetti === 'function') {
-                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-            }
-        }
+            if (parseFloat(score) >= 7.0 && typeof confetti === 'function') {{
+                confetti({{ particleCount: 100, spread: 70, origin: {{ y: 0.6 }} }});
+            }}
+        }}
 
-        function sendResultsToGoogleSheet(data) {
+        function sendResultsToGoogleSheet(data) {{
             if (!GOOGLE_SCRIPT_URL) return;
-            fetch(GOOGLE_SCRIPT_URL, {
+            fetch(GOOGLE_SCRIPT_URL, {{
                 method: "POST",
                 mode: "no-cors",
-                headers: { "Content-Type": "application/json" },
+                headers: {{ "Content-Type": "application/json" }},
                 body: JSON.stringify(data)
-            }).then(() => {
+            }}).then(() => {{
                 console.log("Đã đồng bộ kết quả lên Google Sheet thành công!");
-            }).catch(err => {
+            }}).catch(err => {{
                 console.warn("Lỗi kết nối Google Sheet:", err);
-            });
-        }
+            }});
+        }}
     </script>
 </body>
 </html>
+"""
+    return html
+
+
+def main():
+    output_dir = Path("dau-ra/lop-12/bai-tap")
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    md_path = output_dir / "de-on-tap-amine-20-cau-th-vd.md"
+    docx_path = output_dir / "de-on-tap-amine-20-cau-th-vd.docx"
+    html_path = output_dir / "de-on-tap-amine-20-cau-th-vd.html"
+
+    print("1. Generating Markdown...")
+    md_content = generate_markdown()
+    with open(md_path, "w", encoding="utf-8") as f:
+        f.write(md_content)
+    print(f"   -> Saved: {md_path}")
+
+    print("2. Generating Docx...")
+    create_styled_document(str(md_path), str(docx_path))
+    print(f"   -> Saved: {docx_path}")
+
+    print("3. Generating HTML Quiz with Google Sheet Sync...")
+    html_content = generate_html()
+    with open(html_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"   -> Saved: {html_path}")
+
+    print("\nSUCCESS! All 3 files generated flawlessly.")
+
+if __name__ == "__main__":
+    main()
+
