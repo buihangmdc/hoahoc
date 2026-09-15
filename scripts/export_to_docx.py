@@ -18,6 +18,64 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml import parse_xml
 from docx.oxml.ns import nsdecls
+import latex2mathml.converter
+
+# Load MML2OMML.XSL if available
+XSLT_PATHS = [
+    r"C:\Program Files (x86)\Microsoft Office\root\Office16\MML2OMML.XSL",
+    r"C:\Program Files\Microsoft Office\root\Office16\MML2OMML.XSL"
+]
+transform = None
+try:
+    import lxml.etree as ET
+    for p in XSLT_PATHS:
+        if os.path.exists(p):
+            xslt_doc = ET.parse(p)
+            transform = ET.XSLT(xslt_doc)
+            break
+except Exception:
+    transform = None
+
+SUP_MAP = {
+    '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
+    '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹',
+    '+': '⁺', '-': '⁻', '=': '⁼', '(': '⁽', ')': '⁾',
+    'n': 'ⁿ', 'i': 'ⁱ'
+}
+SUB_MAP = {
+    '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄',
+    '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉',
+    '+': '₊', '-': '₋', '=': '₌', '(': '₍', ')': '₎',
+    'a': 'ₐ', 'e': 'ₑ', 'o': 'ₒ', 'x': 'ₓ', 'h': 'ₕ', 'k': 'ₖ', 'l': 'ₗ', 'm': 'ₘ', 'n': 'ₙ', 'p': 'ₚ', 's': 'ₛ', 't': 'ₜ'
+}
+
+def to_sup(s):
+    return ''.join(SUP_MAP.get(c, c) for c in s)
+
+def to_sub(s):
+    return ''.join(SUB_MAP.get(c, c) for c in s)
+
+def latex_to_omml(latex_code):
+    if not transform:
+        return None
+    code = latex_code.strip()
+    code = code.replace(r'\bar{A}', r'\overline{A}')
+    code = code.replace(r'\bar{', r'\overline{')
+    try:
+        mathml = latex2mathml.converter.convert(code)
+        tree = ET.fromstring(mathml)
+        omml = transform(tree)
+        return ET.tostring(omml, encoding='utf-8').decode('utf-8')
+    except Exception:
+        try:
+            # Handle Vietnamese decimal commas like 75,77
+            code_sanitized = re.sub(r'(\d+),(\d+)', r'\1{,}\2', code)
+            mathml = latex2mathml.converter.convert(code_sanitized)
+            tree = ET.fromstring(mathml)
+            omml = transform(tree)
+            return ET.tostring(omml, encoding='utf-8').decode('utf-8')
+        except Exception:
+            return None
 
 def clean_latex_math(text):
     if not text:
@@ -26,11 +84,19 @@ def clean_latex_math(text):
     text = re.sub(r'\\frac\{([^}]+)\}\{([^}]+)\}', r'(\1)/(\2)', text)
     text = re.sub(r'\\sqrt\{([^}]+)\}', r'√(\1)', text)
     text = re.sub(r'\\text\{([^}]+)\}', r'\1', text)
+    text = re.sub(r'\\overline\{([^}]+)\}', r'¯\1', text)
+    text = re.sub(r'\\bar\{([^}]+)\}', r'¯\1', text)
     text = re.sub(r'\\left\(', '(', text)
     text = re.sub(r'\\right\)', ')', text)
     text = re.sub(r'\\left\[', '[', text)
     text = re.sub(r'\\right\]', ']', text)
     
+    # Generic superscripts and subscripts
+    text = re.sub(r'\^\{([^}]+)\}', lambda m: to_sup(m.group(1)), text)
+    text = re.sub(r'\_\{([^}]+)\}', lambda m: to_sub(m.group(1)), text)
+    text = re.sub(r'\^([0-9\+\-])', lambda m: to_sup(m.group(1)), text)
+    text = re.sub(r'\_([0-9\+\-])', lambda m: to_sub(m.group(1)), text)
+
     math_map = {
         r'\\cos': 'cos',
         r'\\sin': 'sin',
@@ -52,6 +118,8 @@ def clean_latex_math(text):
         r'\\rightarrow': '→',
         r'\\Rightarrow': '⇒',
         r'\\Leftrightarrow': '⇔',
+        r'\\dots': '...',
+        r'\\ldots': '...',
         r'\\alpha_0': 'α₀',
         r'\\alpha': 'α',
         r'\\beta': 'β',
@@ -73,42 +141,6 @@ def clean_latex_math(text):
     
     for k, v in math_map.items():
         text = re.sub(k, v, text)
-        
-    superscripts = {
-        '^2': '²',
-        '^3': '³',
-        '^{-18}': '⁻¹⁸',
-        '^{-9}': '⁻⁹',
-        '^{-6}': '⁻⁶',
-        '^{7}': '⁷',
-        '^{8}': '⁸',
-        '^{9}': '⁹',
-        '^0': '⁰',
-        '^1': '¹',
-        '^4': '⁴',
-        '^5': '⁵',
-        '^6': '⁶',
-        '^7': '⁷',
-        '^8': '⁸',
-        '^9': '⁹',
-    }
-    for k, v in superscripts.items():
-        text = text.replace(k, v)
-        
-    subscripts = {
-        '_0': '₀',
-        '_1': '₁',
-        '_2': '₂',
-        '_3': '₃',
-        '_4': '₄',
-        '_max': '_max',
-        '_min': '_min',
-        '_đ': 'đ',
-        '_t': 't',
-        '_cb': 'cb'
-    }
-    for k, v in subscripts.items():
-        text = text.replace(k, v)
         
     text = text.replace('$$', '')
     text = text.replace('$', '')
@@ -135,30 +167,61 @@ def set_table_borders(table, color="94A3B8", sz="4", val="single"):
     tblPr.append(borders)
 
 def add_formatted_text(paragraph, text, base_font_size=13, is_bold=False, is_italic=False, color_rgb=(0,0,0)):
-    text = clean_latex_math(text)
-    tokens = re.split(r'(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)', text)
+    tokens = re.split(r'(\$\$[^\$]+\$\$|\$[^\$]+\$|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)', text)
     for token in tokens:
         if not token:
             continue
-        run = paragraph.add_run()
-        run.font.name = 'Times New Roman'
-        run.font.size = Pt(base_font_size)
-        run.font.color.rgb = RGBColor(*color_rgb)
         
-        if token.startswith('**') and token.endswith('**'):
-            run.text = token[2:-2]
-            run.bold = True
-            run.italic = is_italic
-        elif token.startswith('*') and token.endswith('*'):
-            run.text = token[1:-1]
+        if (token.startswith('$$') and token.endswith('$$')) or (token.startswith('$') and token.endswith('$')):
+            latex_code = token[2:-2] if token.startswith('$$') else token[1:-1]
+            omml = latex_to_omml(latex_code)
+            if omml:
+                try:
+                    paragraph._p.append(parse_xml(omml))
+                    continue
+                except Exception:
+                    pass
+            # Fallback to Unicode formatted run
+            run = paragraph.add_run(clean_latex_math(latex_code))
+            run.font.name = 'Times New Roman'
+            run.font.size = Pt(base_font_size)
+            run.font.color.rgb = RGBColor(*color_rgb)
             run.bold = is_bold
             run.italic = True
+        elif token.startswith('**') and token.endswith('**'):
+            inner = token[2:-2]
+            if '$' in inner:
+                add_formatted_text(paragraph, inner, base_font_size=base_font_size, is_bold=True, is_italic=is_italic, color_rgb=color_rgb)
+            else:
+                run = paragraph.add_run(clean_latex_math(inner))
+                run.font.name = 'Times New Roman'
+                run.font.size = Pt(base_font_size)
+                run.font.color.rgb = RGBColor(*color_rgb)
+                run.bold = True
+                run.italic = is_italic
+        elif token.startswith('*') and token.endswith('*'):
+            inner = token[1:-1]
+            if '$' in inner:
+                add_formatted_text(paragraph, inner, base_font_size=base_font_size, is_bold=is_bold, is_italic=True, color_rgb=color_rgb)
+            else:
+                run = paragraph.add_run(clean_latex_math(inner))
+                run.font.name = 'Times New Roman'
+                run.font.size = Pt(base_font_size)
+                run.font.color.rgb = RGBColor(*color_rgb)
+                run.bold = is_bold
+                run.italic = True
         elif token.startswith('`') and token.endswith('`'):
-            run.text = token[1:-1]
+            run = paragraph.add_run(token[1:-1])
+            run.font.name = 'Times New Roman'
+            run.font.size = Pt(base_font_size)
             run.bold = True
             run.font.color.rgb = RGBColor(11, 37, 69)
         else:
-            run.text = token
+            cleaned = clean_latex_math(token)
+            run = paragraph.add_run(cleaned)
+            run.font.name = 'Times New Roman'
+            run.font.size = Pt(base_font_size)
+            run.font.color.rgb = RGBColor(*color_rgb)
             run.bold = is_bold
             run.italic = is_italic
 
@@ -287,6 +350,13 @@ def create_styled_document(input_md_path, output_docx_path):
             p.paragraph_format.space_before = Pt(4)
             p.paragraph_format.space_after = Pt(2)
             add_formatted_text(p, text[5:], base_font_size=13, is_bold=True, is_italic=True, color_rgb=(30, 41, 59))
+
+        elif text.startswith('$$') and text.endswith('$$'):
+            p = doc.add_paragraph()
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            p.paragraph_format.space_before = Pt(6)
+            p.paragraph_format.space_after = Pt(6)
+            add_formatted_text(p, text, base_font_size=13)
 
         elif text.startswith('---') or text.startswith('___'):
             p = doc.add_paragraph()
