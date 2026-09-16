@@ -243,13 +243,13 @@ quiz_data = {
     "part2": [
         {
             "id": 1,
-            "title": "Mùi tanh của cá và ứng dụng trung hòa amine trong đời sống",
-            "context": "Trong quá trình đánh bắt và bảo quản thủy hải sản, các vi sinh vật và enzyme phân giải protein và hợp chất chứa nitrogen sinh ra hỗn hợp các amine bay hơi (chủ yếu là trimethylamine, dimethylamine và methylamine), tạo nên mùi tanh nồng khó chịu đặc trưng. Để loại bỏ mùi tanh khi chế biến món ăn, kinh nghiệm dân gian thường rửa cá với nước vo gạo, giấm ăn hoặc nước cốt chanh; khi nấu canh cá thường nấu với các quả có vị chua (me, sấu, khế, cà chua) hoặc ướp cá với rượu trắng. Dựa vào kiến thức về hợp chất amine, xét tính đúng/sai của các phát biểu sau:",
+            "title": "Mùi tanh của cá và ứng dụng trung hòa amine trong đời sống thực tế",
+            "context": "Trong quá trình đánh bắt và bảo quản thủy hải sản, các vi sinh vật và enzyme phân giải protein cùng hợp chất chứa nitrogen sinh ra hỗn hợp các amine bay hơi (chủ yếu là trimethylamine (CH₃)₃N, dimethylamine (CH₃)₂NH và methylamine), tạo nên mùi tanh nồng khó chịu đặc trưng. Để loại bỏ mùi tanh khi chế biến món ăn, kinh nghiệm dân gian thường rửa cá với giấm ăn (chứa acetic acid), nước cốt chanh (chứa citric acid) hoặc nấu canh chua với me, khế, cà chua. Dựa vào kiến thức về hợp chất amine, xét tính đúng/sai của các phát biểu sau:",
             "statements": {
-                "a": "Mùi tanh đặc trưng của cá ươn sinh ra chủ yếu do các amine bậc thấp bay hơi, trong đó có trimethylamine (CH₃)₃N.",
-                "b": "Giấm ăn (chứa acetic acid) và nước cốt chanh (chứa citric acid) giúp khử mùi tanh vì các acid này tác dụng với amine tạo thành muối ammonium ion dễ tan trong nước và không còn khả năng bay hơi.",
-                "c": "Để khử mùi tanh của cá nhanh hơn, ta có thể ngâm rửa cá bằng dung dịch xà phòng hoặc dung dịch nước vôi trong có tính kiềm.",
-                "d": "Khi hòa tan vào nước ở cùng nồng độ, dung dịch trimethylamine làm quỳ tím hóa xanh, còn dung dịch aniline không làm đổi màu quỳ tím."
+                "a": "Mùi tanh đặc trưng của cá ươn sinh ra chủ yếu do các amine bay hơi, trong đó có trimethylamine.",
+                "b": "Giấm ăn và nước cốt chanh giúp khử mùi tanh vì các acid này tác dụng với amine tạo thành muối ammonium ion dễ tan trong nước và không còn khả năng bay hơi.",
+                "c": "Để khử mùi tanh của cá nhanh và sạch hơn, ta có thể ngâm rửa cá bằng dung dịch xà phòng hoặc nước vôi trong có tính kiềm.",
+                "d": "Để trung hòa hoàn toàn 0,018 mol trimethylamine trong một mẻ cá, người ta dùng vừa đủ 20 mL dung dịch giấm ăn. Biết acetic acid trong giấm phản ứng với trimethylamine theo tỉ lệ mol 1 : 1. Nồng độ mol của acetic acid trong dung dịch giấm ăn trên là 0,9 M."
             },
             "answers": {
                 "a": "Đ",
@@ -258,44 +258,21 @@ quiz_data = {
                 "d": "Đ"
             },
             "explanations": {
-                "a": "ĐÚNG: Trimethylamine ((CH₃)₃N) và các amine bay hơi là nguyên nhân cốt lõi gây ra mùi tanh khó chịu của cá và hải sản.",
-                "b": "ĐÚNG: Amine có tính base tác dụng với acid hữu cơ tạo thành muối ammonium ion tan tốt trong nước, không bay hơi nên triệt tiêu hoàn toàn mùi tanh.",
-                "c": "SAI: Môi trường kiềm giữ amine ở dạng phân tử tự do, càng kích thích amine bay hơi gây mùi nồng hơn; mặt khác xà phòng và nước vôi gây độc hại cho thực phẩm.",
-                "d": "ĐÚNG: Trimethylamine là alkylamine có tính base mạnh hơn ammonia nên làm quỳ tím hóa xanh; aniline có tính base rất yếu do hiệu ứng hút e của vòng benzene nên không đổi màu quỳ tím."
+                "a": "ĐÚNG: Trimethylamine ((CH₃)₃N) và các alkylamine phân tử nhỏ là thủ phạm chính gây ra mùi tanh khó chịu của cá và hải sản.",
+                "b": "ĐÚNG: Amine có tính base tác dụng với acid hữu cơ (acetic acid, citric acid) tạo thành muối ammonium: (CH₃)₃N + CH₃COOH → CH₃COO⁻NH⁺(CH₃)₃. Muối này tan tốt trong nước và không bay hơi nên triệt tiêu mùi tanh.",
+                "c": "SAI: Môi trường kiềm (xà phòng, nước vôi) làm chuyển dịch cân bằng giữ amine ở dạng phân tử tự do, càng khiến amine dễ bay hơi gây mùi tanh nồng hơn; đồng thời xà phòng gây độc hại cho thực phẩm.",
+                "d": "ĐÚNG: Phương trình phản ứng: (CH₃)₃N + CH₃COOH → CH₃COONH(CH₃)₃. Số mol CH₃COOH = số mol trimethylamine = 0,018 mol. Đổi thể tích: V = 20 mL = 0,02 L. Nồng độ mol của acetic acid: C_M = 0,018 / 0,02 = 0,9 M."
             }
         },
         {
             "id": 2,
-            "title": "Khảo sát tính tan, tính base và phản ứng đặc trưng của aniline",
-            "context": "Tiến hành khảo sát tính chất của aniline theo các bước thí nghiệm sau:\n- Bước 1: Cho khoảng 2 mL nước cất vào ống nghiệm (1), sau đó nhỏ tiếp khoảng 5 giọt aniline vào, lắc mạnh rồi để yên trong 3 phút.\n- Bước 2: Nhỏ từ từ từng giọt dung dịch HCl loãng vào ống nghiệm (1), vừa nhỏ vừa lắc đều.\n- Bước 3: Cho tiếp lượng dư dung dịch NaOH vào ống nghiệm (1), lắc đều rồi để yên vài phút.\n- Bước 4: Lấy một ống nghiệm (2) chứa 1 mL dung dịch aniline, nhỏ tiếp từng giọt nước bromine vào và lắc nhẹ.\nXét tính đúng/sai của các phát biểu sau:",
+            "title": "Kiểm soát và định lượng Aniline trong nước thải dệt nhuộm",
+            "context": "Aniline (C₆H₅NH₂) là tiền chất quan trọng để tổng hợp phẩm nhuộm azo, tuy nhiên aniline là chất độc hại cao đối với con người và sinh vật thủy sinh. Nước thải sau công đoạn tổng hợp phẩm nhuộm của một nhà máy thường chứa một lượng nhỏ aniline hòa tan. Để kiểm tra và định lượng nồng độ aniline trong nguồn nước thải, phòng kiểm nghiệm môi trường đã tiến hành các thí nghiệm hóa học sau:\n- Thí nghiệm 1: Lấy mẫu nước thải cho phản ứng với dung dịch hydrochloric acid loãng.\n- Thí nghiệm 2: Lấy một phần mẫu nước thải khác cho tác dụng hoàn toàn với lượng dư nước bromine để làm kết tủa hoàn toàn aniline dưới dạng 2,4,6-tribromoaniline.\nXét tính đúng/sai của các phát biểu sau:",
             "statements": {
-                "a": "Ở Bước 1, aniline tan hoàn toàn trong nước cất tạo thành một dung dịch đồng nhất, trong suốt.",
-                "b": "Ở Bước 2, chất lỏng trong ống nghiệm (1) trở nên đồng nhất, trong suốt do aniline tác dụng với HCl tạo muối phenylammonium chloride (C₆H₅NH₃Cl) là hợp chất ion tan tốt trong nước.",
-                "c": "Ở Bước 3, khi thêm NaOH dư vào, chất lỏng trong ống nghiệm (1) lại bị vẩn đục và phân lớp trở lại do phản ứng tái tạo ra aniline không tan trong nước.",
-                "d": "Ở Bước 4, trong ống nghiệm (2) xuất hiện kết tủa màu vàng nhạt của hợp chất monobromoaniline."
-            },
-            "answers": {
-                "a": "S",
-                "b": "Đ",
-                "c": "Đ",
-                "d": "S"
-            },
-            "explanations": {
-                "a": "SAI: Aniline rất ít tan trong nước lạnh. Khi lắc với nước cất, aniline tạo thành hỗn dịch vẩn đục, để yên sẽ phân lớp và aniline nặng hơn chìm xuống đáy.",
-                "b": "ĐÚNG: Phản ứng tạo muối ion tan: C₆H₅NH₂ + HCl → C₆H₅NH₃Cl. Muối phenylammonium chloride tan hoàn toàn trong nước làm dung dịch trong suốt.",
-                "c": "ĐÚNG: Base mạnh NaOH đẩy aniline ra khỏi muối: C₆H₅NH₃Cl + NaOH → C₆H₅NH₂ + NaCl + H₂O. Aniline sinh ra ít tan trong nước làm dung dịch vẩn đục và phân lớp trở lại.",
-                "d": "SAI: Nhóm -NH₂ định hướng thế đồng thời vào các vị trí 2, 4, 6 tạo kết tủa màu TRẮNG của 2,4,6-tribromoaniline, không phải kết tủa màu vàng."
-            }
-        },
-        {
-            "id": 3,
-            "title": "Phản ứng với nitrous acid (HNO₂) & Công nghiệp phẩm màu Azo",
-            "context": "Nitrous acid (HNO₂) là một acid kém bền, thường được tạo ra trực tiếp trong dung dịch phản ứng bằng cách phối trộn sodium nitrite (NaNO₂) với hydrochloric acid (HCl). Hóa học của amine với nitrous acid phụ thuộc chặt chẽ vào cấu trúc amine và nhiệt độ phản ứng:\n- Thí nghiệm 1: Cho ethylamine tác dụng với hỗn hợp NaNO₂ và HCl ở nhiệt độ phòng.\n- Thí nghiệm 2: Cho aniline tác dụng với hỗn hợp NaNO₂ và HCl ở 0 - 5°C (ngâm trong chậu nước đá) thu được dung dịch chất X. Tiếp tục cho chất X tác dụng với dung dịch sodium phenolate trong môi trường kiềm thấy xuất hiện hợp chất màu đỏ cam rực rỡ (chất Y).\nXét tính đúng/sai của các phát biểu sau:",
-            "statements": {
-                "a": "Ở Thí nghiệm 1, hiện tượng quan sát được là có bọt khí không màu thoát ra liên tục từ dung dịch, đó là khí nitrogen (N₂).",
-                "b": "Ở Thí nghiệm 2, chất X được tạo thành trong dung dịch là muối phenyldiazonium chloride [C₆H₅N₂⁺]Cl⁻.",
-                "c": "Nếu tiến hành Thí nghiệm 2 ở nhiệt độ cao (80 - 100°C) ngay từ đầu thì muối phenyldiazonium sinh ra càng bền vững và phản ứng tạo phẩm màu Y càng thuận lợi hơn.",
-                "d": "Hợp chất Y có màu đỏ cam thu được thuộc loại phẩm màu azo (chứa nhóm mang màu -N=N-), được ứng dụng rộng rãi trong công nghiệp nhuộm sợi dệt và in ấn."
+                "a": "Ở điều kiện thường, aniline nguyên chất rất ít tan trong nước lạnh và có khối lượng riêng lớn hơn nước nên lắng xuống đáy ống nghiệm.",
+                "b": "Trong Thí nghiệm 1, aniline tác dụng với dung dịch HCl tạo thành muối phenylammonium chloride (C₆H₅NH₃Cl) tan tốt trong nước.",
+                "c": "Nếu cho tiếp dung dịch NaOH dư vào sản phẩm của Thí nghiệm 1 thì chất lỏng vẫn giữ nguyên trạng thái trong suốt, đồng nhất.",
+                "d": "Trong Thí nghiệm 2, lấy 200 mL mẫu nước thải cho tác dụng hoàn toàn với lượng dư nước bromine thu được 0,99 gam kết tủa trắng 2,4,6-tribromoaniline (M = 330 g/mol). Nồng độ của aniline trong mẫu nước thải trên là 1,395 g/L."
             },
             "answers": {
                 "a": "Đ",
@@ -304,33 +281,56 @@ quiz_data = {
                 "d": "Đ"
             },
             "explanations": {
-                "a": "ĐÚNG: Phản ứng của alkylamine bậc I: C₂H₅NH₂ + HNO₂ → C₂H₅OH + N₂↑ + H₂O. Khí nitrogen thoát ra dưới dạng bọt khí không màu.",
-                "b": "ĐÚNG: Aniline phản ứng với HNO₂ ở nhiệt độ 0 - 5°C tạo muối phenyldiazonium chloride: C₆H₅NH₂ + HNO₂ + HCl → [C₆H₅N₂⁺]Cl⁻ + 2H₂O.",
-                "c": "SAI: Muối diazonium rất kém bền nhiệt; ở nhiệt độ phòng hoặc đun nóng, muối bị thủy phân nhanh chóng giải phóng phenol và khí nitrogen: [C₆H₅N₂⁺]Cl⁻ + H₂O → C₆H₅OH + N₂↑ + HCl, không tạo được phẩm màu Y.",
-                "d": "ĐÚNG: Phản ứng ghép đôi diazo giữa cation phenyldiazonium với phenol/phenolate tạo hợp chất azo có hệ liên kết đôi liên hợp dài, tạo màu đỏ cam đặc trưng dùng làm phẩm nhuộm azo."
+                "a": "ĐÚNG: Aniline rất ít tan trong nước lạnh và có khối lượng riêng D ≈ 1,02 g/mL > 1 g/mL nên bị tách lớp và chìm xuống đáy.",
+                "b": "ĐÚNG: Aniline tác dụng với acid mạnh tạo muối ion tan: C₆H₅NH₂ + HCl → C₆H₅NH₃Cl.",
+                "c": "SAI: Khi cho NaOH dư vào, base mạnh NaOH đẩy aniline ra khỏi muối: C₆H₅NH₃Cl + NaOH → C₆H₅NH₂ + NaCl + H₂O. Aniline sinh ra không tan trong nước làm dung dịch vẩn đục và phân lớp trở lại.",
+                "d": "ĐÚNG: Phương trình: C₆H₅NH₂ + 3Br₂ → C₆H₂Br₃NH₂↓ + 3HBr. Số mol kết tủa n = 0,99 / 330 = 0,003 mol. Do đó số mol aniline có trong 200 mL nước thải là 0,003 mol. Khối lượng aniline trong 200 mL: m = 0,003 × 93 = 0,279 gam. Nồng độ aniline trong nước thải: C = 0,279 g / 0,2 L = 1,395 g/L."
             }
         },
         {
-            "id": 4,
-            "title": "Tác dụng của alkylamine với dung dịch muối ion kim loại",
-            "context": "Chuẩn bị hai ống nghiệm (A) và (B):\n- Ống nghiệm (A): Chứa 2 mL dung dịch copper(II) sulfate (CuSO₄) 0,1 M.\n- Ống nghiệm (B): Chứa 2 mL dung dịch iron(III) chloride (FeCl₃) 0,1 M.\nTiến hành nhỏ từ từ từng giọt dung dịch methylamine (CH₃NH₂) 1 M vào cả hai ống nghiệm cho đến dư. Xét tính đúng/sai của các phát biểu sau:",
+            "id": 3,
+            "title": "Phản ứng của amine với Nitrous acid (HNO₂) và ứng dụng tổng hợp phẩm màu Azo",
+            "context": "Nitrous acid (HNO₂) là một acid kém bền, thường được tạo ra trực tiếp trong hỗn hợp phản ứng bằng cách phối trộn sodium nitrite (NaNO₂) với hydrochloric acid (HCl). Phản ứng của amine với nitrous acid phụ thuộc chặt chẽ vào cấu trúc amine và nhiệt độ:\n- Thí nghiệm 1: Cho ethylamine tác dụng với hỗn hợp NaNO₂ và HCl ở nhiệt độ phòng (25°C).\n- Thí nghiệm 2: Cho aniline tác dụng với hỗn hợp NaNO₂ và HCl ở nhiệt độ thấp (0 - 5°C, ngâm trong chậu nước đá) thu được dung dịch chất X. Tiếp tục cho dung dịch X tác dụng với dung dịch phenol trong môi trường kiềm thấy xuất hiện hợp chất màu đỏ cam rực rỡ (chất Y).\nXét tính đúng/sai của các phát biểu sau:",
             "statements": {
-                "a": "Ở ống nghiệm (B), xuất hiện kết tủa màu nâu đỏ của iron(III) hydroxide do dung dịch methylamine có môi trường kiềm.",
-                "b": "Nếu tiếp tục nhỏ dư dung dịch methylamine vào ống nghiệm (B), kết tủa nâu đỏ sẽ tan dần tạo thành dung dịch phức chất màu nâu trong suốt.",
-                "c": "Ở ống nghiệm (A), ban đầu xuất hiện kết tủa màu xanh lam của Cu(OH)₂, sau đó khi nhỏ dư methylamine thì kết tủa tan dần tạo dung dịch phức chất có màu xanh lam thẫm.",
-                "d": "Nếu thay methylamine bằng aniline và lặp lại thí nghiệm với ống (A), kết tủa Cu(OH)₂ cũng sẽ tan hoàn toàn tạo dung dịch phức chất màu xanh lam thẫm tương tự."
+                "a": "Ở Thí nghiệm 1, hiện tượng quan sát được là có bọt khí không màu thoát ra liên tục, đó là khí nitrogen (N₂).",
+                "b": "Ở Thí nghiệm 2, chất X tạo thành trong dung dịch là muối phenyldiazonium chloride ([C₆H₅N₂⁺]Cl⁻), muối này rất bền vững kể cả khi đun sôi ở 100°C.",
+                "c": "Chất màu đỏ cam Y thuộc loại phẩm màu azo (chứa liên kết đôi mang màu -N=N-), được ứng dụng rộng rãi trong công nghiệp nhuộm sợi và in ấn.",
+                "d": "Ở Thí nghiệm 1, khi cho 3,6 gam ethylamine (M = 45 g/mol) phản ứng hoàn toàn với lượng dư nitrous acid, thể tích khí N₂ thu được ở điều kiện chuẩn (25°C, 1 bar) là 1,9832 lít."
             },
             "answers": {
                 "a": "Đ",
                 "b": "S",
                 "c": "Đ",
-                "d": "S"
+                "d": "Đ"
             },
             "explanations": {
-                "a": "ĐÚNG: Methylamine thủy phân tạo môi trường base: 3CH₃NH₂ + 3H₂O + FeCl₃ → Fe(OH)₃↓ (nâu đỏ) + 3CH₃NH₃Cl.",
-                "b": "SAI: Fe(OH)₃ không có khả năng tạo phức tan với methylamine, do đó kết tủa màu nâu đỏ không tan khi amine dư.",
-                "c": "ĐÚNG: Ban đầu tạo kết tủa Cu(OH)₂ màu xanh lam: 2CH₃NH₂ + 2H₂O + CuSO₄ → Cu(OH)₂↓ + (CH₃NH₃)₂SO₄. Khi methylamine dư, kết tủa tan tạo phức [Cu(CH₃NH₂)₄](OH)₂ màu xanh lam thẫm.",
-                "d": "SAI: Aniline có tính base rất yếu và đôi electron tự do trên nguyên tử N bị giải tỏa vào vòng thơm nên không có khả năng tạo phức hòa tan Cu(OH)₂."
+                "a": "ĐÚNG: Alkylamine bậc I phản ứng giải phóng khí nitrogen: C₂H₅NH₂ + HNO₂ → C₂H₅OH + N₂↑ + H₂O.",
+                "b": "SAI: Muối phenyldiazonium chloride rất kém bền nhiệt; khi đun nóng nó bị thủy phân nhanh chóng giải phóng khí N₂ và phenol: [C₆H₅N₂⁺]Cl⁻ + H₂O → C₆H₅OH + N₂↑ + HCl, không bền ở 100°C.",
+                "c": "ĐÚNG: Phản ứng ghép đôi diazo giữa phenyldiazonium với phenolate tạo thành phẩm màu azo có hệ liên hợp dài, tạo màu đỏ cam đặc trưng.",
+                "d": "ĐÚNG: Số mol ethylamine: n = 3,6 / 45 = 0,08 mol. Theo phương trình: n(N₂) = n(ethylamine) = 0,08 mol. Ở điều kiện chuẩn (25°C, 1 bar, 1 mol = 24,79 L): V(N₂) = 0,08 × 24,79 = 1,9832 lít."
+            }
+        },
+        {
+            "id": 4,
+            "title": "Sản xuất vật liệu Polymer - Tơ Nylon-6,6 từ Hexamethylenediamine",
+            "context": "Hexamethylenediamine (hexane-1,6-diamine, công thức H₂N-(CH₂)₆-NH₂) là một diamine công nghiệp quan trọng. Khi cho hexamethylenediamine đồng trùng ngưng với adipic acid (HOOC-(CH₂)₄-COOH) ở điều kiện nhiệt độ và áp suất thích hợp, thu được poly(hexamethylene adipamide) - tức tơ nylon-6,6. Tơ nylon-6,6 có tính dai bền, mềm mại, óng mượt và ít thấm nước, được ứng dụng rộng rãi để dệt vải may mặc cao cấp, bện dây dù, đan lưới đánh cá và sản xuất chỉ khâu phẫu thuật. Xét tính đúng/sai của các phát biểu sau:",
+            "statements": {
+                "a": "Hexamethylenediamine là amine hai chức bậc I, phân tử chứa hai nhóm amino (-NH₂).",
+                "b": "Phản ứng tổng hợp nylon-6,6 thuộc loại phản ứng trùng hợp mở vòng của các monomer mạch vòng.",
+                "c": "Vải may mặc dệt từ sợi nylon-6,6 rất bền khi ngâm giặt trong môi trường xà phòng có tính kiềm mạnh hoặc chất tẩy có tính acid mạnh.",
+                "d": "Để sản xuất 2,26 tấn polymer nylon-6,6 với hiệu suất của toàn bộ quá trình đạt 80%, khối lượng hexamethylenediamine (M = 116 g/mol) tối thiểu cần dùng trong nhà máy là 1,45 tấn."
+            },
+            "answers": {
+                "a": "Đ",
+                "b": "S",
+                "c": "S",
+                "d": "Đ"
+            },
+            "explanations": {
+                "a": "ĐÚNG: Hexamethylenediamine có công thức cấu tạo H₂N-(CH₂)₆-NH₂, phân tử chứa 2 nhóm -NH₂ liên kết với gốc hydrocarbon no nên là diamine bậc I.",
+                "b": "SAI: Phản ứng giữa diamine và dicarboxylic acid tạo polymer đồng thời giải phóng các phân tử H₂O thuộc loại phản ứng đồng trùng ngưng, không phải trùng hợp mở vòng.",
+                "c": "SAI: Tơ nylon-6,6 chứa các liên kết amide -CO-NH-, các liên kết này rất dễ bị thủy phân trong môi trường acid hoặc môi trường kiềm, làm mục hỏng sợi vải.",
+                "d": "ĐÚNG: Mắt xích của nylon-6,6 là [-NH-(CH₂)₆-NH-CO-(CH₂)₄-CO-] có phân tử khối M = 226 g/mol. Số mol mắt xích nylon-6,6: n = 2,26 × 10⁶ / 226 = 10 000 mol. Theo tỉ lệ phản ứng, số mol hexamethylenediamine lý thuyết cần dùng: n = 10 000 mol → Khối lượng lý thuyết: m_LT = 10 000 × 116 = 1 160 000 gam = 1,16 tấn. Do hiệu suất quá trình đạt 80%, khối lượng thực tế cần dùng là: m_TT = 1,16 / 0,80 = 1,45 tấn."
             }
         }
     ],
@@ -339,50 +339,52 @@ quiz_data = {
             "id": 1,
             "question": "Cho 5,9 gam một alkylamine đơn chức, no, mạch hở X tác dụng vừa đủ với 100 mL dung dịch HCl 1,0 M. Phân tử khối của amine X bằng bao nhiêu amu?",
             "answer": "59",
-            "explanation": "Số mol HCl đã dùng: n(HCl) = 0,100 × 1,0 = 0,1 mol.\nVì amine X đơn chức nên phản ứng theo tỉ lệ 1 : 1:\nX + HCl → X·HCl\nDo đó: n(X) = n(HCl) = 0,1 mol.\nPhân tử khối của amine X:\nM(X) = 5,9 / 0,1 = 59 (amu).\n(Amine X là C₃H₉N, gồm các đồng phân propan-1-amine, propan-2-amine, N-methylethanamine, trimethylamine)."
+            "explanation": "Số mol HCl đã dùng: n(HCl) = 0,100 × 1,0 = 0,1 mol.\nVì amine X đơn chức nên phản ứng với HCl theo tỉ lệ mol 1 : 1:\nX + HCl → X·HCl\nDo đó: n(X) = n(HCl) = 0,1 mol.\nPhân tử khối của amine X:\nM(X) = 5,9 / 0,1 = 59 amu.\n(Amine X có công thức phân tử C₃H₉N)."
         },
         {
             "id": 2,
-            "question": "Có bao nhiêu amine đồng phân cấu tạo có cùng công thức phân tử C₄H₁₁N?",
-            "answer": "8",
-            "explanation": "Các đồng phân cấu tạo của amine C₄H₁₁N gồm:\n- Amine bậc I (4 đồng phân): CH₃CH₂CH₂CH₂NH₂ (butan-1-amine), CH₃CH₂CH(NH₂)CH₃ (butan-2-amine), (CH₃)₂CHCH₂NH₂ (2-methylpropan-1-amine), (CH₃)₃CNH₂ (2-methylpropan-2-amine).\n- Amine bậc II (3 đồng phân): CH₃CH₂CH₂NHCH₃ (N-methylpropan-1-amine), (CH₃)₂CHNHCH₃ (N-methylpropan-2-amine), CH₃CH₂NHCH₂CH₃ (N-ethylethanamine).\n- Amine bậc III (1 đồng phân): (CH₃)₂NCH₂CH₃ (N,N-dimethylethanamine).\nTổng số đồng phân cấu tạo là 4 + 3 + 1 = 8."
+            "question": "Có bao nhiêu amine đồng phân cấu tạo bậc I có cùng công thức phân tử C₄H₁₁N?",
+            "answer": "4",
+            "explanation": "Các đồng phân cấu tạo amine bậc I (chứa nhóm -NH₂) có công thức C₄H₁₁N gồm:\n(1) CH₃-CH₂-CH₂-CH₂-NH₂ (butan-1-amine)\n(2) CH₃-CH₂-CH(NH₂)-CH₃ (butan-2-amine)\n(3) (CH₃)₂CH-CH₂-NH₂ (2-methylpropan-1-amine)\n(4) (CH₃)₃C-NH₂ (2-methylpropan-2-amine)\nTổng số đồng phân cấu tạo amine bậc I là 4."
         },
         {
             "id": 3,
-            "question": "Cho 18,6 gam aniline phản ứng hoàn toàn với lượng dư nước bromine thu được m gam kết tủa trắng 2,4,6-tribromoaniline. Biết hiệu suất của phản ứng đạt 90%. Giá trị của m bằng bao nhiêu gam? (Kết quả làm tròn đến một chữ số thập phân).",
-            "answer": "59.4",
-            "explanation": "Khối lượng mol của aniline C₆H₅NH₂: M = 93 g/mol.\nSố mol aniline: n(aniline) = 18,6 / 93 = 0,2 mol.\nPhương trình hóa học:\nC₆H₅NH₂ + 3Br₂ → C₆H₂Br₃NH₂↓ + 3HBr\nKhối lượng mol của 2,4,6-tribromoaniline (C₆H₄NBr₃): M = 330 g/mol.\nDo hiệu suất đạt 90%, số mol kết tủa thực tế thu được là:\nn(kết tủa) = 0,2 × 90% = 0,18 mol.\nKhối lượng kết tủa thu được:\nm = 0,18 × 330 = 59,4 gam."
+            "question": "Cho 9,0 gam ethylamine (C₂H₅NH₂) phản ứng hoàn toàn với lượng dư dung dịch hydrochloric acid (HCl). Sau khi phản ứng kết thúc, cô cạn cẩn thận dung dịch thu được m gam muối khan ethylammonium chloride. Giá trị của m bằng bao nhiêu gam? (Kết quả làm tròn đến một chữ số thập phân).",
+            "answer": "16.3",
+            "explanation": "Khối lượng mol của ethylamine C₂H₅NH₂: M = 45 g/mol.\nSố mol ethylamine: n = 9,0 / 45 = 0,2 mol.\nPhương trình hóa học:\nC₂H₅NH₂ + HCl → C₂H₅NH₃Cl\nKhối lượng mol của muối C₂H₅NH₃Cl: M = 45 + 36,5 = 81,5 g/mol.\nKhối lượng muối khan thu được:\nm = 0,2 × 81,5 = 16,3 gam."
         },
         {
             "id": 4,
-            "question": "Cho 9,0 gam ethylamine (C₂H₅NH₂) tác dụng hết với lượng dư dung dịch nitrous acid (HNO₂) ở nhiệt độ phòng. Thể tích khí N₂ thu được ở điều kiện chuẩn (25°C, 1 bar) bằng bao nhiêu lít? (Làm tròn kết quả đến hai chữ số thập phân, biết 1 mol khí ở điều kiện chuẩn chiếm thể tích 24,79 L).",
-            "answer": "4.96",
-            "explanation": "Khối lượng mol của ethylamine C₂H₅NH₂: M = 45 g/mol.\nSố mol ethylamine: n = 9,0 / 45 = 0,2 mol.\nPhương trình hóa học:\nC₂H₅NH₂ + HNO₂ → C₂H₅OH + N₂↑ + H₂O\nTheo phương trình: n(N₂) = n(ethylamine) = 0,2 mol.\nThể tích khí N₂ ở điều kiện chuẩn (25°C, 1 bar):\nV(N₂) = 0,2 × 24,79 = 4,958 ≈ 4,96 lít."
+            "question": "Cho 18,6 gam aniline tác dụng hoàn toàn với lượng dư nước bromine trong bình phản ứng, thu được m gam kết tủa trắng 2,4,6-tribromoaniline. Biết hiệu suất của phản ứng đạt 90%. Giá trị của m bằng bao nhiêu gam? (Kết quả làm tròn đến một chữ số thập phân).",
+            "answer": "59.4",
+            "explanation": "Khối lượng mol của aniline C₆H₅NH₂: M = 93 g/mol.\nSố mol aniline: n(aniline) = 18,6 / 93 = 0,2 mol.\nPhương trình hóa học:\nC₆H₅NH₂ + 3Br₂ → C₆H₂Br₃NH₂↓ + 3HBr\nKhối lượng mol của kết tủa 2,4,6-tribromoaniline: M = 330 g/mol.\nVì hiệu suất đạt 90%, số mol kết tủa thực tế thu được là:\nn(kết tủa) = 0,2 × 90% = 0,18 mol.\nKhối lượng kết tủa thu được:\nm = 0,18 × 330 = 59,4 gam."
         },
         {
             "id": 5,
-            "question": "Cho các phát biểu sau về hợp chất amine:\n(1) Methylamine, dimethylamine, trimethylamine và ethylamine là những chất khí ở điều kiện thường, có mùi khai khó chịu.\n(2) Nhiệt độ sôi của ethylamine cao hơn ethanol do amine có khả năng tạo liên kết hydrogen mạnh hơn.\n(3) Dung dịch methylamine phản ứng với dung dịch FeCl₃ tạo kết tủa màu nâu đỏ của Fe(OH)₃.\n(4) Nhỏ nước bromine vào ống nghiệm chứa dung dịch aniline thấy xuất hiện kết tủa màu trắng.\n(5) Aniline làm dung dịch phenolphthalein chuyển sang màu hồng do trong phân tử có nhóm amino mang tính base.\n(6) Hexamethylenediamine (hexane-1,6-diamine) là nguyên liệu chính để sản xuất tơ nylon-6,6.\nTrong 6 phát biểu trên, có bao nhiêu phát biểu ĐÚNG?",
+            "question": "Cho các phát biểu sau về hợp chất amine:\n(1) Methylamine, dimethylamine, trimethylamine và ethylamine là những chất khí ở điều kiện thường, có mùi khai khó chịu.\n(2) Nhiệt độ sôi của ethylamine cao hơn so với ethanol vì amine có phân tử khối gần tương đương.\n(3) Dung dịch methylamine phản ứng với dung dịch FeCl₃ tạo kết tủa màu nâu đỏ của Fe(OH)₃.\n(4) Nhỏ nước bromine vào ống nghiệm chứa dung dịch aniline thấy xuất hiện kết tủa màu trắng.\n(5) Aniline làm dung dịch phenolphthalein chuyển sang màu hồng do trong phân tử có nhóm amino mang tính base.\n(6) Hexamethylenediamine (hexane-1,6-diamine) là nguyên liệu chính để sản xuất tơ nylon-6,6.\nTrong 6 phát biểu trên, có bao nhiêu phát biểu ĐÚNG?",
             "answer": "4",
-            "explanation": "Các phát biểu ĐÚNG gồm: (1), (3), (4), (6).\n- Phát biểu (2) SAI: Liên kết hydrogen N-H···N yếu hơn O-H···O do độ âm điện N < O, nên nhiệt độ sôi của ethylamine (16,6°C) thấp hơn ethanol (78,3°C).\n- Phát biểu (5) SAI: Aniline có tính base rất yếu nên không làm đổi màu phenolphthalein.\nTổng số phát biểu đúng là 4."
+            "explanation": "Các phát biểu ĐÚNG gồm: (1), (3), (4), (6).\n- Phát biểu (2) SAI vì liên kết hydrogen N-H···N yếu hơn liên kết O-H···O nên ethylamine (sôi ở 16,6°C) có nhiệt độ sôi thấp hơn ethanol (sôi ở 78,3°C).\n- Phát biểu (5) SAI vì aniline có tính base rất yếu do hiệu ứng hút electron của vòng benzene nên không làm đổi màu phenolphthalein.\nTổng số phát biểu đúng là 4."
         },
         {
             "id": 6,
-            "question": "Tiến hành khử 24,6 gam nitrobenzene (C₆H₅NO₂) bằng bột sắt trong dung dịch hydrochloric acid đặc đun nóng, sau đó kiềm hóa hỗn hợp bằng dung dịch NaOH dư và chưng cất lôi cuốn hơi nước thu được 14,88 gam aniline (C₆H₅NH₂). Hiệu suất của quá trình điều chế trên bằng bao nhiêu phần trăm?",
+            "question": "Tiến hành khử 24,6 gam nitrobenzene (C₆H₅NO₂, M = 123 g/mol) bằng bột sắt trong dung dịch hydrochloric acid đặc đun nóng, sau đó kiềm hóa hỗn hợp bằng dung dịch NaOH dư và chưng cất lôi cuốn hơi nước thu được 14,88 gam aniline (C₆H₅NH₂, M = 93 g/mol). Hiệu suất của quá trình điều chế trên bằng bao nhiêu phần trăm?",
             "answer": "80",
-            "explanation": "Số mol nitrobenzene ban đầu:\nn(C₆H₅NO₂) = 24,6 / 123 = 0,2 mol.\nPhương trình hóa học tổng quát:\nC₆H₅NO₂ + 6[H] (Fe + HCl, t°) → C₆H₅NH₂ + 2H₂O\nTheo lý thuyết (hiệu suất 100%):\nn(aniline lý thuyết) = 0,2 mol → m(aniline lý thuyết) = 0,2 × 93 = 18,6 gam.\nHiệu suất của quá trình điều chế:\nH = (14,88 / 18,6) × 100% = 80%."
+            "explanation": "Số mol nitrobenzene ban đầu:\nn(C₆H₅NO₂) = 24,6 / 123 = 0,2 mol.\nPhương trình hóa học tổng quát:\nC₆H₅NO₂ + 6[H] (Fe + HCl, t°) → C₆H₅NH₂ + 2H₂O\nTheo lý thuyết (hiệu suất 100%):\nn(aniline LT) = 0,2 mol → m(aniline LT) = 0,2 × 93 = 18,6 gam.\nHiệu suất của quá trình điều chế:\nH = (14,88 / 18,6) × 100% = 80%."
         }
     ]
 }
 
 # 1. Xuất HTML Interactive Test
-html_local = "dau-ra/lop-12/bai-tap/de-on-tap-bai-amine-hoa-hoc-12.html"
+html_local1 = "dau-ra/lop-12/bai-tap/de-on-tap-bai-amine-hoa-hoc-12.html"
+html_local2 = "dau-ra/lop-12/bai-tap/de-on-tap-amine-hoa-hoc-12.html"
 html_web = "lop-12/de-on-tap-amine.html"
-os.makedirs(os.path.dirname(html_local), exist_ok=True)
+os.makedirs(os.path.dirname(html_local1), exist_ok=True)
 os.makedirs(os.path.dirname(html_web), exist_ok=True)
 
-generate_quiz_html(quiz_data, html_local)
+generate_quiz_html(quiz_data, html_local1)
+generate_quiz_html(quiz_data, html_local2)
 generate_quiz_html(quiz_data, html_web)
-print(f"Đã tạo file HTML local: {html_local}")
+print(f"Đã tạo file HTML local: {html_local1} và {html_local2}")
 print(f"Đã tạo file HTML web: {html_web}")
 
 # 2. Tạo Markdown
@@ -444,29 +446,29 @@ md_lines.extend([
     "| 1 | B | 7 | D | 13 | B |",
     "| 2 | C | 8 | C | 14 | A |",
     "| 3 | A | 9 | A | 15 | B |",
-    "| 4 | B | 10 | D | 16 | B |",
-    "| 5 | A | 11 | B | 17 | C |",
-    "| 6 | C | 12 | A | 18 | A |",
+    "| 4 | C | 10 | D | 16 | B |",
+    "| 5 | A | 11 | B | 17 | A |",
+    "| 6 | B | 12 | A | 18 | A |",
     "",
     "### BẢNG ĐÁP ÁN PHẦN II",
     "| Câu | Lệnh hỏi | Đáp án (Đ/S) | Câu | Lệnh hỏi | Đáp án (Đ/S) |",
     "| :---: | :---: | :---: | :---: | :---: | :---: |",
     "| 1 | a | Đ | 3 | a | Đ |",
-    "| 1 | b | Đ | 3 | b | Đ |",
-    "| 1 | c | S | 3 | c | S |",
+    "| 1 | b | Đ | 3 | b | S |",
+    "| 1 | c | S | 3 | c | Đ |",
     "| 1 | d | Đ | 3 | d | Đ |",
-    "| 2 | a | S | 4 | a | Đ |",
+    "| 2 | a | Đ | 4 | a | Đ |",
     "| 2 | b | Đ | 4 | b | S |",
-    "| 2 | c | Đ | 4 | c | Đ |",
-    "| 2 | d | S | 4 | d | S |",
+    "| 2 | c | S | 4 | c | S |",
+    "| 2 | d | Đ | 4 | d | Đ |",
     "",
     "### BẢNG ĐÁP ÁN PHẦN III",
     "| Câu | Lời giải tóm tắt | Đáp số |",
     "| :---: | :--- | :---: |",
     "| 1 | n_HCl = 0,1 mol -> M_X = 5,9 / 0,1 = 59 amu (C₃H₉N) | 59 |",
-    "| 2 | 4 bậc I + 3 bậc II + 1 bậc III = 8 đồng phân cấu tạo | 8 |",
-    "| 3 | n_aniline = 0,2 mol; H = 90% -> m_kết tủa = 0,18 * 330 = 59,4 gam | 59,4 |",
-    "| 4 | n_ethylamine = 0,2 mol -> V_N2 (đkc) = 0,2 * 24,79 = 4,958 ≈ 4,96 lít | 4,96 |",
+    "| 2 | 4 đồng phân amine bậc I: butan-1-amine, butan-2-amine, 2-methylpropan-1-amine, 2-methylpropan-2-amine | 4 |",
+    "| 3 | n_amine = 0,2 mol -> m_muối = 0,2 * 81,5 = 16,3 gam | 16.3 |",
+    "| 4 | n_aniline = 0,2 mol; H = 90% -> m_kết tủa = 0,18 * 330 = 59,4 gam | 59.4 |",
     "| 5 | Các phát biểu đúng gồm: (1), (3), (4), (6) | 4 |",
     "| 6 | n_nitrobenzene = 0,2 mol -> m_LT = 18,6 g -> H = (14,88 / 18,6) * 100% = 80% | 80 |",
     "",
@@ -496,13 +498,18 @@ for q in quiz_data["part3"]:
     md_lines.append(f"Lời giải: {q['explanation']}")
     md_lines.append("")
 
-md_path = "dau-ra/lop-12/bai-tap/de-on-tap-bai-amine-hoa-hoc-12.md"
-os.makedirs(os.path.dirname(md_path), exist_ok=True)
-with open(md_path, 'w', encoding='utf-8') as f:
+md_path1 = "dau-ra/lop-12/bai-tap/de-on-tap-bai-amine-hoa-hoc-12.md"
+md_path2 = "dau-ra/lop-12/bai-tap/de-on-tap-amine-hoa-hoc-12.md"
+os.makedirs(os.path.dirname(md_path1), exist_ok=True)
+with open(md_path1, 'w', encoding='utf-8') as f:
     f.write('\n'.join(md_lines))
-print(f"Đã tạo file Markdown: {md_path}")
+with open(md_path2, 'w', encoding='utf-8') as f:
+    f.write('\n'.join(md_lines))
+print(f"Đã tạo file Markdown: {md_path1} và {md_path2}")
 
 # 3. Xuất Word DOCX
-docx_path = "dau-ra/lop-12/bai-tap/de-on-tap-bai-amine-hoa-hoc-12.docx"
-create_styled_document(md_path, docx_path)
-print(f"Đã tạo file Word DOCX: {docx_path}")
+docx_path1 = "dau-ra/lop-12/bai-tap/de-on-tap-bai-amine-hoa-hoc-12.docx"
+docx_path2 = "dau-ra/lop-12/bai-tap/de-on-tap-amine-hoa-hoc-12.docx"
+create_styled_document(md_path1, docx_path1)
+create_styled_document(md_path2, docx_path2)
+print(f"Đã tạo file Word DOCX: {docx_path1} và {docx_path2}")
