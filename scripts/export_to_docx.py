@@ -367,6 +367,28 @@ def create_styled_document(input_md_path, output_docx_path):
             run.font.color.rgb = RGBColor(203, 213, 225)
             run.font.size = Pt(10)
 
+        elif text.startswith('![') and '](' in text and text.endswith(')'):
+            m = re.match(r'!\[(.*?)\]\((.*?)\)', text)
+            if m:
+                caption = m.group(1).strip()
+                img_path = m.group(2).strip()
+                if os.path.exists(img_path):
+                    p = doc.add_paragraph()
+                    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                    p.paragraph_format.space_before = Pt(6)
+                    p.paragraph_format.space_after = Pt(2)
+                    run = p.add_run()
+                    run.add_picture(img_path, width=Inches(4.2))
+                    if caption:
+                        p_cap = doc.add_paragraph()
+                        p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                        p_cap.paragraph_format.space_after = Pt(6)
+                        r_cap = p_cap.add_run(caption)
+                        r_cap.italic = True
+                        r_cap.font.name = 'Times New Roman'
+                        r_cap.font.size = Pt(10)
+                        r_cap.font.color.rgb = RGBColor(100, 116, 139)
+
         elif text.startswith('> '):
             p = doc.add_paragraph()
             p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
