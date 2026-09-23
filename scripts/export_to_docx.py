@@ -358,6 +358,10 @@ def create_styled_document(input_md_path, output_docx_path):
             p.paragraph_format.space_after = Pt(6)
             add_formatted_text(p, text, base_font_size=13)
 
+        if text.startswith('<div') or text.startswith('<img') or 'data:image' in text:
+            i += 1
+            continue
+
         elif text.startswith('---') or text.startswith('___'):
             p = doc.add_paragraph()
             p.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -375,14 +379,26 @@ def create_styled_document(input_md_path, output_docx_path):
                 if os.path.exists(img_path):
                     p = doc.add_paragraph()
                     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                    p.paragraph_format.space_before = Pt(6)
+                    p.paragraph_format.space_before = Pt(4)
                     p.paragraph_format.space_after = Pt(2)
                     run = p.add_run()
-                    run.add_picture(img_path, width=Inches(4.2))
-                    if caption:
+                    try:
+                        from PIL import Image
+                        with Image.open(img_path) as im:
+                            w_px, _ = im.size
+                            if w_px < 380:
+                                pic_w = Inches(2.5)
+                            elif w_px < 600:
+                                pic_w = Inches(3.6)
+                            else:
+                                pic_w = Inches(4.5)
+                    except Exception:
+                        pic_w = Inches(3.8)
+                    run.add_picture(img_path, width=pic_w)
+                    if caption and not caption.startswith('!'):
                         p_cap = doc.add_paragraph()
                         p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                        p_cap.paragraph_format.space_after = Pt(6)
+                        p_cap.paragraph_format.space_after = Pt(4)
                         r_cap = p_cap.add_run(caption)
                         r_cap.italic = True
                         r_cap.font.name = 'Times New Roman'
