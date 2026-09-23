@@ -504,3 +504,14 @@ print(f"Đã tạo file Markdown: {md_path}")
 docx_path = "dau-ra/lop-12/bai-tap/de-on-tap-bai-amino-acid-hoa-hoc-12.docx"
 create_styled_document(md_path, docx_path)
 print(f"Đã tạo file Word DOCX: {docx_path}")
+
+# 4. Xuất HTML trắc nghiệm online
+html_path = "dau-ra/lop-12/bai-tap/de-on-tap-bai-amino-acid-hoa-hoc-12.html"
+generate_quiz_html(quiz_data, html_path)
+print(f"Đã tạo file HTML trắc nghiệm: {html_path}")
+
+# 5. Lưu bản web vào lop-12/
+web_path = "lop-12/de-on-tap-amino-acid.html"
+import shutil
+shutil.copy(html_path, web_path)
+print(f"Đã cập nhật file HTML tại: {web_path}")

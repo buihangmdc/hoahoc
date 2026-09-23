@@ -759,17 +759,29 @@
             }
         }
 
+        let lastResultData = null;
+        function retrySync() {
+            if (lastResultData) sendResultsToGoogleSheet(lastResultData);
+        }
         function sendResultsToGoogleSheet(data) {
             if (!GOOGLE_SCRIPT_URL) return;
+            lastResultData = data;
+            const jsonStr = JSON.stringify(data);
+            if (navigator.sendBeacon) {
+                try {
+                    const blob = new Blob([jsonStr], { type: 'text/plain;charset=utf-8' });
+                    navigator.sendBeacon(GOOGLE_SCRIPT_URL, blob);
+                } catch (e) { console.warn('sendBeacon error:', e); }
+            }
             fetch(GOOGLE_SCRIPT_URL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: jsonStr
             }).then(() => {
-                console.log("Đã đồng bộ kết quả lên Google Sheet thành công!");
+                console.log('Đã đồng bộ kết quả lên Google Sheet thành công!');
             }).catch(err => {
-                console.warn("Lỗi kết nối Google Sheet:", err);
+                console.warn('Lỗi kết nối Google Sheet:', err);
             });
         }
     </script>

@@ -857,7 +857,7 @@ def generate_html():
             fetch(GOOGLE_SCRIPT_URL, {{
                 method: "POST",
                 mode: "no-cors",
-                headers: {{ "Content-Type": "application/json" }},
+                headers: {{ "Content-Type": "text/plain;charset=utf-8" }},
                 body: JSON.stringify(data)
             }}).then(() => {{
                 console.log("Đã đồng bộ kết quả lên Google Sheet thành công!");

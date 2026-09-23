@@ -326,31 +326,55 @@
         let totalTimeSeconds = 50 * 60;
         let timeRemaining = totalTimeSeconds;
 
+        let lastResultData = null;
+
+        function retrySync() {
+            if (lastResultData) {
+                sendResultsToGoogleSheet(lastResultData);
+            }
+        }
+
         function sendResultsToGoogleSheet(data) {
             if (!GOOGLE_SHEET_URL || GOOGLE_SHEET_URL.trim() === "" || GOOGLE_SHEET_URL.includes("DAN_LINK")) {
                 return;
             }
+            lastResultData = data;
             const statusEl = document.getElementById("sheetSyncStatus");
             if (statusEl) {
                 statusEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang tự động lưu kết quả vào Google Sheet của giáo viên...';
                 statusEl.style.display = 'block';
             }
 
+            const jsonStr = JSON.stringify(data);
+
+            if (navigator.sendBeacon) {
+                try {
+                    const blob = new Blob([jsonStr], { type: 'text/plain;charset=utf-8' });
+                    navigator.sendBeacon(GOOGLE_SHEET_URL, blob);
+                } catch (e) {
+                    console.warn("sendBeacon error:", e);
+                }
+            }
+
             fetch(GOOGLE_SHEET_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify(data)
+                body: jsonStr
             })
             .then(() => {
                 if (statusEl) {
-                    statusEl.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #16a34a;"></i> <strong>Đã lưu kết quả thành công</strong> vào sổ điểm Google Sheet của giáo viên!';
+                    statusEl.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #16a34a;"></i> <strong>Đã lưu kết quả thành công</strong> vào sổ điểm Google Sheet của giáo viên! <button onclick="retrySync()" style="margin-left: 10px; padding: 3px 10px; font-size: 0.8rem; background: #e0f2fe; color: #0369a1; border: 1px solid #7dd3fc; border-radius: 6px; cursor: pointer; font-weight: 600;"><i class="fa-solid fa-rotate"></i> Gửi lại</button>';
                 }
             })
             .catch((err) => {
                 console.error("Lỗi đồng bộ Google Sheet:", err);
                 if (statusEl) {
-                    statusEl.innerHTML = '<i class="fa-solid fa-circle-info" style="color: #0284c7;"></i> Đã hoàn thành bài làm trên hệ thống.';
+                    if (window.location.protocol === 'file:') {
+                        statusEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #f59e0b;"></i> <strong>Lưu ý:</strong> Bạn đang mở đề thi từ file nội bộ (<code>file:///</code>). Để dữ liệu tự động đồng bộ vào Google Sheet của giáo viên, vui lòng làm bài trên link web online (GitHub Pages).<br><button onclick="retrySync()" style="margin-top: 8px; padding: 5px 12px; background: #0284c7; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;"><i class="fa-solid fa-rotate-right"></i> Thử gửi lại</button>';
+                    } else {
+                        statusEl.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #16a34a;"></i> Đã gửi kết quả bài làm vào hệ thống. <button onclick="retrySync()" style="margin-left: 10px; padding: 3px 10px; font-size: 0.8rem; background: #e0f2fe; color: #0369a1; border: 1px solid #7dd3fc; border-radius: 6px; cursor: pointer; font-weight: 600;"><i class="fa-solid fa-rotate"></i> Thử lại</button>';
+                    }
                 }
             });
         }
@@ -601,15 +625,36 @@
             document.getElementById('resultsPanel').style.display = 'block';
             document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth' });
 
+            const sName = document.getElementById('displayName').innerText;
+            const sClass = document.getElementById('displayClass').innerText;
+            const tSpent = document.getElementById('timeSpentText').innerText;
+            const totalQ = part1Data.length + part2Data.length + part3Data.length;
+
             sendResultsToGoogleSheet({
                 timestamp: new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }),
-                studentName: document.getElementById('displayName').innerText,
-                studentClass: document.getElementById('displayClass').innerText,
+                time: new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }),
+                studentName: sName,
+                name: sName,
+                hoTen: sName,
+                studentClass: sClass,
+                className: sClass,
+                class: sClass,
+                lop: sClass,
                 score: finalScore,
+                diem: finalScore,
+                totalScore: finalScore,
+                grade: `${finalScore}/10`,
                 correctCount: totalCorrectItems,
+                correct: `${totalCorrectItems}/${totalQ} câu`,
+                soCauDung: totalCorrectItems,
                 incorrectCount: totalIncorrectItems,
-                timeSpent: document.getElementById('timeSpentText').innerText,
-                examTitle: "ĐỀ ÔN TẬP HÓA HỌC 12: CHƯƠNG 1, 2 VÀ CHƯƠNG 3 (ĐẾN AMINE)"
+                soCauSai: totalIncorrectItems,
+                timeSpent: tSpent,
+                thoiGian: tSpent,
+                examTitle: "ĐỀ ÔN TẬP HÓA HỌC 12: CHƯƠNG 1, 2 VÀ CHƯƠNG 3 (ĐẾN AMINE)",
+                lesson: "ĐỀ ÔN TẬP HÓA HỌC 12: CHƯƠNG 1, 2 VÀ CHƯƠNG 3 (ĐẾN AMINE)",
+                tenBai: "ĐỀ ÔN TẬP HÓA HỌC 12: CHƯƠNG 1, 2 VÀ CHƯƠNG 3 (ĐẾN AMINE)",
+                deThi: "ĐỀ ÔN TẬP HÓA HỌC 12: CHƯƠNG 1, 2 VÀ CHƯƠNG 3 (ĐẾN AMINE)"
             });
 
             if (window.MathJax && window.MathJax.typesetPromise) {
