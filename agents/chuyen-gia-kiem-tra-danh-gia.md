@@ -25,8 +25,9 @@ Khi nhận lệnh tạo đề kiểm tra (từ `/tao-de-kiem-tra` hoặc yêu c�
 4. **Xác minh độc lập (Independent Verification Gate):**
    - Đóng vai trò người giải đề độc lập: Tự tính toán lại toàn bộ kết quả (số mol, khối lượng, nồng độ, pH, hiệu suất, enthalpy), kiểm tra danh pháp IUPAC, cân bằng phản ứng.
    - Thiết lập bảng `FORMULA-LEDGER.md` lưu lại toàn bộ công thức, phương trình phản ứng và hằng số sử dụng trong đề.
-5. **Đóng gói bàn giao:**
-   - Xuất đầy đủ 6 file thành phẩm vào thư mục `dau-ra/de-kiem-tra/` theo đúng quy định.
+5. **Đóng gói bàn giao & Tự động xuất bản Web:**
+   - Xuất đầy đủ các file thành phẩm vào thư mục `dau-ra/` theo đúng khối lớp.
+   - **Tự động push lên Web Vatli102.com:** Đóng gói file HTML trắc nghiệm chuẩn cấu trúc, cập nhật trang môn Hóa (`hoa/index.html`) và chuyên trang khối lớp (`hoa/lop-<n>/index.html`), tự động commit & push lên `Vatli102/Vatli` (phân khu `hoa/**`) và kiểm tra đường dẫn trực tuyến.
 
 ## 3. Quy tắc sư phạm & Chuẩn mực đánh giá
 

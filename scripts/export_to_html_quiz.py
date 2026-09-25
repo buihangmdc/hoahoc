@@ -225,10 +225,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <header class="sticky-header">
         <div class="header-container">
-            <a href="#" class="site-logo">
-                <span class="logo-text">🧪 Hóa Học Online</span>
+            <a href="/" class="site-logo">
+                <img src="/favicon.svg" alt="Vatli102" style="width: 32px; height: 32px; border-radius: 8px;">
+                <span class="logo-text">Vatli102.com</span>
             </a>
             <div class="nav-links">
+                <a href="/hoa/" class="nav-item" style="text-decoration: none; color: #475569; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 5px;"><i class="fa-solid fa-flask-vial" style="color: #9333ea;"></i> Môn Hóa</a>
+                <a href="/hoa/lop-{{GRADE}}/" class="nav-item" style="text-decoration: none; color: #475569; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 5px;"><i class="fa-solid fa-graduation-cap" style="color: #0284c7;"></i> Hóa {{GRADE}}</a>
+                <a href="/" class="nav-item" style="text-decoration: none; color: #475569; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 5px;"><i class="fa-solid fa-house" style="color: #2563eb;"></i> Trang chủ</a>
                 <span id="timerBadge" class="timer-badge" style="display:none;"><i class="fa-regular fa-clock"></i> <span id="timerText">{{DURATION}}:00</span></span>
             </div>
         </div>
@@ -701,6 +705,7 @@ def generate_quiz_html(data, output_path):
 
     html = HTML_TEMPLATE
     html = html.replace('{{TITLE}}', data.get('title', 'Bài Tập Trắc Nghiệm Hóa Học'))
+    html = html.replace('{{GRADE}}', str(grade))
     html = html.replace('{{BADGE}}', data.get('badge', f'HÓA HỌC {grade} - GDPT 2018'))
     html = html.replace('{{DURATION}}', str(data.get('duration', 45 if grade < 12 else 50)))
     html = html.replace('{{TOTAL_QUESTIONS}}', str(len(part1) + len(part2) + len(part3)))

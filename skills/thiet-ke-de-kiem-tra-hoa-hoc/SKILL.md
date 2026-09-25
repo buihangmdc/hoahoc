@@ -39,4 +39,4 @@ Mỗi phiếu bài tập hoặc đề kiểm tra đều bắt buộc xuất song
 - Khối 10: `dau-ra/lop-10/bai-tap/` và `dau-ra/lop-10/de-kiem-tra/`
 - Khối 11: `dau-ra/lop-11/bai-tap/` và `dau-ra/lop-11/de-kiem-tra/`
 - Khối 12: `dau-ra/lop-12/bai-tap/` và `dau-ra/lop-12/de-kiem-tra/`
-- Sẵn sàng lệnh Push lên Web khi người dùng yêu cầu.
+- **MẶC ĐỊNH TỰ ĐỘNG PUSH LÊN WEB VATLI102.COM:** Mỗi khi hoàn thành tạo đề hoặc cập nhật đề, tự động thực thi script đẩy lên `vatli102.com` (repo `Vatli102/Vatli`) trong phạm vi `hoa/**`, cập nhật trang môn Hóa (`hoa/index.html`) và trang khối lớp tương ứng (`hoa/lop-<n>/index.html`), đồng thời tích hợp sẵn Google Apps Script endpoint mà không cần đợi người dùng nhắc lại.

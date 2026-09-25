@@ -112,6 +112,12 @@ Luôn trả lời bằng tiếng Việt, trừ khi người dùng yêu cầu ng�
   - `dau-ra/lop-10/giao-an/`, `dau-ra/lop-10/bai-giang/`, `dau-ra/lop-10/bai-tap/`, `dau-ra/lop-10/de-kiem-tra/`
   - `dau-ra/lop-11/giao-an/`, `dau-ra/lop-11/bai-giang/`, `dau-ra/lop-11/bai-tap/`, `dau-ra/lop-11/de-kiem-tra/`
   - `dau-ra/lop-12/giao-an/`, `dau-ra/lop-12/bai-giang/`, `dau-ra/lop-12/bai-tap/`, `dau-ra/lop-12/de-kiem-tra/`
-- Thư mục bài tập riêng cho từng khối lớp (`dau-ra/lop-<n>/bai-tap/`).
-- **Push lên web:** Sẵn sàng thực hiện khi người dùng yêu cầu, rút gọn link web dạng `lop-<khoi>/...` và không push thư mục `dau-ra/` lên GitHub.
+- **QUY CHUẨN TỰ ĐỘNG PUSH LÊN WEB VATLI102.COM:**
+  - Từ nay trở đi, **MỌI ĐỀ THI / ĐỀ KIỂM TRA / PHIẾU BÀI TẬP** môn Hóa học khi được tạo ra đều **MẶC ĐỊNH TỰ ĐỘNG ĐƯỢC PUSH LÊN WEBSITE VATLI102.COM** (repo `Vatli102/Vatli`) vào phân khu môn Hóa (`hoa/**`) mà người dùng không cần phải nhắc lại.
+  - Phân vùng web tương ứng:
+    + Lớp 12: Đẩy vào `hoa/lop-12/de-<n>/index.html` (và link tắt `hoa/de<n>/index.html`), tự động cập nhật danh sách bài tại `hoa/index.html` và `hoa/lop-12/index.html`.
+    + Lớp 11: Đẩy vào `hoa/lop-11/de-<n>/index.html`, cập nhật `hoa/index.html` và `hoa/lop-11/index.html`.
+    + Lớp 10: Đẩy vào `hoa/lop-10/de-<n>/index.html`, cập nhật `hoa/index.html` và `hoa/lop-10/index.html`.
+  - **Bảo mật phạm vi môn học (Guard Scope):** Mọi tệp push lên GitHub bắt buộc 100% nằm trong thư mục `hoa/**` để vượt qua kiểm tra quyền hạn cộng tác viên `guard-collaborator-scope.yml`. Tuyệt đối không chạm vào các thư mục ngoài phạm vi.
+  - Không push thư mục nội bộ `dau-ra/` lên GitHub.
 - **Tự động đồng bộ kết quả vào Google Sheet:** Mọi file HTML trắc nghiệm (Phiếu bài tập theo bài, Đề kiểm tra cuối chương) cho Lớp 10, 11, 12 khi tạo ra đều MẶC ĐỊNH tích hợp URL Google Apps Script của giáo viên: `https://script.google.com/macros/s/AKfycbwRRiM81mghvA7cInvJgb4rPLzWOAE3s44wer0BJcURQ4hWwoykS19pkNQ9LyzH6Q8lTQ/exec`. Khi học sinh bấm nộp bài, điểm số, họ tên, lớp, thời gian làm bài, số câu đúng/sai sẽ tự động đẩy về file Google Sheet này mà người dùng không cần phải nhắc lại.
